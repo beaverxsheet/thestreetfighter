@@ -122,11 +122,12 @@ func chooseSprite():
 
 #Movement func called between frames
 func _physics_process(delta):
-	
 	#update time (delta is the time between each tick in s)
 	time += int(delta * 1000)
 	#call the latency function
 	do_latency(time)
+	if Asprite == $ConnorSprite:
+		AID_8(time)
 	tbf = time #set time before
 	
 	#Gravity
@@ -197,10 +198,7 @@ func _physics_process(delta):
 	CoolLabelA3.text = str(int(CooldownA3*10))
 	CoolLabelA4.text = str(int(CooldownA4*10))
 	CoolLabelA5.text = str(int(CooldownA5*10))
-	
-	#Passives
-	if Asprite == $ConnorSprite:
-		AID_8(time)
+
 	
 #Create Winebottle to throw
 func create_WineBottle():
@@ -228,7 +226,6 @@ func create_Integral():
 		integral.flyright = false
 
 #Create Conners spill 
-
 func create_ConnorCoffeeSpill():
 	var coffee = COFFEE_SCENE.instance()
 	get_parent().add_child(coffee)
@@ -257,7 +254,7 @@ func _on_BasicAttackArea_body_exited(body):
 
 #Connors Passive AID 8 (intelligence is a cyclic function)
 func AID_8(time):
-	self.latency = (cos(float(float(time)/3000))*150)+152
+	self.latency = int((cos(float(float(time)/3000))*150)+152)
 
 func do_latency(time):
 	#for every milisecond between the last and this tick
