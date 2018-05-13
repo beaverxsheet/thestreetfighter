@@ -1315,7 +1315,6 @@ texture = ExtResource( 62 )
 [node name="PauseMenu" type="PopupPanel" parent="." index="4"]
 
 pause_mode = 2
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1366,11 +1365,12 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = ExtResource( 6 )
 text = "Paused !1!!"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="Continue" type="Button" parent="PauseMenu/VBoxContainer" index="1"]
 
@@ -1388,6 +1388,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = ExtResource( 6 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -1395,6 +1396,7 @@ group = null
 text = "Continue"
 flat = false
 align = 1
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="Quit" type="Button" parent="PauseMenu/VBoxContainer" index="2"]
 
@@ -1412,6 +1414,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+custom_fonts/font = ExtResource( 6 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -1419,6 +1422,7 @@ group = null
 text = "Quit"
 flat = false
 align = 1
+_sections_unfolded = [ "custom_fonts" ]
 
 [connection signal="body_entered" from="Player/BasicAttackArea" to="Player" method="_on_BasicAttackArea_body_entered"]
 
