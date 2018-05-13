@@ -182,7 +182,7 @@ func _physics_process(delta):
 	#Communication with the HUD
 	myHP_Label.text = "(" + str(current_HP) + "/10)"
 	myHP_Gauge.value = current_HP
-	myINT_Label.text = str(latency/100)
+	myINT_Label.text = str(int(latency/100))
 	myINT_Gauge.value = latency
 	
 	#TODO:Change timer
@@ -197,6 +197,10 @@ func _physics_process(delta):
 	CoolLabelA3.text = str(int(CooldownA3*10))
 	CoolLabelA4.text = str(int(CooldownA4*10))
 	CoolLabelA5.text = str(int(CooldownA5*10))
+	
+	#Passives
+	if Asprite == $ConnorSprite:
+		AID_8(time)
 	
 #Create Winebottle to throw
 func create_WineBottle():
@@ -250,6 +254,10 @@ func _on_BasicAttackArea_body_exited(body):
 	print("left body " +  str(body.hit_ID))
 	in_basic_range = null
 	basic_range = false
+
+#Connors Passive AID 8 (intelligence is a cyclic function)
+func AID_8(time):
+	self.latency = (cos(float(float(time)/3000))*150)+152
 
 func do_latency(time):
 	#for every milisecond between the last and this tick
