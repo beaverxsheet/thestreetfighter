@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Control.gd" type="Script" id=1]
 [ext_resource path="res://Charselect.gd" type="Script" id=2]
 [ext_resource path="res://AutoloadNode.gd" type="Script" id=3]
+[ext_resource path="res://PopupPanel.gd" type="Script" id=4]
 
 [node name="Control" type="Control"]
 
@@ -13,7 +14,6 @@ anchor_bottom = 0.0
 margin_right = 510.0
 margin_bottom = 290.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -31,7 +31,6 @@ margin_top = 30.0
 margin_right = 333.0
 margin_bottom = 109.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -50,7 +49,6 @@ anchor_bottom = 0.0
 margin_right = 133.0
 margin_bottom = 31.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
@@ -72,7 +70,6 @@ margin_top = 35.0
 margin_right = 133.0
 margin_bottom = 55.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -85,8 +82,8 @@ shortcut = null
 group = null
 flat = false
 align = 0
-items = [  ]
 selected = -1
+items = [  ]
 script = ExtResource( 2 )
 
 [node name="BeginButton" type="Button" parent="VBoxContainer" index="2"]
@@ -99,7 +96,6 @@ margin_top = 59.0
 margin_right = 133.0
 margin_bottom = 79.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
@@ -113,10 +109,158 @@ text = "Begin"
 flat = false
 align = 1
 
+[node name="Credits" type="Button" parent="VBoxContainer" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 83.0
+margin_right = 133.0
+margin_bottom = 103.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Credits"
+flat = false
+align = 1
+
+[node name="Quit" type="Button" parent="VBoxContainer" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 107.0
+margin_right = 133.0
+margin_bottom = 127.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Quit"
+flat = false
+align = 1
+
 [node name="AutoloadNode" type="Node" parent="." index="1"]
 
 script = ExtResource( 3 )
 
+[node name="PopupPanel" type="PopupPanel" parent="." index="2"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 480.0
+margin_bottom = 272.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+script = ExtResource( 4 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PopupPanel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 416.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = true
+bbcode_text = "[u]Credits go to...[/u]
+
+Anton Schwarz
+Ben Eicher
+Niklas Dillen
+
+-> For actually creating this shit
+
+But one cannot forget...
+- the Godot Team which wrote the Godot engine (awsum!)
+- the (real) people that posed as models for the characters
+- the people that tested the game during the development process"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Credits go to...
+
+Anton Schwarz
+Ben Eicher
+Niklas Dillen
+
+-> For actually creating this shit
+
+But one cannot forget...
+- the Godot Team which wrote the Godot engine (awsum!)
+- the (real) people that posed as models for the characters
+- the people that tested the game during the development process"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect" ]
+
+[node name="CloseCredits" type="Button" parent="PopupPanel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 272.0
+margin_top = 208.0
+margin_right = 416.0
+margin_bottom = 228.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Close Credits"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
 [connection signal="pressed" from="VBoxContainer/BeginButton" to="." method="_on_BeginButton_pressed"]
+
+[connection signal="pressed" from="VBoxContainer/Credits" to="PopupPanel" method="_on_Credits_pressed"]
+
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+
+[connection signal="pressed" from="PopupPanel/CloseCredits" to="PopupPanel" method="_on_CloseCredits_pressed"]
 
 
