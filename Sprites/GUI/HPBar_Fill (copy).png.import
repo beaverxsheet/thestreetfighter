@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/HPBar_Fill (copy).png-47e6adf09df814d72cf28e39e09ed5ad.stex"
+
+[deps]
+
+source_file="res://Sprites/GUI/HPBar_Fill (copy).png"
+source_md5="c7da2b088cc2aee7d44bc4e73f5b9c95"
+
+dest_files=[ "res://.import/HPBar_Fill (copy).png-47e6adf09df814d72cf28e39e09ed5ad.stex" ]
+dest_md5="b982319231e90b5257b2f1f352bc87df"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

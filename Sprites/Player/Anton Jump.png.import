@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Anton Jump.png-3b4f0a6ef3fd95f0289f771c2540f94c.stex"
+
+[deps]
+
+source_file="res://Sprites/Player/Anton Jump.png"
+source_md5="55928571ad75b98fdd86265f4d02164a"
+
+dest_files=[ "res://.import/Anton Jump.png-3b4f0a6ef3fd95f0289f771c2540f94c.stex" ]
+dest_md5="090cdbca9d26fdce0212c91a6a2be50f"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

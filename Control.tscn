@@ -1,0 +1,122 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Control.gd" type="Script" id=1]
+[ext_resource path="res://Charselect.gd" type="Script" id=2]
+[ext_resource path="res://AutoloadNode.gd" type="Script" id=3]
+
+[node name="Control" type="Control"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 510.0
+margin_bottom = 290.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 200.0
+margin_top = 30.0
+margin_right = 333.0
+margin_bottom = 109.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="WelcomeMessage" type="Label" parent="VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 133.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "STREETFIGHTER 2 !1!!
+Choose a Character"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 35.0
+margin_right = 133.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+action_mode = 0
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 0
+items = [  ]
+selected = -1
+script = ExtResource( 2 )
+
+[node name="BeginButton" type="Button" parent="VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 59.0
+margin_right = 133.0
+margin_bottom = 79.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Begin"
+flat = false
+align = 1
+
+[node name="AutoloadNode" type="Node" parent="." index="1"]
+
+script = ExtResource( 3 )
+
+[connection signal="pressed" from="VBoxContainer/BeginButton" to="." method="_on_BeginButton_pressed"]
+
+
