@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 #latency
-export var latency = 100 #in ticks (s/60) (doesnt work on all systems, idk why)
+var latency = 0 #in ticks (s/60) (doesnt work on all systems, idk why)
 
 #some things for the latency to work
 var time = 0 #time var
@@ -25,10 +25,50 @@ var motion = Vector2()
 
 #Setting variables
 var can_shoot = true
+var current_HP = 10
 var looks_right = true
 var basic_range = false
 var in_basic_range = null
 var Asprite = null
+
+var CooldownA1 = float(0)
+var CooldownA2 = float(0)
+var CooldownA3 = float(0)
+var CooldownA4 = float(0)
+var CooldownA5 = float(0)
+
+onready var CoolLabelA1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1/Label")
+onready var CoolLabelA2 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability2/Label")
+onready var CoolLabelA3 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability3/Label")
+onready var CoolLabelA4 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability4/Label")
+onready var CoolLabelA5 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability5/Label")
+
+onready var myHP_Label = get_node("../HUD/Row/Player1_Cols/Player1_HP/HP_P1")
+onready var myHP_Gauge = get_node("../HUD/Row/Player1_Cols/Player1_HP/HPGauge_P1")
+onready var myINT_Label = get_node("../HUD/Row/Player1_Cols/Player1_INT/INT_P1")
+onready var myINT_Gauge = get_node("../HUD/Row/Player1_Cols/Player1_INT/INTGauge_P1")
+
+onready var myAbility1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1")
+onready var myAbility2 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability2")
+onready var myAbility3 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability3")
+onready var myAbility4 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability4")
+onready var myAbility5 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability5")
+
+var ab0 = preload("res://Sprites/GUI/Icons/Icon00.png")
+var ab1 = preload("res://Sprites/GUI/Icons/Icon01.png")
+var ab2 = preload("res://Sprites/GUI/Icons/Icon02.png")
+var ab3 = preload("res://Sprites/GUI/Icons/Icon03.png")
+var ab4 = preload("res://Sprites/GUI/Icons/Icon04.png")
+var ab5 = preload("res://Sprites/GUI/Icons/Icon05.png")
+var ab6 = preload("res://Sprites/GUI/Icons/Icon06.png")
+var ab7 = preload("res://Sprites/GUI/Icons/Icon07.png")
+var ab8 = preload("res://Sprites/GUI/Icons/Icon08.png")
+var ab9 = preload("res://Sprites/GUI/Icons/Icon09.png")
+var ab10 = preload("res://Sprites/GUI/Icons/Icon10.png")
+var ab11 = preload("res://Sprites/GUI/Icons/Icon11.png")
+var ab12 = preload("res://Sprites/GUI/Icons/Icon12.png")
+var ab13 = preload("res://Sprites/GUI/Icons/Icon13.png")
+
 onready var chosen_char = AutoloadNode.choose_char
 
 #Check which sprite to show (in a function, called later)
@@ -37,21 +77,46 @@ func chooseSprite():
 		$NiklasSprite.hide()
 		$AntonSprite.hide()
 		$BenSprite.hide()
+		
+		myAbility1.texture = ab0
+		myAbility2.texture = ab1
+		myAbility3.texture = ab8
+		myAbility4.texture = ab11
+		#myAbility5.texture = "res://jjswjw"
 		return $ConnorSprite
 	elif chosen_char == 1:
 		$ConnorSprite.hide()
 		$AntonSprite.hide()
 		$BenSprite.hide()
+		
+		myAbility1.texture = ab7
+		myAbility2.texture = ab10
+		myAbility3.texture = ab12
+		myAbility4.texture = ab13
+		#myAbility5.texture = "res://jjswjw"
 		return $NiklasSprite
 	elif chosen_char == 2:
 		$ConnorSprite.hide()
 		$NiklasSprite.hide()
 		$BenSprite.hide()
+		
+		myAbility1.texture = ab4
+		myAbility2.texture = ab5
+		myAbility3.texture = ab6
+		myAbility4.texture = ab9
+		#myAbility5.texture = "res://jjswjw"
 		return $AntonSprite
 	elif chosen_char == 3:
 		$ConnorSprite.hide()
 		$NiklasSprite.hide()
 		$AntonSprite.hide()
+		
+		#:-(
+		#myAbility1.texture = ab188888
+		#myAbility2.texture = ab188888
+		#myAbility3.texture = ab188888
+		#myAbility4.texture = ab188888
+		#myAbility5.texture = ab188888
 		return $BenSprite
 
 
@@ -113,7 +178,27 @@ func _physics_process(delta):
 	
 	#Put movement into actual action
 	move_and_slide(motion, UP)
-
+	
+	#Communication with the HUD
+	myHP_Label.text = "(" + str(current_HP) + "/10)"
+	myHP_Gauge.value = current_HP
+	myINT_Label.text = str(latency/100)
+	myINT_Gauge.value = latency
+	
+	#TODO:Change timer
+	CooldownA1 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
+	CooldownA2 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
+	CooldownA3 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
+	CooldownA4 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
+	CooldownA5 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
+	
+	CoolLabelA1.text = str(int(CooldownA1*10))
+	CoolLabelA2.text = str(int(CooldownA2*10))
+	CoolLabelA3.text = str(int(CooldownA3*10))
+	CoolLabelA4.text = str(int(CooldownA4*10))
+	CoolLabelA5.text = str(int(CooldownA5*10))
+	
+#Create Winebottle to throw
 func create_WineBottle():
 	#Instance the winebottle
 	var winebottle = WINEBOTTLE_SCENE.instance()
@@ -137,6 +222,8 @@ func create_Integral():
 		integral.flyright = true
 	else:
 		integral.flyright = false
+
+#Create Conners spill 
 
 func create_ConnorCoffeeSpill():
 	var coffee = COFFEE_SCENE.instance()
@@ -204,4 +291,5 @@ func do_latency(time):
 				in_basic_range.change_HP(-1)
 			if dotimes[i] == "jump":
 				motion.y = JUMP_HEIGHT
+				
 			dotimes.erase(i)

@@ -29,7 +29,7 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 extents = Vector2( 191, 10 )
 
-[node name="CoffeeSpill" type="Area2D"]
+[node name="CoffeeSpill" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -39,18 +39,18 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 position = Vector2( 0, 10 )
 frames = SubResource( 1 )
 animation = "spilling"
+frame = 7
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-visible = false
 position = Vector2( 0, 10 )
 scale = Vector2( 1, 2.42308 )
 shape = SubResource( 2 )

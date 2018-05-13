@@ -4,17 +4,24 @@ var hit_ID = null
 var flyright = true
 
 var protected_hit_ID = [1000]
+onready var Box = $CollisionShape2D
+onready var Fin = int(Box.scale.x * 100)
 
 func _ready():
 	$Timer.start()
-
-
-func _process(delta):
 	if flyright:
 		$AnimatedSprite.flip_h = false
 	else:
 		$AnimatedSprite.flip_h = true
 	$AnimatedSprite.play("spilling")
+	Box.scale.x = 0
+
+
+func _physics_process(delta):
+	for i in range(0, Fin):
+		Box.scale.x = Fin * (i / 100)
+		print(i)
+	#pass
 
 
 func _on_Timer_timeout():

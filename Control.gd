@@ -10,3 +10,7 @@ const WORLD_SCENE = preload("res://World.tscn")
 func _on_BeginButton_pressed():
 	AutoloadNode.choose_char = $VBoxContainer/OptionButton.selected
 	get_tree().change_scene("res://World.tscn")
+
+
+func _on_Quit_pressed():
+	get_tree().quit()
