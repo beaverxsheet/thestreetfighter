@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Ben Jump.png-29b096e6d13c567789bc17ebd4655ba2.stex"
+
+[deps]
+
+source_file="res://Sprites/Player/Ben Jump.png"
+source_md5="ddc9506762283207946676a61a9c52f9"
+
+dest_files=[ "res://.import/Ben Jump.png-29b096e6d13c567789bc17ebd4655ba2.stex" ]
+dest_md5="eee94d87f6503fd17c31ef1e52cfadac"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

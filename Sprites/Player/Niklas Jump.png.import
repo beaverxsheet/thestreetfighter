@@ -1,0 +1,32 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Niklas Jump.png-b32fcb8b334d0028265bf9c41fd9d112.stex"
+
+[deps]
+
+source_file="res://Sprites/Player/Niklas Jump.png"
+source_md5="43adc1ed45ab23c82d9771886a86e064"
+
+dest_files=[ "res://.import/Niklas Jump.png-b32fcb8b334d0028265bf9c41fd9d112.stex" ]
+dest_md5="1018c0cd67f5ddaf29c468ab4a2a1a2b"
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0
