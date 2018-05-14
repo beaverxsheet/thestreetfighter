@@ -46,7 +46,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 position = Vector2( 0, 10 )
 frames = SubResource( 1 )
 animation = "spilling"
-frame = 7
+frame = 1
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
@@ -63,8 +63,17 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
+[node name="HitTimer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.01
+one_shot = false
+autostart = false
+
 [connection signal="body_entered" from="." to="." method="_on_CoffeeSpill_body_entered"]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[connection signal="timeout" from="HitTimer" to="." method="_on_HitTimer_timeout"]
 
 

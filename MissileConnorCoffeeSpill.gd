@@ -5,23 +5,19 @@ var flyright = true
 
 var protected_hit_ID = [1000]
 onready var Box = $CollisionShape2D
-onready var Fin = int(Box.scale.x * 100)
+onready var Fin = int(Box.scale.x*100)
+var n = 0
 
 func _ready():
 	$Timer.start()
+	$HitTimer.start()
 	if flyright:
 		$AnimatedSprite.flip_h = false
 	else:
 		$AnimatedSprite.flip_h = true
 	$AnimatedSprite.play("spilling")
+	#set hitbox to 0
 	Box.scale.x = 0
-
-
-func _physics_process(delta):
-	for i in range(0, Fin):
-		Box.scale.x = Fin * (i / 100)
-		print(i)
-	#pass
 
 
 func _on_Timer_timeout():
@@ -35,3 +31,14 @@ func _on_CoffeeSpill_body_entered(body):
 	#Reduce hittable objects HP
 	else:
 		body.change_HP(-1)
+
+
+func _on_HitTimer_timeout():
+	#called every 0.01 seconds
+	if n/30 >= 1:
+		#make sure hitbox isn't larger than original hitbox
+		pass
+	else:
+		#scale hitbox
+		Box.scale.x = float(n)/30
+		n += 1
