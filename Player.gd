@@ -198,7 +198,20 @@ func _physics_process(delta):
 	CoolLabelA3.text = str(int(CooldownA3*10))
 	CoolLabelA4.text = str(int(CooldownA4*10))
 	CoolLabelA5.text = str(int(CooldownA5*10))
-
+	
+	#modulate opacity to show cooldown
+	myAbility1.modulate.a = abs(1-CooldownA1)
+	myAbility2.modulate.a = abs(1-CooldownA2)
+	myAbility3.modulate.a = abs(1-CooldownA3)
+	myAbility4.modulate.a = abs(1-CooldownA4)
+	myAbility5.modulate.a = abs(1-CooldownA5)
+	
+	#if you want to use shaders to achieve this use the code below and put the Ability_material.tres into all sprites you use. Doesnt work on sprites with alpha
+	#myAbility1.shader.set("shader_param/opac", abs(1 - CooldownA1))
+	#myAbility2.shader.set("shader_param/opac", abs(1 - CooldownA2))
+	#myAbility3.shader.set("shader_param/opac", abs(1 - CooldownA3))
+	#myAbility4.shader.set("shader_param/opac", abs(1 - CooldownA4))
+	#myAbility5.shader.set("shader_param/opac", abs(1 - CooldownA5))
 	
 #Create Winebottle to throw
 func create_WineBottle():

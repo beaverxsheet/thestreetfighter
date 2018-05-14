@@ -10,169 +10,169 @@
 [ext_resource path="res://Sprites/GUI/AbilityRim.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/GUI/Icons/Icon02.png" type="Texture" id=9]
 [ext_resource path="res://Player.gd" type="Script" id=10]
-[ext_resource path="res://Sprites/Player/Connor Idle.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Player/Connor Jumping.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Player/connorSprite0.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Player/connorSprite1.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Player/connorSprite2.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Player/connorSprite3.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Player/connorSprite4.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Player/ConnorAttack0.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Player/ConnorAttack1.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Player/ConnorAttack2.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Player/ConnorAttack3.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Player/Niklas Idle.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Player/Niklas Jump.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Player/NiklasWalks0.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Player/NiklasWalks1.png" type="Texture" id=25]
-[ext_resource path="res://Sprites/Player/NiklasWalks2.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Player/NiklasWalks3.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Player/NiklasAttack0.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Player/NiklasAttack1.png" type="Texture" id=29]
-[ext_resource path="res://Sprites/Player/NiklasAttack2.png" type="Texture" id=30]
-[ext_resource path="res://Sprites/Player/NiklasAttack3.png" type="Texture" id=31]
-[ext_resource path="res://Sprites/Player/NiklasAttack4.png" type="Texture" id=32]
-[ext_resource path="res://Sprites/Player/NiklasAttack5.png" type="Texture" id=33]
-[ext_resource path="res://Sprites/Player/AntonIdle0.png" type="Texture" id=34]
-[ext_resource path="res://Sprites/Player/AntonIdle1.png" type="Texture" id=35]
-[ext_resource path="res://Sprites/Player/AntonIdle2.png" type="Texture" id=36]
-[ext_resource path="res://Sprites/Player/AntonIdle3.png" type="Texture" id=37]
-[ext_resource path="res://Sprites/Player/AntonIdle4.png" type="Texture" id=38]
-[ext_resource path="res://Sprites/Player/AntonIdle5.png" type="Texture" id=39]
-[ext_resource path="res://Sprites/Player/AntonIdle6.png" type="Texture" id=40]
-[ext_resource path="res://Sprites/Player/Anton Jump.png" type="Texture" id=41]
-[ext_resource path="res://Sprites/Player/AntonWalk0.png" type="Texture" id=42]
-[ext_resource path="res://Sprites/Player/AntonWalk1.png" type="Texture" id=43]
-[ext_resource path="res://Sprites/Player/AntonWalk2.png" type="Texture" id=44]
-[ext_resource path="res://Sprites/Player/AntonWalk3.png" type="Texture" id=45]
-[ext_resource path="res://Sprites/Player/AntonAttack0.png" type="Texture" id=46]
-[ext_resource path="res://Sprites/Player/AntonAttack1.png" type="Texture" id=47]
-[ext_resource path="res://Sprites/Player/AntonAttack2.png" type="Texture" id=48]
-[ext_resource path="res://Sprites/Player/AntonAttack3.png" type="Texture" id=49]
-[ext_resource path="res://Sprites/Player/AntonAttack4.png" type="Texture" id=50]
-[ext_resource path="res://Sprites/Player/AntonAttack5.png" type="Texture" id=51]
-[ext_resource path="res://Sprites/Player/Ben Idle(1).png" type="Texture" id=52]
-[ext_resource path="res://Sprites/Player/Ben Jump.png" type="Texture" id=53]
-[ext_resource path="res://Sprites/Player/BenWalk0.png" type="Texture" id=54]
-[ext_resource path="res://Sprites/Player/BenWalk1.png" type="Texture" id=55]
-[ext_resource path="res://Sprites/Player/BenWalk2.png" type="Texture" id=56]
-[ext_resource path="res://Sprites/Player/BenWalk3.png" type="Texture" id=57]
-[ext_resource path="res://Sprites/Player/BenAttack0.png" type="Texture" id=58]
-[ext_resource path="res://Sprites/Player/BenAttack1.png" type="Texture" id=59]
-[ext_resource path="res://Sprites/Player/BenAttack2.png" type="Texture" id=60]
+[ext_resource path="res://Sprites/Player/Connor Jumping.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Player/ConnorAttack0.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Player/ConnorAttack1.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Player/ConnorAttack2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Player/ConnorAttack3.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Player/connorSprite0.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Player/connorSprite1.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Player/connorSprite2.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Player/connorSprite3.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Player/connorSprite4.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Player/Connor Idle.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Player/Niklas Jump.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Player/NiklasAttack0.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Player/NiklasAttack1.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Player/NiklasAttack2.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Player/NiklasAttack3.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Player/NiklasAttack4.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Player/NiklasAttack5.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Player/NiklasWalks0.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Player/NiklasWalks1.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Player/NiklasWalks2.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Player/NiklasWalks3.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Player/Niklas Idle.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Player/Anton Jump.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Player/AntonAttack0.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Player/AntonAttack1.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/Player/AntonAttack2.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Player/AntonAttack3.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/Player/AntonAttack4.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/Player/AntonAttack5.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Player/AntonWalk0.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Player/AntonWalk1.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/Player/AntonWalk2.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Player/AntonWalk3.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/Player/AntonIdle0.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/Player/AntonIdle1.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Player/AntonIdle2.png" type="Texture" id=47]
+[ext_resource path="res://Sprites/Player/AntonIdle3.png" type="Texture" id=48]
+[ext_resource path="res://Sprites/Player/AntonIdle4.png" type="Texture" id=49]
+[ext_resource path="res://Sprites/Player/AntonIdle5.png" type="Texture" id=50]
+[ext_resource path="res://Sprites/Player/AntonIdle6.png" type="Texture" id=51]
+[ext_resource path="res://Sprites/Player/Ben Jump.png" type="Texture" id=52]
+[ext_resource path="res://Sprites/Player/BenAttack0.png" type="Texture" id=53]
+[ext_resource path="res://Sprites/Player/BenAttack1.png" type="Texture" id=54]
+[ext_resource path="res://Sprites/Player/BenAttack2.png" type="Texture" id=55]
+[ext_resource path="res://Sprites/Player/BenWalk0.png" type="Texture" id=56]
+[ext_resource path="res://Sprites/Player/BenWalk1.png" type="Texture" id=57]
+[ext_resource path="res://Sprites/Player/BenWalk2.png" type="Texture" id=58]
+[ext_resource path="res://Sprites/Player/BenWalk3.png" type="Texture" id=59]
+[ext_resource path="res://Sprites/Player/Ben Idle(1).png" type="Texture" id=60]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=61]
 [ext_resource path="res://icon.png" type="Texture" id=62]
 [ext_resource path="res://PauseMenu.gd" type="Script" id=63]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
 "name": "Jumping",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "BasicA",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
 "name": "Walking",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"frames": [ ExtResource( 21 ) ],
 "loop": true,
-"name": "BasicA",
-"speed": 15.0
+"name": "Idle",
+"speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
 extents = Vector2( 13.3122, 31.8019 )
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=4]
 
 custom_solver_bias = 0.0
 radius = 20.0
 height = 20.0
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=5]
 
 animations = [ {
 "frames": [ ExtResource( 22 ) ],
-"loop": false,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ) ],
 "loop": true,
 "name": "Jumping",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "BasicA",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ) ],
 "loop": true,
 "name": "Walking",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
-"loop": true,
-"name": "BasicA",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=5]
-
-animations = [ {
-"frames": [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ) ],
-"loop": true,
+"frames": [ ExtResource( 33 ) ],
+"loop": false,
 "name": "Idle",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 41 ) ],
-"loop": true,
-"name": "Jumping",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
-"loop": true,
-"name": "Walking",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ) ],
-"loop": true,
-"name": "BasicA",
-"speed": 22.22
 } ]
 
 [sub_resource type="SpriteFrames" id=6]
 
 animations = [ {
-"frames": [ ExtResource( 52 ) ],
-"loop": false,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 53 ) ],
+"frames": [ ExtResource( 34 ) ],
 "loop": true,
 "name": "Jumping",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ) ],
+"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ) ],
+"loop": true,
+"name": "BasicA",
+"speed": 22.22
+}, {
+"frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ) ],
+"loop": true,
+"name": "Walking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 3.0
+} ]
+
+[sub_resource type="SpriteFrames" id=7]
+
+animations = [ {
+"frames": [ ExtResource( 52 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ) ],
+"loop": true,
+"name": "BasicA",
+"speed": 11.0
+}, {
+"frames": [ ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ) ],
 "loop": true,
 "name": "Walking",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ) ],
-"loop": true,
-"name": "BasicA",
-"speed": 11.0
+"frames": [ ExtResource( 60 ) ],
+"loop": false,
+"name": "Idle",
+"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10.3333, 10 )
@@ -211,7 +211,6 @@ __meta__ = {
 
 [node name="HUD" type="MarginContainer" parent="." index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -408,7 +407,6 @@ texture = ExtResource( 8 )
 
 [node name="Player1_ABL" type="HBoxContainer" parent="HUD/Row/Player1_Cols" index="3"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -423,11 +421,14 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
+_sections_unfolded = [ "Material" ]
 
 [node name="Ability1" type="Sprite" parent="HUD/Row/Player1_Cols/Player1_ABL" index="0"]
 
+editor/display_folded = true
 position = Vector2( 16, 22 )
 texture = ExtResource( 9 )
+_sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability1" index="0"]
 
@@ -457,8 +458,10 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="Ability2" type="Sprite" parent="HUD/Row/Player1_Cols/Player1_ABL" index="1"]
 
+editor/display_folded = true
 position = Vector2( 65, 22 )
 texture = ExtResource( 9 )
+_sections_unfolded = [ "Visibility" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability2" index="0"]
 
@@ -488,8 +491,10 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="Ability3" type="Sprite" parent="HUD/Row/Player1_Cols/Player1_ABL" index="2"]
 
+editor/display_folded = true
 position = Vector2( 113, 22 )
 texture = ExtResource( 9 )
+_sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability3" index="0"]
 
@@ -519,8 +524,10 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="Ability4" type="Sprite" parent="HUD/Row/Player1_Cols/Player1_ABL" index="3"]
 
+editor/display_folded = true
 position = Vector2( 161, 22 )
 texture = ExtResource( 9 )
+_sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability4" index="0"]
 
@@ -550,8 +557,10 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="Ability5" type="Sprite" parent="HUD/Row/Player1_Cols/Player1_ABL" index="4"]
 
+editor/display_folded = true
 position = Vector2( 209, 22 )
 texture = ExtResource( 9 )
+_sections_unfolded = [ "Visibility" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability5" index="0"]
 
@@ -599,6 +608,7 @@ _sections_unfolded = [ "Rect", "custom_styles" ]
 
 [node name="Player2_Cols" type="VBoxContainer" parent="HUD/Row" index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -782,8 +792,10 @@ alignment = 0
 
 [node name="Ability1" type="Sprite" parent="HUD/Row/Player2_Cols/Player2_ABL" index="0"]
 
+editor/display_folded = true
 position = Vector2( 17, 22 )
 texture = ExtResource( 9 )
+_sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player2_Cols/Player2_ABL/Ability1" index="0"]
 
@@ -813,8 +825,10 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="Ability2" type="Sprite" parent="HUD/Row/Player2_Cols/Player2_ABL" index="1"]
 
+editor/display_folded = true
 position = Vector2( 65, 22 )
 texture = ExtResource( 9 )
+_sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player2_Cols/Player2_ABL/Ability2" index="0"]
 
@@ -844,8 +858,10 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="Ability3" type="Sprite" parent="HUD/Row/Player2_Cols/Player2_ABL" index="2"]
 
+editor/display_folded = true
 position = Vector2( 113, 22 )
 texture = ExtResource( 9 )
+_sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player2_Cols/Player2_ABL/Ability3" index="0"]
 
@@ -875,8 +891,10 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="Ability4" type="Sprite" parent="HUD/Row/Player2_Cols/Player2_ABL" index="3"]
 
+editor/display_folded = true
 position = Vector2( 161, 22 )
 texture = ExtResource( 9 )
+_sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player2_Cols/Player2_ABL/Ability4" index="0"]
 
@@ -906,8 +924,10 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="Ability5" type="Sprite" parent="HUD/Row/Player2_Cols/Player2_ABL" index="4"]
 
+editor/display_folded = true
 position = Vector2( 209, 22 )
 texture = ExtResource( 9 )
+_sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player2_Cols/Player2_ABL/Ability5" index="0"]
 
@@ -937,6 +957,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="Player" type="KinematicBody2D" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( 190, 210 )
 input_pickable = false
 collision_layer = 1
@@ -950,14 +971,14 @@ __meta__ = {
 
 [node name="ConnorSprite" type="AnimatedSprite" parent="Player" index="0"]
 
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" index="1"]
 
 position = Vector2( -1.99999, -4.26165 )
 scale = Vector2( 1, 1.36957 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Position2D" type="Position2D" parent="Player" index="2"]
 
@@ -999,26 +1020,26 @@ __meta__ = {
 visible = false
 position = Vector2( 0.69931, 0.69931 )
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="NiklasSprite" type="AnimatedSprite" parent="Player" index="6"]
 
 visible = false
-frames = SubResource( 4 )
+frames = SubResource( 5 )
 animation = "Idle"
 
 [node name="AntonSprite" type="AnimatedSprite" parent="Player" index="7"]
 
 visible = false
 position = Vector2( 0, -4 )
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 animation = "Idle"
 
 [node name="BenSprite" type="AnimatedSprite" parent="Player" index="8"]
 
 visible = false
-frames = SubResource( 6 )
+frames = SubResource( 7 )
 animation = "Idle"
 
 [node name="PlayerSpecificCooldowns" type="Node" parent="Player" index="9"]
@@ -1305,7 +1326,7 @@ script = ExtResource( 61 )
 
 position = Vector2( -1, -1 )
 scale = Vector2( 3, 3 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="Enemy" index="1"]
 
@@ -1315,6 +1336,7 @@ texture = ExtResource( 62 )
 [node name="PauseMenu" type="PopupPanel" parent="." index="4"]
 
 pause_mode = 2
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
