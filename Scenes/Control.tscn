@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Control.gd" type="Script" id=1]
-[ext_resource path="res://font_cousine.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Charselect.gd" type="Script" id=3]
-[ext_resource path="res://AutoloadNode.gd" type="Script" id=4]
-[ext_resource path="res://PopupPanel.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Control.gd" type="Script" id=1]
+[ext_resource path="res://Other/font_cousine.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scripts/Charselect.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/AutoloadNode.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/PopupPanel.gd" type="Script" id=5]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
