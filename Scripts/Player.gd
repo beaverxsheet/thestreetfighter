@@ -37,6 +37,9 @@ var CooldownA3 = float(0)
 var CooldownA4 = float(0)
 var CooldownA5 = float(0)
 
+var insults
+var errorInsults = ["Error"]
+
 onready var CoolLabelA1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1/Label")
 onready var CoolLabelA2 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability2/Label")
 onready var CoolLabelA3 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability3/Label")
@@ -83,6 +86,8 @@ func chooseSprite():
 		myAbility3.texture = ab8
 		myAbility4.texture = ab11
 		#myAbility5.texture = "res://jjswjw"
+		
+		insults = load_insults("Connor.txt")
 		return $ConnorSprite
 	elif chosen_char == 1:
 		$ConnorSprite.hide()
@@ -94,6 +99,8 @@ func chooseSprite():
 		myAbility3.texture = ab12
 		myAbility4.texture = ab13
 		#myAbility5.texture = "res://jjswjw"
+		
+		insults = load_insults("Niklas.txt")
 		return $NiklasSprite
 	elif chosen_char == 2:
 		$ConnorSprite.hide()
@@ -117,6 +124,8 @@ func chooseSprite():
 		#myAbility3.texture = ab188888
 		#myAbility4.texture = ab188888
 		#myAbility5.texture = ab188888
+		
+		insults = load_insults("Ben.txt")
 		return $BenSprite
 
 
@@ -176,6 +185,9 @@ func _physics_process(delta):
 	else:
 		#Sprite and anim
 		Asprite.play("Jumping")
+	
+	if Input.is_action_just_pressed("Insult"):
+		insult(insults)
 	
 	#Put movement into actual action
 	move_and_slide(motion, UP)
@@ -269,6 +281,25 @@ func _on_BasicAttackArea_body_exited(body):
 func AID_8(time):
 	self.latency = int((cos(float(float(time)/3000))*150)+152)
 
+func load_insults(filename):
+	var outlist = []
+	var insult_file = File.new()
+	if not insult_file.file_exists("res://Insults/" + filename):
+		return errorInsults
+		print("Error: No file called res://Insults/" + filename)
+	insult_file.open("res://Insults/" + filename, File.READ)
+	while not insult_file.eof_reached():
+		var current_line = insult_file.get_line()
+		outlist.append(str(current_line))
+	insult_file.close()
+	return outlist
+
+func insult(insults_l):
+	var ins = insults_l[randi()%(len(insults_l))+0]
+	$Insult_Label.text = ins
+	$Insult_timer.start()
+	pass
+
 func do_latency(time):
 	#for every milisecond between the last and this tick
 	for i in range(tbf, time + 1, 1):
@@ -311,3 +342,6 @@ func do_latency(time):
 				motion.y = JUMP_HEIGHT
 				
 			dotimes.erase(i)
+
+func _on_Insult_timer_timeout():
+	$Insult_Label.text = ""
