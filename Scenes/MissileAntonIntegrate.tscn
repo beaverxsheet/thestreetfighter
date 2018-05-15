@@ -1,12 +1,13 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://MissileAntonIntegrate.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/MissileAntonIntegrate.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Missiles/MissileAntonIntegrate0.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Missiles/MissileAntonIntegrate1.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Missiles/MissileAntonIntegrate2.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Missiles/MissileAntonIntegrate3.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Missiles/Missile_Anton_Integrate_Particle2.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Missiles/Missile_Anton_Integrate_Particle1.png" type="Texture" id=7]
+
 
 [sub_resource type="SpriteFrames" id=1]
 

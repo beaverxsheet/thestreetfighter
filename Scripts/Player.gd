@@ -16,9 +16,9 @@ const JUMP_HEIGHT = -550
 const hit_ID = 1
 
 #Import Winebottle missile
-const WINEBOTTLE_SCENE = preload("res://WineBottle.tscn")
-const INTEGRAL_SCENE = preload("res://MissileAntonIntegrate.tscn")
-const COFFEE_SCENE = preload("res://MissileConnorCoffeeSpill.tscn")
+const WINEBOTTLE_SCENE = preload("res://Scenes/WineBottle.tscn")
+const INTEGRAL_SCENE = preload("res://Scenes/MissileAntonIntegrate.tscn")
+const COFFEE_SCENE = preload("res://Scenes/MissileConnorCoffeeSpill.tscn")
 
 #Motion var. Altered to represent direction and speed of travel.
 var motion = Vector2()

@@ -1,15 +1,15 @@
 [gd_scene load_steps=71 format=2]
 
-[ext_resource path="res://World.gd" type="Script" id=1]
-[ext_resource path="res://DirtTiles.tres" type="TileSet" id=2]
-[ext_resource path="res://TileMap.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/World.gd" type="Script" id=1]
+[ext_resource path="res://Other/DirtTiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Scripts/TileMap.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/GUI/HPBar_Empty.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/GUI/HPBar_Fill.png" type="Texture" id=5]
-[ext_resource path="res://font_cousine.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Other/font_cousine.tres" type="DynamicFont" id=6]
 [ext_resource path="res://Sprites/GUI/INTBar_Fill.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/GUI/AbilityRim.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/GUI/Icons/Icon02.png" type="Texture" id=9]
-[ext_resource path="res://Player.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=10]
 [ext_resource path="res://Sprites/Player/Connor Jumping.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Player/ConnorAttack0.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Player/ConnorAttack1.png" type="Texture" id=13]
@@ -60,9 +60,11 @@
 [ext_resource path="res://Sprites/Player/BenWalk2.png" type="Texture" id=58]
 [ext_resource path="res://Sprites/Player/BenWalk3.png" type="Texture" id=59]
 [ext_resource path="res://Sprites/Player/Ben Idle(1).png" type="Texture" id=60]
-[ext_resource path="res://KinematicBody2D.gd" type="Script" id=61]
+[ext_resource path="res://Scripts/KinematicBody2D.gd" type="Script" id=61]
 [ext_resource path="res://icon.png" type="Texture" id=62]
-[ext_resource path="res://PauseMenu.gd" type="Script" id=63]
+[ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=63]
+
+
 
 [sub_resource type="SpriteFrames" id=2]
 

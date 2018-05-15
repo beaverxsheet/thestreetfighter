@@ -2,7 +2,7 @@ extends Control
 
 
 #Main scene preloaded into constant
-const WORLD_SCENE = preload("res://World.tscn")
+const WORLD_SCENE = preload("res://Scenes/World.tscn")
 
 #Continue (go back to game scene)
 func _on_Continue_pressed():
@@ -12,5 +12,5 @@ func _on_Continue_pressed():
 #Quit
 func _on_Quit_pressed():
 	get_tree().paused = false
-	get_tree().change_scene("res://Control.tscn")
+	get_tree().change_scene("res://Scenes/Control.tscn")
 	#get_tree().quit()
