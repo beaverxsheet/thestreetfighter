@@ -6,7 +6,7 @@
 [ext_resource path="res://Scripts/AutoloadNode.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/PopupPanel.gd" type="Script" id=5]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -28,10 +28,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 200.0
-margin_top = 30.0
-margin_right = 380.0
-margin_bottom = 169.0
+margin_left = 170.0
+margin_top = 32.0
+margin_right = 350.0
+margin_bottom = 183.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -39,6 +39,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 1
+_sections_unfolded = [ "Rect" ]
 __meta__ = {
 "_edit_group_": true
 }
