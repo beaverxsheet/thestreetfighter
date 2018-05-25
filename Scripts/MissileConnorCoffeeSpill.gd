@@ -4,9 +4,12 @@ var hit_ID = null
 var flyright = true
 
 var protected_hit_ID = [1000]
-onready var Box = $CollisionShape2D
-onready var Fin = int(Box.scale.x*100)
-var n = 0
+
+var bod
+var pos = self.position.x
+var rang = 0
+
+var off = false
 
 func _ready():
 	$Timer.start()
@@ -16,13 +19,13 @@ func _ready():
 	else:
 		$AnimatedSprite.flip_h = true
 	$AnimatedSprite.play("spilling")
-	#set hitbox to 0
-	Box.scale.x = 0
 
 
 func _on_Timer_timeout():
 	queue_free()
 
+func _physics_process(delta):
+	pos = self.position.x
 
 func _on_CoffeeSpill_body_entered(body):
 	#If hits parent or protected item, do nothing
@@ -30,15 +33,20 @@ func _on_CoffeeSpill_body_entered(body):
 		pass
 	#Reduce hittable objects HP
 	else:
-		body.change_HP(-1)
+		bod = body
 
 
 func _on_HitTimer_timeout():
-	#called every 0.01 seconds
-	if n/30 >= 1:
-		#make sure hitbox isn't larger than original hitbox
-		pass
-	else:
-		#scale hitbox
-		Box.scale.x = float(n)/30
-		n += 1
+#called every 0.01 sec
+	
+	rang += 4
+	
+	if not bod == null and not off:
+		if bod.position.x <= pos:
+			if bod.position.x >= pos - rang:
+				bod.change_HP(-1)
+				off = true
+		else:
+			if bod.position.x <= pos + rang:
+				bod.change_HP(-1)
+				off = true
