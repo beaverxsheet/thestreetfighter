@@ -7,10 +7,7 @@ path="res://.import/AntonIdle6.png-5b23a02ddb42c78403b6cca6c4d96b5c.stex"
 [deps]
 
 source_file="res://Sprites/Player/AntonIdle6.png"
-source_md5="132e43cabf6bf6570364c89bb2917eeb"
-
 dest_files=[ "res://.import/AntonIdle6.png-5b23a02ddb42c78403b6cca6c4d96b5c.stex" ]
-dest_md5="6948a1963a14a7b765dbb38cb5ea3028"
 
 [params]
 

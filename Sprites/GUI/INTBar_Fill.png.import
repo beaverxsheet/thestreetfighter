@@ -7,10 +7,7 @@ path="res://.import/INTBar_Fill.png-0cff4e40ae8b080c8af2a984fa6081fb.stex"
 [deps]
 
 source_file="res://Sprites/GUI/INTBar_Fill.png"
-source_md5="4a5a5c3cf508bd4335ba25d3ee08eaa3"
-
 dest_files=[ "res://.import/INTBar_Fill.png-0cff4e40ae8b080c8af2a984fa6081fb.stex" ]
-dest_md5="bce7e2037e85bd4d61d815aba83f15a5"
 
 [params]
 

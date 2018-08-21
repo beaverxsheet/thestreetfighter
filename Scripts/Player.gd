@@ -19,6 +19,7 @@ const hit_ID = 1
 const WINEBOTTLE_SCENE = preload("res://Scenes/WineBottle.tscn")
 const INTEGRAL_SCENE = preload("res://Scenes/MissileAntonIntegrate.tscn")
 const COFFEE_SCENE = preload("res://Scenes/MissileConnorCoffeeSpill.tscn")
+const AID_1_SNEEZE_SCENE = preload("res://Scenes/AID1SneezeScene.tscn")
 
 #Motion var. Altered to represent direction and speed of travel.
 var motion = Vector2()
@@ -74,6 +75,44 @@ var ab13 = preload("res://Sprites/GUI/Icons/Icon13.png")
 
 onready var chosen_char = AutoloadNode.choose_char
 
+#Setting Timer Function, called within the main loop
+func playerDependentCooldowns():
+	if Asprite == $AntonSprite:
+		CooldownA1 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
+		CooldownA2 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
+		CooldownA3 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
+		CooldownA4 = $PlayerSpecificCooldowns/AID_4.time_left
+		CooldownA5 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
+	elif Asprite == $ConnorSprite:
+		CooldownA1 = $BasicAttackCooldown.time_left
+		CooldownA2 = $PlayerSpecificCooldowns/AID_0.time_left
+		CooldownA3 = $PlayerSpecificCooldowns/AID_11.time_left
+		CooldownA4 = $PlayerSpecificCooldowns/AID_1.time_left
+		CooldownA5 = $PlayerSpecificCooldowns/AID_8.time_left
+	elif Asprite == $BenSprite:
+		CooldownA1 = $BasicAttackCooldown.time_left
+		CooldownA2 = $PlayerSpecificCooldowns/AID_18.time_left
+		CooldownA3 = $PlayerSpecificCooldowns/AID_19.time_left
+		CooldownA4 = $PlayerSpecificCooldowns/AID_20.time_left
+		CooldownA5 = $PlayerSpecificCooldowns/AID_17.time_left
+	elif Asprite == $NiklasSprite:
+		CooldownA1 = $BasicAttackCooldown.time_left
+		CooldownA2 = $PlayerSpecificCooldowns/AID_10.time_left
+		CooldownA3 = $PlayerSpecificCooldowns/AID_12.time_left
+		CooldownA4 = $PlayerSpecificCooldowns/AID_7.time_left
+		CooldownA5 = $PlayerSpecificCooldowns/AID_13.time_left
+	else:
+		CooldownA1 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
+		CooldownA2 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
+		CooldownA3 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
+		CooldownA4 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
+		CooldownA5 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
+	CoolLabelA1.text = str(int(CooldownA1*10))
+	CoolLabelA2.text = str(int(CooldownA2*10))
+	CoolLabelA3.text = str(int(CooldownA3*10))
+	CoolLabelA4.text = str(int(CooldownA4*10))
+	CoolLabelA5.text = str(int(CooldownA5*10))
+
 #Check which sprite to show (in a function, called later)
 func chooseSprite():
 	if chosen_char == 0:
@@ -81,11 +120,11 @@ func chooseSprite():
 		$AntonSprite.hide()
 		$BenSprite.hide()
 		
-		myAbility1.texture = ab0
-		myAbility2.texture = ab1
-		myAbility3.texture = ab8
-		myAbility4.texture = ab11
-		#myAbility5.texture = "res://jjswjw"
+		myAbility1.texture = ab2
+		myAbility2.texture = ab0
+		myAbility3.texture = ab11
+		myAbility4.texture = ab1
+		myAbility5.texture = ab8
 		
 		insults = load_insults("Connor.txt")
 		return $ConnorSprite
@@ -163,15 +202,24 @@ func _physics_process(delta):
 	if(Input.is_action_just_pressed("Ability1") && ($MissileCooldown.time_left == 0)):
 		dotimes[time + latency] = "ability1"
 		$MissileCooldown.start()
-
-	#Ability 2 (Integral) ONLY Anton
-	if(Input.is_action_just_pressed("Ability2") && ($PlayerSpecificCooldowns/Anton_4Cooldown.time_left == 0) && (Asprite == $AntonSprite)):
-		dotimes[time + latency] = "ability2A"
-		$PlayerSpecificCooldowns/Anton_4Cooldown.start()
 		
-	if(Input.is_action_just_pressed("Ability2") && ($PlayerSpecificCooldowns/Anton_4Cooldown.time_left == 0) && (Asprite == $ConnorSprite)):
-		dotimes[time + latency] = "ability2C"
-		$PlayerSpecificCooldowns/Anton_4Cooldown.start()
+	#AID4, Anton Ultimate, Integral 
+	if(Input.is_action_just_pressed("Ability2") && ($PlayerSpecificCooldowns/AID_4.time_left == 0)
+	&& (Asprite == $AntonSprite)):
+		dotimes[time + latency] = "ability2A"
+		$PlayerSpecificCooldowns/AID_4.start()
+	
+	#AID0, Connor Primary, Coffeespill
+	if(Input.is_action_just_pressed("Ability1") && ($PlayerSpecificCooldowns/AID_0.time_left == 0)
+	&& (Asprite == $ConnorSprite)):
+		dotimes[time + latency] = "AID_0"
+		$PlayerSpecificCooldowns/AID_0.start()
+
+	#AID1, Connor Ultimate, Manly Sneeze
+	if(Input.is_action_just_pressed("AbilityUlti") && (Asprite == $ConnorSprite) &&
+	($PlayerSpecificCooldowns/AID_1.time_left == 0)):
+		dotimes[time + latency] = "AID_1"
+		$PlayerSpecificCooldowns/AID_1.start()
 		
 	#Basic attack, all. Only if an object is in basic attack range and if the cooldown is 0		
 	if(Input.is_action_just_pressed("Attack") && ($BasicAttackCooldown.time_left == 0) && basic_range):
@@ -198,19 +246,9 @@ func _physics_process(delta):
 	myINT_Label.text = str(int(latency/100))
 	myINT_Gauge.value = latency
 	
-	#TODO:Change timer
-	CooldownA1 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
-	CooldownA2 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
-	CooldownA3 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
-	CooldownA4 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
-	CooldownA5 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
-	
-	CoolLabelA1.text = str(int(CooldownA1*10))
-	CoolLabelA2.text = str(int(CooldownA2*10))
-	CoolLabelA3.text = str(int(CooldownA3*10))
-	CoolLabelA4.text = str(int(CooldownA4*10))
-	CoolLabelA5.text = str(int(CooldownA5*10))
-	
+	#Set cooldowns
+	playerDependentCooldowns()
+		
 	#modulate opacity to show cooldown
 	myAbility1.modulate.a = abs(1-CooldownA1)
 	myAbility2.modulate.a = abs(1-CooldownA2)
@@ -238,7 +276,7 @@ func create_WineBottle():
 	else:
 		winebottle.flyright = false
 
-#Create Anton's integral
+#AID4, Antons Integral
 func create_Integral():
 	var integral = INTEGRAL_SCENE.instance()
 	get_parent().add_child(integral)
@@ -280,6 +318,17 @@ func _on_BasicAttackArea_body_exited(body):
 #Connors Passive AID 8 (intelligence is a cyclic function)
 func AID_8(time):
 	self.latency = int((cos(float(float(time)/3000))*150)+152)
+
+#Connors Sneeze Ultimate AID 1
+func AID_1():
+	var sneeze = AID_1_SNEEZE_SCENE.instance()
+	get_parent().add_child(sneeze)
+	sneeze.hit_ID = hit_ID
+	sneeze.set_position(get_node("Position2D").global_position)
+	if looks_right:
+		sneeze.flyright = true
+	else:
+		sneeze.flyright = false
 
 func load_insults(filename):
 	var outlist = []
@@ -334,12 +383,14 @@ func do_latency(time):
 				create_WineBottle() #Create bottle (see function)
 			if dotimes[i] == "ability2A":
 				create_Integral() #Create bottle (see function)
-			if dotimes[i] == "ability2C":
-				create_ConnorCoffeeSpill() #Create bottle (see function)
+			if dotimes[i] == "AID_0":
+				create_ConnorCoffeeSpill() #Create coffee spill see function
 			if dotimes[i] == "attack":
 				in_basic_range.change_HP(-1)
 			if dotimes[i] == "jump":
 				motion.y = JUMP_HEIGHT
+			if dotimes[i] == "AID_1":
+				AID_1()
 				
 			dotimes.erase(i)
 

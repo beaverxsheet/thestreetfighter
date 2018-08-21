@@ -7,10 +7,7 @@ path="res://.import/AbilityRim.png-88731bea02c2b3471f0ed2c515e51470.stex"
 [deps]
 
 source_file="res://Sprites/GUI/AbilityRim.png"
-source_md5="08ef3de881b77f1dd92852aab5cb2f6d"
-
 dest_files=[ "res://.import/AbilityRim.png-88731bea02c2b3471f0ed2c515e51470.stex" ]
-dest_md5="e3f42b878ead63606b3caa2e1bfeee20"
 
 [params]
 

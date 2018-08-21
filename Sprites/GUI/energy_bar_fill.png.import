@@ -7,10 +7,7 @@ path="res://.import/energy_bar_fill.png-f6d43493e4330127f44c770d81c4d207.stex"
 [deps]
 
 source_file="res://Sprites/GUI/energy_bar_fill.png"
-source_md5="34cb5bf422233cf803cb46fecec0a333"
-
 dest_files=[ "res://.import/energy_bar_fill.png-f6d43493e4330127f44c770d81c4d207.stex" ]
-dest_md5="f97997fcee164c3b5d59980228b1c538"
 
 [params]
 

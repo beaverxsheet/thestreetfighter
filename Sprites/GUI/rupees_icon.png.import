@@ -7,10 +7,7 @@ path="res://.import/rupees_icon.png-57973bf82d3e6b3597b5127842009e40.stex"
 [deps]
 
 source_file="res://Sprites/GUI/rupees_icon.png"
-source_md5="ea73c8afbb250de2b3309e272551376b"
-
 dest_files=[ "res://.import/rupees_icon.png-57973bf82d3e6b3597b5127842009e40.stex" ]
-dest_md5="3d098642413f54a5467edeeb454f0ba8"
 
 [params]
 

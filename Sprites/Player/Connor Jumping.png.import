@@ -7,10 +7,7 @@ path="res://.import/Connor Jumping.png-5e50e510b6aeca1cf1409661fe77ba25.stex"
 [deps]
 
 source_file="res://Sprites/Player/Connor Jumping.png"
-source_md5="bf5ad2356d00719cf3b2825983dafe5b"
-
 dest_files=[ "res://.import/Connor Jumping.png-5e50e510b6aeca1cf1409661fe77ba25.stex" ]
-dest_md5="0af890ce8794d7cfdc61fd40efa68258"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/HPBar_Empty.png-6f27231540d6d86964e01a2e84b8ffdb.stex"
 [deps]
 
 source_file="res://Sprites/GUI/HPBar_Empty.png"
-source_md5="2ebdfb2839e4d8c8007d18eb1bbd39ef"
-
 dest_files=[ "res://.import/HPBar_Empty.png-6f27231540d6d86964e01a2e84b8ffdb.stex" ]
-dest_md5="ab7e43de261be665e90669fc006881c4"
 
 [params]
 

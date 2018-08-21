@@ -7,10 +7,7 @@ path="res://.import/BenWalk2.png-867d0ad79c5dd4b04a596ce8f9acf812.stex"
 [deps]
 
 source_file="res://Sprites/Player/BenWalk2.png"
-source_md5="d54b5b9b6f34330a7e8aaac03c21c32e"
-
 dest_files=[ "res://.import/BenWalk2.png-867d0ad79c5dd4b04a596ce8f9acf812.stex" ]
-dest_md5="516a7f0b9fb16338f66215a4e772131e"
 
 [params]
 

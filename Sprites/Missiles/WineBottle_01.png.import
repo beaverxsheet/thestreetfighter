@@ -7,10 +7,7 @@ path="res://.import/WineBottle_01.png-bc6e21f2a2a3cf048cde5db827e72bc3.stex"
 [deps]
 
 source_file="res://Sprites/Missiles/WineBottle_01.png"
-source_md5="64ed3a9dcd43226c55f547ecf253c470"
-
 dest_files=[ "res://.import/WineBottle_01.png-bc6e21f2a2a3cf048cde5db827e72bc3.stex" ]
-dest_md5="d104cd00ab74df979a97988318ab9c1f"
 
 [params]
 

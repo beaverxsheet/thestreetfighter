@@ -7,10 +7,7 @@ path="res://.import/NiklasAttack3.png-2123bda1ea7b0498bf64a300d5235173.stex"
 [deps]
 
 source_file="res://Sprites/Player/NiklasAttack3.png"
-source_md5="f31fa800780142eeda65475fde7a91ed"
-
 dest_files=[ "res://.import/NiklasAttack3.png-2123bda1ea7b0498bf64a300d5235173.stex" ]
-dest_md5="c7991268f8cdbe1dcc247638154b4f9e"
 
 [params]
 
