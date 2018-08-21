@@ -32,6 +32,7 @@ var basic_range = false
 var in_basic_range = null
 var Asprite = null
 var firstJump = true
+var doubleSpeedNiklas = false
 
 var CooldownA1 = float(0)
 var CooldownA2 = float(0)
@@ -221,6 +222,12 @@ func _physics_process(delta):
 	($PlayerSpecificCooldowns/AID_1.time_left == 0)):
 		dotimes[time + latency] = "AID_1"
 		$PlayerSpecificCooldowns/AID_1.start()
+		
+	#AID12, Niklas Secondary, E-Bike
+	if((Input.is_action_just_pressed("Ability2")) && (Asprite == $NiklasSprite)
+	&& ($PlayerSpecificCooldowns/AID_12.time_left == 0)):
+		dotimes[time + latency] = "AID_12"
+		$PlayerSpecificCooldowns/AID_12.start()
 
 	#BASIC ATTACK all. Only if an object is in basic attack range and if the cooldown is 0		
 	if(Input.is_action_just_pressed("Attack") && ($BasicAttackCooldown.time_left == 0) && basic_range):
@@ -282,7 +289,7 @@ func create_WineBottle():
 	else:
 		winebottle.flyright = false
 
-#AID4, Antons Integral
+#AID4, Anton Ultimate, Integral
 func create_Integral():
 	var integral = INTEGRAL_SCENE.instance()
 	get_parent().add_child(integral)
@@ -294,7 +301,7 @@ func create_Integral():
 	else:
 		integral.flyright = false
 
-#Create Conners spill 
+#AID0, Connor Primary, Coffee Spill
 func create_ConnorCoffeeSpill():
 	var coffee = COFFEE_SCENE.instance()
 	get_parent().add_child(coffee)
@@ -321,11 +328,11 @@ func _on_BasicAttackArea_body_exited(body):
 	in_basic_range = null
 	basic_range = false
 
-#Connors Passive AID 8 (intelligence is a cyclic function)
+#AID8, Connor Passive, Ingenious ...?
 func AID_8(time):
 	self.latency = int((cos(float(float(time)/3000))*150)+152)
 
-#Connors Sneeze Ultimate AID 1
+#AID1, Connor Ultimate, Manly Sneeze
 func AID_1():
 	var sneeze = AID_1_SNEEZE_SCENE.instance()
 	get_parent().add_child(sneeze)
@@ -335,6 +342,10 @@ func AID_1():
 		sneeze.flyright = true
 	else:
 		sneeze.flyright = false
+
+#AID12, Niklas Secondary, E-Bike
+func AID_12():
+	$PlayerSpecificCooldowns/AID_12_runtime.start()
 
 func load_insults(filename):
 	var outlist = []
@@ -397,6 +408,8 @@ func do_latency(time):
 				motion.y = JUMP_HEIGHT
 			if dotimes[i] == "AID_1":
 				AID_1()
+			if dotimes[i] == "AID_12":
+				AID_12()
 				
 			dotimes.erase(i)
 
