@@ -12,7 +12,7 @@ var tbf = 0 #time before
 const UP = Vector2(0, -1)
 const GRAV = 20
 const SPEED = 200
-const JUMP_HEIGHT = -550
+const JUMP_HEIGHT = -450
 const hit_ID = 1
 
 #Import Winebottle missile
@@ -31,6 +31,7 @@ var looks_right = true
 var basic_range = false
 var in_basic_range = null
 var Asprite = null
+var firstJump = true
 
 var CooldownA1 = float(0)
 var CooldownA2 = float(0)
@@ -133,11 +134,11 @@ func chooseSprite():
 		$AntonSprite.hide()
 		$BenSprite.hide()
 		
-		myAbility1.texture = ab7
+		myAbility1.texture = ab2
 		myAbility2.texture = ab10
 		myAbility3.texture = ab12
-		myAbility4.texture = ab13
-		#myAbility5.texture = "res://jjswjw"
+		myAbility4.texture = ab7
+		myAbility5.texture = ab13
 		
 		insults = load_insults("Niklas.txt")
 		return $NiklasSprite
@@ -146,11 +147,11 @@ func chooseSprite():
 		$NiklasSprite.hide()
 		$BenSprite.hide()
 		
-		myAbility1.texture = ab4
+		myAbility1.texture = ab2
 		myAbility2.texture = ab5
 		myAbility3.texture = ab6
-		myAbility4.texture = ab9
-		#myAbility5.texture = "res://jjswjw"
+		myAbility4.texture = ab4
+		myAbility5.texture = ab9
 		return $AntonSprite
 	elif chosen_char == 3:
 		$ConnorSprite.hide()
@@ -204,11 +205,11 @@ func _physics_process(delta):
 		$MissileCooldown.start()
 		
 	#AID4, Anton Ultimate, Integral 
-	if(Input.is_action_just_pressed("Ability2") && ($PlayerSpecificCooldowns/AID_4.time_left == 0)
+	if(Input.is_action_just_pressed("AbilityUlti") && ($PlayerSpecificCooldowns/AID_4.time_left == 0)
 	&& (Asprite == $AntonSprite)):
-		dotimes[time + latency] = "ability2A"
+		dotimes[time + latency] = "AID_4"
 		$PlayerSpecificCooldowns/AID_4.start()
-	
+
 	#AID0, Connor Primary, Coffeespill
 	if(Input.is_action_just_pressed("Ability1") && ($PlayerSpecificCooldowns/AID_0.time_left == 0)
 	&& (Asprite == $ConnorSprite)):
@@ -220,26 +221,31 @@ func _physics_process(delta):
 	($PlayerSpecificCooldowns/AID_1.time_left == 0)):
 		dotimes[time + latency] = "AID_1"
 		$PlayerSpecificCooldowns/AID_1.start()
-		
-	#Basic attack, all. Only if an object is in basic attack range and if the cooldown is 0		
+
+	#BASIC ATTACK all. Only if an object is in basic attack range and if the cooldown is 0		
 	if(Input.is_action_just_pressed("Attack") && ($BasicAttackCooldown.time_left == 0) && basic_range):
 		dotimes[time + latency] = "attack"
 		$BasicAttackCooldown.start()
-		
+
 	#If on the floor, allow for jumps
 	if is_on_floor():
 		if Input.is_action_just_pressed("key_up"):
 			dotimes[time + latency] = "jump"
+			firstJump = true
+	# Niklas Doublejump
+	elif((Asprite == $NiklasSprite) && firstJump && Input.is_action_just_pressed("key_up")):
+		firstJump = false
+		dotimes[time + latency] = "jump"
 	else:
 		#Sprite and anim
 		Asprite.play("Jumping")
-	
+
 	if Input.is_action_just_pressed("Insult"):
 		insult(insults)
-	
+
 	#Put movement into actual action
 	move_and_slide(motion, UP)
-	
+
 	#Communication with the HUD
 	myHP_Label.text = "(" + str(current_HP) + "/10)"
 	myHP_Gauge.value = current_HP
@@ -248,7 +254,7 @@ func _physics_process(delta):
 	
 	#Set cooldowns
 	playerDependentCooldowns()
-		
+
 	#modulate opacity to show cooldown
 	myAbility1.modulate.a = abs(1-CooldownA1)
 	myAbility2.modulate.a = abs(1-CooldownA2)
@@ -381,7 +387,7 @@ func do_latency(time):
 				Asprite.play("Idle")
 			if dotimes[i] == "ability1":
 				create_WineBottle() #Create bottle (see function)
-			if dotimes[i] == "ability2A":
+			if dotimes[i] == "AID_4":
 				create_Integral() #Create bottle (see function)
 			if dotimes[i] == "AID_0":
 				create_ConnorCoffeeSpill() #Create coffee spill see function
