@@ -426,7 +426,6 @@ _sections_unfolded = [ "Material" ]
 
 [node name="Ability1" type="Sprite" parent="HUD/Row/Player1_Cols/Player1_ABL" index="0"]
 
-editor/display_folded = true
 position = Vector2( 16, 22 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Material" ]
@@ -609,7 +608,6 @@ _sections_unfolded = [ "Rect", "custom_styles" ]
 
 [node name="Player2_Cols" type="VBoxContainer" parent="HUD/Row" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -859,7 +857,6 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="Ability3" type="Sprite" parent="HUD/Row/Player2_Cols/Player2_ABL" index="2"]
 
-editor/display_folded = true
 position = Vector2( 113, 22 )
 texture = ExtResource( 9 )
 _sections_unfolded = [ "Material" ]
@@ -1043,8 +1040,6 @@ frames = SubResource( 6 )
 animation = "Idle"
 
 [node name="PlayerSpecificCooldowns" type="Node" parent="Player" index="9"]
-
-editor/display_folded = true
 
 [node name="Anton_4Cooldown" type="Timer" parent="Player/PlayerSpecificCooldowns" index="0"]
 

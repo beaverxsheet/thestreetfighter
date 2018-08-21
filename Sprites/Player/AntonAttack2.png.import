@@ -7,10 +7,7 @@ path="res://.import/AntonAttack2.png-e0c6b14b13e13ebafbc73f165ee11090.stex"
 [deps]
 
 source_file="res://Sprites/Player/AntonAttack2.png"
-source_md5="216e62172a6ec65b121fd16c74d67e74"
-
 dest_files=[ "res://.import/AntonAttack2.png-e0c6b14b13e13ebafbc73f165ee11090.stex" ]
-dest_md5="db8efe9bc41c596301186bf3e0fb1d65"
 
 [params]
 

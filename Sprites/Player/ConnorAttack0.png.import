@@ -7,10 +7,7 @@ path="res://.import/ConnorAttack0.png-13d9b45e6c2b14be00e605d56ad68fb9.stex"
 [deps]
 
 source_file="res://Sprites/Player/ConnorAttack0.png"
-source_md5="ea33c1209312d80c3dfb754827a1167f"
-
 dest_files=[ "res://.import/ConnorAttack0.png-13d9b45e6c2b14be00e605d56ad68fb9.stex" ]
-dest_md5="d9a16aaa03fe396f390d5761b13fc5ab"
 
 [params]
 

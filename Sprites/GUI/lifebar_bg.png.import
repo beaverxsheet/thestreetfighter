@@ -7,10 +7,7 @@ path="res://.import/lifebar_bg.png-9020e63b5523e656bf84490710fcd008.stex"
 [deps]
 
 source_file="res://Sprites/GUI/lifebar_bg.png"
-source_md5="df50f22ac78c3f6bdc76d80b2ca5bfe8"
-
 dest_files=[ "res://.import/lifebar_bg.png-9020e63b5523e656bf84490710fcd008.stex" ]
-dest_md5="2042e6830cd8af8291cae84806016916"
 
 [params]
 

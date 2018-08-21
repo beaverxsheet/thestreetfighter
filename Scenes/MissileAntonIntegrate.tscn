@@ -8,7 +8,6 @@
 [ext_resource path="res://Sprites/Missiles/Missile_Anton_Integrate_Particle2.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Missiles/Missile_Anton_Integrate_Particle1.png" type="Texture" id=7]
 
-
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {

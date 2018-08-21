@@ -7,10 +7,7 @@ path="res://.import/MissileAntonIntegrate1.png-d89e3289434c2f6e689ce9bda504158c.
 [deps]
 
 source_file="res://Sprites/Missiles/MissileAntonIntegrate1.png"
-source_md5="563c52b15976055c6c61d788290982d0"
-
 dest_files=[ "res://.import/MissileAntonIntegrate1.png-d89e3289434c2f6e689ce9bda504158c.stex" ]
-dest_md5="277559f7b4f7a28fa08382f8e430e9db"
 
 [params]
 

@@ -7,10 +7,7 @@ path="res://.import/bombs_icon.png-e9a52216141893a640c4f94b47d5d26f.stex"
 [deps]
 
 source_file="res://Sprites/GUI/bombs_icon.png"
-source_md5="fb5260581ffa291cae6403e7a74fb335"
-
 dest_files=[ "res://.import/bombs_icon.png-e9a52216141893a640c4f94b47d5d26f.stex" ]
-dest_md5="91ce2831e61c32bf4db4ee639f747801"
 
 [params]
 

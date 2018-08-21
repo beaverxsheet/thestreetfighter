@@ -7,10 +7,7 @@ path="res://.import/Connor Idle.png-f7c1fef14f09c28d1ccca771dbf0807e.stex"
 [deps]
 
 source_file="res://Sprites/Player/Connor Idle.png"
-source_md5="307a83d6a2b4baa7063092cf5ffe5281"
-
 dest_files=[ "res://.import/Connor Idle.png-f7c1fef14f09c28d1ccca771dbf0807e.stex" ]
-dest_md5="a78865317f8a1c5b908fe64576b428b9"
 
 [params]
 

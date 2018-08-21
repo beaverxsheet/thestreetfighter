@@ -7,10 +7,7 @@ path="res://.import/MissileB_Connor_Coffeespill06.png-7371562d03093326f342558031
 [deps]
 
 source_file="res://Sprites/Missiles/MissileB_Connor_Coffeespill06.png"
-source_md5="eaac2b5ee56f98b058c5a4c65b587ad9"
-
 dest_files=[ "res://.import/MissileB_Connor_Coffeespill06.png-7371562d03093326f3425580314a1c26.stex" ]
-dest_md5="1a1f58c937e0ec7bf0ce84ccc5cfc001"
 
 [params]
 

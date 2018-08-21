@@ -7,10 +7,7 @@ path="res://.import/Ben Idle(1).png-12fb2fcf62590c64e6c29136b37eaf55.stex"
 [deps]
 
 source_file="res://Sprites/Player/Ben Idle(1).png"
-source_md5="7bd424a821800e26759eb943d5149c98"
-
 dest_files=[ "res://.import/Ben Idle(1).png-12fb2fcf62590c64e6c29136b37eaf55.stex" ]
-dest_md5="085db99ef6455fbfa9d1fe756f208eb0"
 
 [params]
 
