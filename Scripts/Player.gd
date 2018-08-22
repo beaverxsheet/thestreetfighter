@@ -29,6 +29,8 @@ var can_shoot = true
 var current_HP = 10
 var looks_right = true
 var basic_range = false
+var AID_9_range = false
+var AID_9_inRange = null
 var in_basic_range = null
 var Asprite = null
 var firstJump = true
@@ -176,8 +178,17 @@ func _physics_process(delta):
 	time += int(delta * 1000)
 	#call the latency function
 	do_latency(time)
+	#Effect Connors Stupidity Cyclic Function AID_8 Passive
 	if Asprite == $ConnorSprite:
 		AID_8(time)
+	#Natural resistance to stupidity
+	else:
+		if latency != 0:
+			latency = latency - 0.4
+	#Effect Antons AID_9 Passive
+	if((Asprite == $AntonSprite) && AID_9_range):
+		AID_9_inRange.change_INT(1)
+	
 	tbf = time #set time before
 	
 	#Gravity
@@ -327,6 +338,20 @@ func _on_BasicAttackArea_body_exited(body):
 	print("left body " +  str(body.hit_ID))
 	in_basic_range = null
 	basic_range = false
+	
+#Relevant for AID_9, Anton Passive
+func _on_AID_9Effector_body_entered(body):
+	#Ignore own body
+	if(body.hit_ID == hit_ID or body.hit_ID == 1000):
+		pass
+	else:
+		AID_9_range = true
+		AID_9_inRange = body
+
+#Relevamt for AID_9, Anton Passive
+func _on_AID_9Effector_body_exited(body):
+	AID_9_inRange = null
+	AID_9_range = false
 
 #AID8, Connor Passive, Ingenious ...?
 func AID_8(time):

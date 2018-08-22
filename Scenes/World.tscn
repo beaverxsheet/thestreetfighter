@@ -156,12 +156,12 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=6]
 
 custom_solver_bias = 0.0
 radius = 79.9148
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=7]
 
 animations = [ {
 "frames": [ ExtResource( 54 ) ],
@@ -185,7 +185,7 @@ animations = [ {
 "speed": 12.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10.3333, 10 )
@@ -224,7 +224,6 @@ __meta__ = {
 
 [node name="HUD" type="MarginContainer" parent="." index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -260,6 +259,7 @@ alignment = 1
 
 [node name="Player1_Cols" type="VBoxContainer" parent="HUD/Row" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -709,7 +709,6 @@ _sections_unfolded = [ "Textures" ]
 
 [node name="Player2_INT2" type="HBoxContainer" parent="HUD/Row/Player2_Cols" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1060,15 +1059,17 @@ audio_bus_name = "Master"
 
 [node name="AID_9Effectorspace" type="CollisionShape2D" parent="Player/AntonSprite/AID_9Effector" index="0"]
 
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="BenSprite" type="AnimatedSprite" parent="Player" index="8"]
 
 visible = false
-frames = SubResource( 6 )
+frames = SubResource( 7 )
 animation = "Idle"
 
 [node name="PlayerSpecificCooldowns" type="Node" parent="Player" index="9"]
+
+editor/display_folded = true
 
 [node name="Anton_4Cooldown" type="Timer" parent="Player/PlayerSpecificCooldowns" index="0"]
 
@@ -1371,19 +1372,19 @@ autostart = false
 
 [node name="Enemy" type="KinematicBody2D" parent="." index="3"]
 
-editor/display_folded = true
 position = Vector2( 460, 220 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 63 )
+_sections_unfolded = [ "collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" index="0"]
 
 position = Vector2( -1, -1 )
 scale = Vector2( 3, 3 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="Enemy" index="1"]
 
@@ -1506,6 +1507,10 @@ _sections_unfolded = [ "custom_fonts" ]
 [connection signal="body_entered" from="Player/BasicAttackArea" to="Player" method="_on_BasicAttackArea_body_entered"]
 
 [connection signal="body_exited" from="Player/BasicAttackArea" to="Player" method="_on_BasicAttackArea_body_exited"]
+
+[connection signal="body_entered" from="Player/AntonSprite/AID_9Effector" to="Player" method="_on_AID_9Effector_body_entered"]
+
+[connection signal="body_exited" from="Player/AntonSprite/AID_9Effector" to="Player" method="_on_AID_9Effector_body_exited"]
 
 [connection signal="timeout" from="Player/Insult_timer" to="Player" method="_on_Insult_timer_timeout"]
 
