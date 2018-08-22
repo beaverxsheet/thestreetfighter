@@ -373,20 +373,30 @@ func do_latency(time):
 		if dotimes.has(i):
 			#find which command was put in the dictionary for this time
 			if dotimes[i] == "right":
-				motion.x = SPEED
+				#Relevant for AID_12 Niklas E-Bike
+				if((Asprite == $NiklasSprite)
+				&& ($PlayerSpecificCooldowns/AID_12_runtime.is_stopped() == false)):
+					motion.x = SPEED*2
+					Asprite.play("Bicycle")
+				else:
+					motion.x = SPEED
+					Asprite.play("Walking")
 				#Flip sprite into right direction
 				Asprite.flip_h = false
-				#Play walking animation
-				Asprite.play("Walking")
 				#Important for missiles (should fly into the correct direction)
 				looks_right = true
 			if dotimes[i] == "left":
-				#definde motion vector for left
-				motion.x = -SPEED
+				#Relevant for AID_12 Niklas E-Bike
+				if((Asprite == $NiklasSprite)
+				&& ($PlayerSpecificCooldowns/AID_12_runtime.is_stopped() == false)):
+					motion.x = -SPEED*2
+					Asprite.play("Bicycle")
+				else:
+					motion.x = -SPEED
+					Asprite.play("Walking")
 				#Flip sprite into right direction
 				Asprite.flip_h = true
 				#Play walking animation
-				Asprite.play("Walking")
 				#Important for missiles (should fly into the correct direction)
 				looks_right = false
 			if dotimes[i] == "stopc":
