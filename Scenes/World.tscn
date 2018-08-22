@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Other/DirtTiles.tres" type="TileSet" id=2]
@@ -22,9 +22,9 @@
 [ext_resource path="res://Sprites/Player/connorSprite3.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/Player/connorSprite4.png" type="Texture" id=21]
 [ext_resource path="res://Sprites/Player/Niklas Idle.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Player/NiklasBike_0.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Player/NiklasBike_1.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Player/Niklas Jump.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Player/Niklas Jump.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Player/NiklasBike_0.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Player/NiklasBike_1.png" type="Texture" id=25]
 [ext_resource path="res://Sprites/Player/NiklasAttack0.png" type="Texture" id=26]
 [ext_resource path="res://Sprites/Player/NiklasAttack1.png" type="Texture" id=27]
 [ext_resource path="res://Sprites/Player/NiklasAttack2.png" type="Texture" id=28]
@@ -110,15 +110,15 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 23 ), ExtResource( 24 ) ],
-"loop": true,
-"name": "Bicycle",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 25 ) ],
+"frames": [ ExtResource( 23 ) ],
 "loop": true,
 "name": "Jumping",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "Bicycle",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": true,
@@ -155,6 +155,11 @@ animations = [ {
 "name": "Walking",
 "speed": 5.0
 } ]
+
+[sub_resource type="CircleShape2D" id=8]
+
+custom_solver_bias = 0.0
+radius = 79.9148
 
 [sub_resource type="SpriteFrames" id=6]
 
@@ -976,6 +981,7 @@ __meta__ = {
 
 [node name="ConnorSprite" type="AnimatedSprite" parent="Player" index="0"]
 
+visible = false
 frames = SubResource( 1 )
 animation = "Idle"
 
@@ -1037,10 +1043,24 @@ animation = "Idle"
 
 [node name="AntonSprite" type="AnimatedSprite" parent="Player" index="7"]
 
-visible = false
 position = Vector2( 0, -4 )
 frames = SubResource( 5 )
 animation = "Idle"
+
+[node name="AID_9Effector" type="Area2D" parent="Player/AntonSprite" index="0"]
+
+position = Vector2( -1, 1 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="AID_9Effectorspace" type="CollisionShape2D" parent="Player/AntonSprite/AID_9Effector" index="0"]
+
+shape = SubResource( 8 )
 
 [node name="BenSprite" type="AnimatedSprite" parent="Player" index="8"]
 
