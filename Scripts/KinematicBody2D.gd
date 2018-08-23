@@ -21,7 +21,7 @@ func _process(delta):
 		$CollisionShape2D.disabled = true
 		
 	#Lower latency (natural resistance)
-	if latency != 0:
+	if latency > 0:
 		latency = latency - 0.4
 	
 	if current_HP < 10:
