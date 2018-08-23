@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Other/DirtTiles.tres" type="TileSet" id=2]
@@ -62,9 +62,13 @@
 [ext_resource path="res://Sprites/Player/BenWalk1.png" type="Texture" id=60]
 [ext_resource path="res://Sprites/Player/BenWalk2.png" type="Texture" id=61]
 [ext_resource path="res://Sprites/Player/BenWalk3.png" type="Texture" id=62]
-[ext_resource path="res://Scripts/KinematicBody2D.gd" type="Script" id=63]
-[ext_resource path="res://icon.png" type="Texture" id=64]
-[ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=65]
+[ext_resource path="res://Sprites/GUI/StunStars0.png" type="Texture" id=63]
+[ext_resource path="res://Sprites/GUI/StunStars1.png" type="Texture" id=64]
+[ext_resource path="res://Sprites/GUI/StunStars2.png" type="Texture" id=65]
+[ext_resource path="res://Sprites/GUI/StunStars3.png" type="Texture" id=66]
+[ext_resource path="res://Scripts/KinematicBody2D.gd" type="Script" id=67]
+[ext_resource path="res://icon.png" type="Texture" id=68]
+[ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=69]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -183,6 +187,15 @@ animations = [ {
 "loop": true,
 "name": "Walking",
 "speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=9]
+
+animations = [ {
+"frames": [ ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ) ],
+"loop": true,
+"name": "spin",
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=8]
@@ -1067,7 +1080,14 @@ visible = false
 frames = SubResource( 7 )
 animation = "Idle"
 
-[node name="PlayerSpecificCooldowns" type="Node" parent="Player" index="9"]
+[node name="StunStarSprite" type="AnimatedSprite" parent="Player" index="9"]
+
+position = Vector2( -0.261749, -63.3841 )
+frames = SubResource( 9 )
+animation = "spin"
+frame = 3
+
+[node name="PlayerSpecificCooldowns" type="Node" parent="Player" index="10"]
 
 editor/display_folded = true
 
@@ -1344,7 +1364,14 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="Insult_Label" type="Label" parent="Player" index="10"]
+[node name="AID_10_StunDuration" type="Timer" parent="Player/PlayerSpecificCooldowns" index="39"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="Insult_Label" type="Label" parent="Player" index="11"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1363,7 +1390,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Insult_timer" type="Timer" parent="Player" index="11"]
+[node name="Insult_timer" type="Timer" parent="Player" index="12"]
 
 process_mode = 1
 wait_time = 3.0
@@ -1377,7 +1404,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
-script = ExtResource( 63 )
+script = ExtResource( 67 )
 _sections_unfolded = [ "collision" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" index="0"]
@@ -1389,7 +1416,7 @@ shape = SubResource( 8 )
 [node name="Sprite" type="Sprite" parent="Enemy" index="1"]
 
 position = Vector2( -0.999969, -0.999985 )
-texture = ExtResource( 64 )
+texture = ExtResource( 68 )
 
 [node name="PauseMenu" type="PopupPanel" parent="." index="4"]
 
@@ -1409,7 +1436,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
-script = ExtResource( 65 )
+script = ExtResource( 69 )
 _sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu" index="0"]
@@ -1504,6 +1531,33 @@ flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
+[node name="Testers" type="Node" parent="." index="5"]
+
+[node name="StunButton" type="Button" parent="Testers" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 387.0
+margin_top = 144.0
+margin_right = 465.0
+margin_bottom = 164.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "STUN TEST"
+flat = false
+align = 1
+
 [connection signal="body_entered" from="Player/BasicAttackArea" to="Player" method="_on_BasicAttackArea_body_entered"]
 
 [connection signal="body_exited" from="Player/BasicAttackArea" to="Player" method="_on_BasicAttackArea_body_exited"]
@@ -1519,5 +1573,7 @@ _sections_unfolded = [ "custom_fonts" ]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Continue" to="PauseMenu" method="_on_Continue_pressed"]
 
 [connection signal="pressed" from="PauseMenu/VBoxContainer/Quit" to="PauseMenu" method="_on_Quit_pressed"]
+
+[connection signal="pressed" from="Testers/StunButton" to="Player" method="_on_Button_pressed_STUN"]
 
 

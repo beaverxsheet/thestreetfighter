@@ -35,6 +35,7 @@ var in_basic_range = null
 var Asprite = null
 var firstJump = true
 var doubleSpeedNiklas = false
+var isStunned = false
 
 var CooldownA1 = float(0)
 var CooldownA2 = float(0)
@@ -130,7 +131,7 @@ func chooseSprite():
 		myAbility4.texture = ab1
 		myAbility5.texture = ab8
 		
-		insults = load_insults("Connor.txt")
+		# insults = load_insults("Connor.txt")
 		return $ConnorSprite
 	elif chosen_char == 1:
 		$ConnorSprite.hide()
@@ -143,7 +144,7 @@ func chooseSprite():
 		myAbility4.texture = ab7
 		myAbility5.texture = ab13
 		
-		insults = load_insults("Niklas.txt")
+		# insults = load_insults("Niklas.txt")
 		return $NiklasSprite
 	elif chosen_char == 2:
 		$ConnorSprite.hide()
@@ -168,7 +169,7 @@ func chooseSprite():
 		#myAbility4.texture = ab188888
 		#myAbility5.texture = ab188888
 		
-		insults = load_insults("Ben.txt")
+		# insults = load_insults("Ben.txt")
 		return $BenSprite
 
 
@@ -183,11 +184,20 @@ func _physics_process(delta):
 		AID_8(time)
 	#Natural resistance to stupidity
 	else:
-		if latency != 0:
+		if latency > 0:
 			latency = latency - 0.4
 	#Effect Antons AID_9 Passive
 	if((Asprite == $AntonSprite) && AID_9_range):
 		AID_9_inRange.change_INT(1)
+	#Effect STUN
+	if $PlayerSpecificCooldowns/AID_10_StunDuration.is_stopped():
+		isStunned = false
+		$StunStarSprite.hide()
+	else:
+		isStunned = true
+		dotimes[time] = "stop"
+		$StunStarSprite.show()
+		$StunStarSprite.play("spin")
 	
 	tbf = time #set time before
 	
@@ -200,10 +210,10 @@ func _physics_process(delta):
 	Asprite.show()
 	
 	#Horizontal movement: right
-	if Input.is_action_pressed("key_right"):
+	if Input.is_action_pressed("key_right") && !isStunned:
 		dotimes[time + latency] = "right"
 	#Horizontal movement: left
-	elif Input.is_action_pressed("key_left"):
+	elif Input.is_action_pressed("key_left") && !isStunned:
 		dotimes[time + latency] = "left"
 	#If BasicA cooldown timer is on, then the animation should run
 	elif $BasicAttackCooldown.time_left > 0:
@@ -212,42 +222,42 @@ func _physics_process(delta):
 		dotimes[time + latency] = "stop"
 
 	#Ability 1 (Winebottle for now), everyone is eligible
-	if(Input.is_action_just_pressed("Ability1") && ($MissileCooldown.time_left == 0)):
+	if(Input.is_action_just_pressed("Ability1") && ($MissileCooldown.time_left == 0) && !isStunned):
 		dotimes[time + latency] = "ability1"
 		$MissileCooldown.start()
 		
 	#AID4, Anton Ultimate, Integral 
 	if(Input.is_action_just_pressed("AbilityUlti") && ($PlayerSpecificCooldowns/AID_4.time_left == 0)
-	&& (Asprite == $AntonSprite)):
+	&& (Asprite == $AntonSprite) && !isStunned):
 		dotimes[time + latency] = "AID_4"
 		$PlayerSpecificCooldowns/AID_4.start()
 
 	#AID0, Connor Primary, Coffeespill
 	if(Input.is_action_just_pressed("Ability1") && ($PlayerSpecificCooldowns/AID_0.time_left == 0)
-	&& (Asprite == $ConnorSprite)):
+	&& (Asprite == $ConnorSprite) && !isStunned):
 		dotimes[time + latency] = "AID_0"
 		$PlayerSpecificCooldowns/AID_0.start()
 
 	#AID1, Connor Ultimate, Manly Sneeze
 	if(Input.is_action_just_pressed("AbilityUlti") && (Asprite == $ConnorSprite) &&
-	($PlayerSpecificCooldowns/AID_1.time_left == 0)):
+	($PlayerSpecificCooldowns/AID_1.time_left == 0) && !isStunned):
 		dotimes[time + latency] = "AID_1"
 		$PlayerSpecificCooldowns/AID_1.start()
 		
 	#AID12, Niklas Secondary, E-Bike
 	if((Input.is_action_just_pressed("Ability2")) && (Asprite == $NiklasSprite)
-	&& ($PlayerSpecificCooldowns/AID_12.time_left == 0)):
+	&& ($PlayerSpecificCooldowns/AID_12.time_left == 0) && !isStunned):
 		dotimes[time + latency] = "AID_12"
 		$PlayerSpecificCooldowns/AID_12.start()
 
 	#BASIC ATTACK all. Only if an object is in basic attack range and if the cooldown is 0		
-	if(Input.is_action_just_pressed("Attack") && ($BasicAttackCooldown.time_left == 0) && basic_range):
+	if(Input.is_action_just_pressed("Attack") && ($BasicAttackCooldown.time_left == 0) && basic_range && !isStunned):
 		dotimes[time + latency] = "attack"
 		$BasicAttackCooldown.start()
 
 	#If on the floor, allow for jumps
 	if is_on_floor():
-		if Input.is_action_just_pressed("key_up"):
+		if Input.is_action_just_pressed("key_up") && !isStunned:
 			dotimes[time + latency] = "jump"
 			firstJump = true
 	# Niklas Doublejump
@@ -258,8 +268,8 @@ func _physics_process(delta):
 		#Sprite and anim
 		Asprite.play("Jumping")
 
-	if Input.is_action_just_pressed("Insult"):
-		insult(insults)
+	#if Input.is_action_just_pressed("Insult"):
+	#	insult(insults)
 
 	#Put movement into actual action
 	move_and_slide(motion, UP)
@@ -450,3 +460,7 @@ func do_latency(time):
 
 func _on_Insult_timer_timeout():
 	$Insult_Label.text = ""
+
+#Stun test
+func _on_Button_pressed_STUN():
+	$PlayerSpecificCooldowns/AID_10_StunDuration.start()
