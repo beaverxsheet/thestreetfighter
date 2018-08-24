@@ -46,6 +46,10 @@ var CooldownA5 = float(0)
 var insults
 var errorInsults = ["Error"]
 
+var up_key = ""
+var right_key = ""
+var left_key = ""
+
 onready var CoolLabelA1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1/Label")
 onready var CoolLabelA2 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability2/Label")
 onready var CoolLabelA3 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability3/Label")
@@ -78,7 +82,52 @@ var ab11 = preload("res://Sprites/GUI/Icons/Icon11.png")
 var ab12 = preload("res://Sprites/GUI/Icons/Icon12.png")
 var ab13 = preload("res://Sprites/GUI/Icons/Icon13.png")
 
-onready var chosen_char = AutoloadNode.choose_char
+export var PID = 0
+onready var chosen_char = AutoloadNode.choose_char[PID]
+
+func _ready():
+	if PID == 0:
+		myAbility1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1")
+		myAbility2 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability2")
+		myAbility3 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability3")
+		myAbility4 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability4")
+		myAbility5 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability5")
+		
+		myHP_Label = get_node("../HUD/Row/Player1_Cols/Player1_HP/HP_P1")
+		myHP_Gauge = get_node("../HUD/Row/Player1_Cols/Player1_HP/HPGauge_P1")
+		myINT_Label = get_node("../HUD/Row/Player1_Cols/Player1_INT/INT_P1")
+		myINT_Gauge = get_node("../HUD/Row/Player1_Cols/Player1_INT/INTGauge_P1")
+		
+		CoolLabelA1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1/Label")
+		CoolLabelA2 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability2/Label")
+		CoolLabelA3 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability3/Label")
+		CoolLabelA4 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability4/Label")
+		CoolLabelA5 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability5/Label")
+		
+		up_key = "key_up"
+		right_key = "key_right"
+		left_key = "key_left"
+	else:
+		myAbility1 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability1")
+		myAbility2 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability2")
+		myAbility3 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability3")
+		myAbility4 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability4")
+		myAbility5 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability5")
+		myAbility5 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability5")
+		
+		myHP_Label = get_node("../HUD/Row/Player2_Cols/Player2_HP/HP_Player2")
+		myHP_Gauge = get_node("../HUD/Row/Player2_Cols/Player2_HP/HPGauge_P2")
+		myINT_Label = get_node("../HUD/Row/Player2_Cols/Player2_INT2/INT_Player2")
+		myINT_Gauge = get_node("../HUD/Row/Player2_Cols/Player2_INT2/INTGauge_P2")
+		
+		CoolLabelA1 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability1/Label")
+		CoolLabelA2 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability2/Label")
+		CoolLabelA3 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability3/Label")
+		CoolLabelA4 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability4/Label")
+		
+		up_key = "key_upP2"
+		right_key = "key_rightP2"
+		left_key = "key_leftP2"
 
 #Setting Timer Function, called within the main loop
 func playerDependentCooldowns():
@@ -210,10 +259,10 @@ func _physics_process(delta):
 	Asprite.show()
 	
 	#Horizontal movement: right
-	if Input.is_action_pressed("key_right") && !isStunned:
+	if Input.is_action_pressed(right_key) && !isStunned:
 		dotimes[time + latency] = "right"
 	#Horizontal movement: left
-	elif Input.is_action_pressed("key_left") && !isStunned:
+	elif Input.is_action_pressed(left_key) && !isStunned:
 		dotimes[time + latency] = "left"
 	#If BasicA cooldown timer is on, then the animation should run
 	elif $BasicAttackCooldown.time_left > 0:
@@ -257,7 +306,7 @@ func _physics_process(delta):
 
 	#If on the floor, allow for jumps
 	if is_on_floor():
-		if Input.is_action_just_pressed("key_up") && !isStunned:
+		if Input.is_action_just_pressed(up_key) && !isStunned:
 			dotimes[time + latency] = "jump"
 			firstJump = true
 	# Niklas Doublejump

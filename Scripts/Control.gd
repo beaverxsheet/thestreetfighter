@@ -8,7 +8,8 @@ const WORLD_SCENE = preload("res://Scenes/World.tscn")
 
 #When start button is pressed, set character to selection (from optionbutton) & load scene
 func _on_BeginButton_pressed():
-	AutoloadNode.choose_char = $VBoxContainer/OptionButton.selected
+	AutoloadNode.choose_char[0] = $VBoxContainer/OptionButton.selected
+	AutoloadNode.choose_char[1] = $VBoxContainer/OptionButton2.selected
 	get_tree().change_scene("res://Scenes/World.tscn")
 
 
