@@ -20,6 +20,7 @@ const WINEBOTTLE_SCENE = preload("res://Scenes/WineBottle.tscn")
 const INTEGRAL_SCENE = preload("res://Scenes/MissileAntonIntegrate.tscn")
 const COFFEE_SCENE = preload("res://Scenes/MissileConnorCoffeeSpill.tscn")
 const AID_1_SNEEZE_SCENE = preload("res://Scenes/AID1SneezeScene.tscn")
+const AID_10_HALO_SCENE = preload("res://Scenes/AID10_Halo.tscn")
 
 #Motion var. Altered to represent direction and speed of travel.
 var motion = Vector2()
@@ -391,6 +392,9 @@ func AID_12():
 #AID10, Niklas Primary, Sweet Melody
 func AID_10():
 	get_node("../Enemy").done_AID_10()
+	var halo = AID_10_HALO_SCENE.instance()
+	get_parent().add_child(halo)
+	halo.set_position(get_node("Position2D").global_position)
 
 func load_insults(filename):
 	var outlist = []
