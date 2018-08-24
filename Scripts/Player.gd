@@ -222,9 +222,9 @@ func _physics_process(delta):
 		dotimes[time + latency] = "stop"
 
 	#Ability 1 (Winebottle for now), everyone is eligible
-	if(Input.is_action_just_pressed("Ability1") && ($MissileCooldown.time_left == 0) && !isStunned):
-		dotimes[time + latency] = "ability1"
-		$MissileCooldown.start()
+	#if(Input.is_action_just_pressed("Ability1") && ($MissileCooldown.time_left == 0) && !isStunned):
+	#	dotimes[time + latency] = "ability1"
+	#	$MissileCooldown.start()
 		
 	#AID4, Anton Ultimate, Integral 
 	if(Input.is_action_just_pressed("AbilityUlti") && ($PlayerSpecificCooldowns/AID_4.time_left == 0)
@@ -249,6 +249,12 @@ func _physics_process(delta):
 	&& ($PlayerSpecificCooldowns/AID_12.time_left == 0) && !isStunned):
 		dotimes[time + latency] = "AID_12"
 		$PlayerSpecificCooldowns/AID_12.start()
+		
+	#AID10, Niklas Primary, Sweet Melody
+	if((Input.is_action_just_pressed("Ability1")) && (Asprite == $NiklasSprite)
+	&& ($PlayerSpecificCooldowns/AID_10.time_left == 0) && !isStunned):
+		dotimes[time + latency] = "AID_10"
+		$PlayerSpecificCooldowns/AID_10.start()
 
 	#BASIC ATTACK all. Only if an object is in basic attack range and if the cooldown is 0		
 	if(Input.is_action_just_pressed("Attack") && ($BasicAttackCooldown.time_left == 0) && basic_range && !isStunned):
@@ -382,6 +388,10 @@ func AID_1():
 func AID_12():
 	$PlayerSpecificCooldowns/AID_12_runtime.start()
 
+#AID10, Niklas Primary, Sweet Melody
+func AID_10():
+	get_node("../Enemy").done_AID_10()
+
 func load_insults(filename):
 	var outlist = []
 	var insult_file = File.new()
@@ -455,6 +465,8 @@ func do_latency(time):
 				AID_1()
 			if dotimes[i] == "AID_12":
 				AID_12()
+			if dotimes[i] == "AID_10":
+				AID_10()
 				
 			dotimes.erase(i)
 
