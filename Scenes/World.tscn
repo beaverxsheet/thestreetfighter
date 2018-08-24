@@ -189,7 +189,7 @@ animations = [ {
 "speed": 12.0
 } ]
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=8]
 
 animations = [ {
 "frames": [ ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ) ],
@@ -198,7 +198,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=9]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10.3333, 10 )
@@ -1083,7 +1083,7 @@ animation = "Idle"
 [node name="StunStarSprite" type="AnimatedSprite" parent="Player" index="9"]
 
 position = Vector2( -0.261749, -63.3841 )
-frames = SubResource( 9 )
+frames = SubResource( 8 )
 animation = "spin"
 frame = 3
 
@@ -1406,14 +1406,308 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 67 )
 _sections_unfolded = [ "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" index="0"]
+[node name="PlayerSpecificCooldowns" type="Node" parent="Enemy" index="0"]
+
+editor/display_folded = true
+
+[node name="Anton_4Cooldown" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="Timer" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_0" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="2"]
+
+process_mode = 1
+wait_time = 6.0
+one_shot = true
+autostart = false
+
+[node name="AID_1" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="3"]
+
+process_mode = 1
+wait_time = 20.0
+one_shot = true
+autostart = false
+
+[node name="AID_2" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="4"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[node name="AID_3" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="5"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_4" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="6"]
+
+process_mode = 1
+wait_time = 30.0
+one_shot = true
+autostart = false
+
+[node name="AID_5" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="7"]
+
+process_mode = 1
+wait_time = 6.0
+one_shot = true
+autostart = false
+
+[node name="AID_6" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="8"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+[node name="AID_7" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="9"]
+
+process_mode = 1
+wait_time = 25.0
+one_shot = true
+autostart = false
+
+[node name="AID_7_sixsecs" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="10"]
+
+process_mode = 1
+wait_time = 6.0
+one_shot = true
+autostart = false
+
+[node name="AID_8" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="11"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_9" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="12"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_9_threesecs" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="13"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+[node name="AID_10" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="14"]
+
+process_mode = 1
+wait_time = 8.0
+one_shot = true
+autostart = false
+
+[node name="AID_11" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="15"]
+
+process_mode = 1
+wait_time = 15.0
+one_shot = true
+autostart = false
+
+[node name="AID_12" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="16"]
+
+process_mode = 1
+wait_time = 6.0
+one_shot = true
+autostart = false
+
+[node name="AID_12_runtime" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="17"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="AID_13" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="18"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_14" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="19"]
+
+process_mode = 1
+wait_time = 8.0
+one_shot = true
+autostart = false
+
+[node name="AID_14_05secs" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="20"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
+[node name="AID_14_08channel" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="21"]
+
+process_mode = 1
+wait_time = 0.8
+one_shot = true
+autostart = false
+
+[node name="AID_15" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="22"]
+
+process_mode = 1
+wait_time = 12.0
+one_shot = true
+autostart = false
+
+[node name="AID_15_1sec" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="23"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_15_04channel" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="24"]
+
+process_mode = 1
+wait_time = 0.4
+one_shot = true
+autostart = false
+
+[node name="AID_16" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="25"]
+
+process_mode = 1
+wait_time = 25.0
+one_shot = true
+autostart = false
+
+[node name="AID_17" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="26"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_18" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="27"]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = true
+autostart = false
+
+[node name="AID_18_6secs" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="28"]
+
+process_mode = 1
+wait_time = 6.0
+one_shot = true
+autostart = false
+
+[node name="AID_19" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="29"]
+
+process_mode = 1
+wait_time = 25.0
+one_shot = true
+autostart = false
+
+[node name="AID_20" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="30"]
+
+process_mode = 1
+wait_time = 45.0
+one_shot = true
+autostart = false
+
+[node name="AID_20_tensecs" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="31"]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = false
+autostart = false
+
+[node name="AID_21" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="32"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_22" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="33"]
+
+process_mode = 1
+wait_time = 4.0
+one_shot = true
+autostart = false
+
+[node name="AID_23" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="34"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_24" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="35"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_25" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="36"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_26" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="37"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_27" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="38"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_10_StunDuration" type="Timer" parent="Enemy/PlayerSpecificCooldowns" index="39"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="StunStarSprite" type="AnimatedSprite" parent="Enemy" index="1"]
+
+position = Vector2( 1.0972, -47.8993 )
+frames = SubResource( 8 )
+animation = "spin"
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" index="2"]
 
 position = Vector2( -1, -1 )
 scale = Vector2( 3, 3 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
-[node name="Sprite" type="Sprite" parent="Enemy" index="1"]
+[node name="Sprite" type="Sprite" parent="Enemy" index="3"]
 
 position = Vector2( -0.999969, -0.999985 )
 texture = ExtResource( 68 )
@@ -1539,10 +1833,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 387.0
-margin_top = 144.0
-margin_right = 465.0
-margin_bottom = 164.0
+margin_left = 410.0
+margin_top = 132.0
+margin_right = 488.0
+margin_bottom = 152.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
