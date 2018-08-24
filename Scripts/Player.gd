@@ -78,6 +78,7 @@ var ab10 = preload("res://Sprites/GUI/Icons/Icon10.png")
 var ab11 = preload("res://Sprites/GUI/Icons/Icon11.png")
 var ab12 = preload("res://Sprites/GUI/Icons/Icon12.png")
 var ab13 = preload("res://Sprites/GUI/Icons/Icon13.png")
+var abID_18 = preload("res://Sprites/GUI/Icons/AID_18_logo.png")
 
 onready var chosen_char = AutoloadNode.choose_char
 
@@ -163,12 +164,11 @@ func chooseSprite():
 		$NiklasSprite.hide()
 		$AntonSprite.hide()
 		
-		#:-(
-		#myAbility1.texture = ab188888
-		#myAbility2.texture = ab188888
-		#myAbility3.texture = ab188888
-		#myAbility4.texture = ab188888
-		#myAbility5.texture = ab188888
+		myAbility1.texture = ab2
+		myAbility2.texture = abID_18
+		myAbility3.texture = ab2
+		myAbility4.texture = ab2
+		myAbility5.texture = ab2
 		
 		# insults = load_insults("Ben.txt")
 		return $BenSprite
@@ -256,6 +256,12 @@ func _physics_process(delta):
 	&& ($PlayerSpecificCooldowns/AID_10.time_left == 0) && !isStunned):
 		dotimes[time + latency] = "AID_10"
 		$PlayerSpecificCooldowns/AID_10.start()
+	
+	#AID18, Ben Primary, I Know Programming
+	if(Input.is_action_just_pressed("Ability1") && (Asprite == $BenSprite)
+	&& ($PlayerSpecificCooldowns/AID_18.time_left == 0) && !isStunned):
+		dotimes[time + latency] = "AID_18"
+		$PlayerSpecificCooldowns/AID_18.start()
 
 	#BASIC ATTACK all. Only if an object is in basic attack range and if the cooldown is 0		
 	if(Input.is_action_just_pressed("Attack") && ($BasicAttackCooldown.time_left == 0) && basic_range && !isStunned):
@@ -395,6 +401,10 @@ func AID_10():
 	var halo = AID_10_HALO_SCENE.instance()
 	get_parent().add_child(halo)
 	halo.set_position(get_node("Position2D").global_position)
+	
+#AID18, Ben Primary, I Know Programming
+func AID_18():
+	print("AID_18")
 
 func load_insults(filename):
 	var outlist = []
@@ -471,6 +481,8 @@ func do_latency(time):
 				AID_12()
 			if dotimes[i] == "AID_10":
 				AID_10()
+			if dotimes[i] == "AID_18":
+				AID_18()
 				
 			dotimes.erase(i)
 
