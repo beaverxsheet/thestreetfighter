@@ -10,6 +10,7 @@ onready var myINT_Gauge = get_node("../HUD/Row/Player2_Cols/Player2_INT2/INTGaug
 #Set initial HP
 var current_HP = 10
 var disp_HP = '10'
+var isStunned = false
 
 #latency
 var latency = 0 #in ticks (s/60)
@@ -19,6 +20,14 @@ func _process(delta):
 	if current_HP <= 0:
 		hide()
 		$CollisionShape2D.disabled = true
+	#Effect STUN
+	if $PlayerSpecificCooldowns/AID_10_StunDuration.is_stopped():
+		isStunned = false
+		$StunStarSprite.hide()
+	else:
+		isStunned = true
+		$StunStarSprite.show()
+		$StunStarSprite.play("spin")
 		
 	#Lower latency (natural resistance)
 	if latency > 0:
@@ -42,3 +51,6 @@ func change_HP(variance):
 func change_INT(variance):
 	if latency <= 500:
 		latency = latency + variance
+		
+func done_AID_10():
+	$PlayerSpecificCooldowns/AID_10_StunDuration.start()
