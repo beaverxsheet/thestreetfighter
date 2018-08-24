@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Other/DirtTiles.tres" type="TileSet" id=2]
@@ -11,115 +11,23 @@
 [ext_resource path="res://Sprites/GUI/Icons/Icon02.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scripts/KinematicBody2D.gd" type="Script" id=11]
-[ext_resource path="res://icon.png" type="Texture" id=12]
-[ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=13]
+[ext_resource path="res://Sprites/GUI/StunStars0.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/GUI/StunStars1.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/GUI/StunStars2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/GUI/StunStars3.png" type="Texture" id=15]
+[ext_resource path="res://icon.png" type="Texture" id=16]
+[ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=17]
 
-<<<<<<< HEAD
-[sub_resource type="RectangleShape2D" id=1]
-=======
-custom_solver_bias = 0.0
-extents = Vector2( 13.3122, 31.8019 )
-
-[sub_resource type="CapsuleShape2D" id=3]
-
-custom_solver_bias = 0.0
-radius = 20.0
-height = 20.0
-
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 22 ) ],
-"loop": false,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ) ],
-"loop": true,
-"name": "Jumping",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 24 ), ExtResource( 25 ) ],
-"loop": true,
-"name": "Bicycle",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
-"loop": true,
-"name": "BasicA",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ],
-"loop": true,
-"name": "Walking",
-"speed": 10.0
-} ]
-_sections_unfolded = [ "Resource" ]
-
-[sub_resource type="SpriteFrames" id=5]
-
-animations = [ {
-"frames": [ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 43 ) ],
-"loop": true,
-"name": "Jumping",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
-"loop": true,
-"name": "BasicA",
-"speed": 22.22
-}, {
-"frames": [ ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ],
-"loop": true,
-"name": "Walking",
-"speed": 5.0
-} ]
-
-[sub_resource type="CircleShape2D" id=6]
-
-custom_solver_bias = 0.0
-radius = 79.9148
-
-[sub_resource type="SpriteFrames" id=7]
-
-animations = [ {
-"frames": [ ExtResource( 54 ) ],
-"loop": false,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 55 ) ],
-"loop": true,
-"name": "Jumping",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ) ],
-"loop": true,
-"name": "BasicA",
-"speed": 11.0
-}, {
-"frames": [ ExtResource( 59 ), ExtResource( 60 ), ExtResource( 61 ), ExtResource( 62 ) ],
-"loop": true,
-"name": "Walking",
-"speed": 12.0
-} ]
-
-[sub_resource type="SpriteFrames" id=8]
-
-animations = [ {
-"frames": [ ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "spin",
 "speed": 10.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=9]
->>>>>>> 897c64697b715bf524f06aaeba810b9382867b4c
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10.3333, 10 )
@@ -280,6 +188,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Player1_INT" type="HBoxContainer" parent="HUD/Row/Player1_Cols" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -900,342 +809,18 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="Player" parent="." index="2" instance=ExtResource( 10 )]
 
-position = Vector2( 106.935, 201.179 )
+position = Vector2( 83.4113, 205.589 )
 PID = 0
 
 [node name="Player2" parent="." index="3" instance=ExtResource( 10 )]
 
-position = Vector2( 299.529, 203.384 )
+position = Vector2( 337.754, 201.914 )
 PID = 1
 
 [node name="Enemy" type="KinematicBody2D" parent="." index="4"]
 
-visible = false
-<<<<<<< HEAD
-=======
-frames = SubResource( 7 )
-animation = "Idle"
-
-[node name="StunStarSprite" type="AnimatedSprite" parent="Player" index="9"]
-
-position = Vector2( -0.261749, -63.3841 )
-frames = SubResource( 8 )
-animation = "spin"
-frame = 3
-
-[node name="PlayerSpecificCooldowns" type="Node" parent="Player" index="10"]
-
 editor/display_folded = true
-
-[node name="Anton_4Cooldown" type="Timer" parent="Player/PlayerSpecificCooldowns" index="0"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="Timer" type="Timer" parent="Player/PlayerSpecificCooldowns" index="1"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="AID_0" type="Timer" parent="Player/PlayerSpecificCooldowns" index="2"]
-
-process_mode = 1
-wait_time = 6.0
-one_shot = true
-autostart = false
-
-[node name="AID_1" type="Timer" parent="Player/PlayerSpecificCooldowns" index="3"]
-
-process_mode = 1
-wait_time = 20.0
-one_shot = true
-autostart = false
-
-[node name="AID_2" type="Timer" parent="Player/PlayerSpecificCooldowns" index="4"]
-
-process_mode = 1
-wait_time = 5.0
-one_shot = true
-autostart = false
-
-[node name="AID_3" type="Timer" parent="Player/PlayerSpecificCooldowns" index="5"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="AID_4" type="Timer" parent="Player/PlayerSpecificCooldowns" index="6"]
-
-process_mode = 1
-wait_time = 30.0
-one_shot = true
-autostart = false
-
-[node name="AID_5" type="Timer" parent="Player/PlayerSpecificCooldowns" index="7"]
-
-process_mode = 1
-wait_time = 6.0
-one_shot = true
-autostart = false
-
-[node name="AID_6" type="Timer" parent="Player/PlayerSpecificCooldowns" index="8"]
-
-process_mode = 1
-wait_time = 3.0
-one_shot = true
-autostart = false
-
-[node name="AID_7" type="Timer" parent="Player/PlayerSpecificCooldowns" index="9"]
-
-process_mode = 1
-wait_time = 25.0
-one_shot = true
-autostart = false
-
-[node name="AID_7_sixsecs" type="Timer" parent="Player/PlayerSpecificCooldowns" index="10"]
-
-process_mode = 1
-wait_time = 6.0
-one_shot = true
-autostart = false
-
-[node name="AID_8" type="Timer" parent="Player/PlayerSpecificCooldowns" index="11"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="AID_9" type="Timer" parent="Player/PlayerSpecificCooldowns" index="12"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="AID_9_threesecs" type="Timer" parent="Player/PlayerSpecificCooldowns" index="13"]
-
-process_mode = 1
-wait_time = 3.0
-one_shot = true
-autostart = false
-
-[node name="AID_10" type="Timer" parent="Player/PlayerSpecificCooldowns" index="14"]
-
-process_mode = 1
-wait_time = 8.0
-one_shot = true
-autostart = false
-
-[node name="AID_11" type="Timer" parent="Player/PlayerSpecificCooldowns" index="15"]
-
-process_mode = 1
-wait_time = 15.0
-one_shot = true
-autostart = false
-
-[node name="AID_12" type="Timer" parent="Player/PlayerSpecificCooldowns" index="16"]
-
-process_mode = 1
-wait_time = 6.0
-one_shot = true
-autostart = false
-
-[node name="AID_12_runtime" type="Timer" parent="Player/PlayerSpecificCooldowns" index="17"]
-
-process_mode = 1
-wait_time = 2.0
-one_shot = true
-autostart = false
-
-[node name="AID_13" type="Timer" parent="Player/PlayerSpecificCooldowns" index="18"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="AID_14" type="Timer" parent="Player/PlayerSpecificCooldowns" index="19"]
-
-process_mode = 1
-wait_time = 8.0
-one_shot = true
-autostart = false
-
-[node name="AID_14_05secs" type="Timer" parent="Player/PlayerSpecificCooldowns" index="20"]
-
-process_mode = 1
-wait_time = 0.5
-one_shot = true
-autostart = false
-
-[node name="AID_14_08channel" type="Timer" parent="Player/PlayerSpecificCooldowns" index="21"]
-
-process_mode = 1
-wait_time = 0.8
-one_shot = true
-autostart = false
-
-[node name="AID_15" type="Timer" parent="Player/PlayerSpecificCooldowns" index="22"]
-
-process_mode = 1
-wait_time = 12.0
-one_shot = true
-autostart = false
-
-[node name="AID_15_1sec" type="Timer" parent="Player/PlayerSpecificCooldowns" index="23"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="AID_15_04channel" type="Timer" parent="Player/PlayerSpecificCooldowns" index="24"]
-
-process_mode = 1
-wait_time = 0.4
-one_shot = true
-autostart = false
-
-[node name="AID_16" type="Timer" parent="Player/PlayerSpecificCooldowns" index="25"]
-
-process_mode = 1
-wait_time = 25.0
-one_shot = true
-autostart = false
-
-[node name="AID_17" type="Timer" parent="Player/PlayerSpecificCooldowns" index="26"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="AID_18" type="Timer" parent="Player/PlayerSpecificCooldowns" index="27"]
-
-process_mode = 1
-wait_time = 10.0
-one_shot = true
-autostart = false
-
-[node name="AID_18_6secs" type="Timer" parent="Player/PlayerSpecificCooldowns" index="28"]
-
-process_mode = 1
-wait_time = 6.0
-one_shot = true
-autostart = false
-
-[node name="AID_19" type="Timer" parent="Player/PlayerSpecificCooldowns" index="29"]
-
-process_mode = 1
-wait_time = 25.0
-one_shot = true
-autostart = false
-
-[node name="AID_20" type="Timer" parent="Player/PlayerSpecificCooldowns" index="30"]
-
-process_mode = 1
-wait_time = 45.0
-one_shot = true
-autostart = false
-
-[node name="AID_20_tensecs" type="Timer" parent="Player/PlayerSpecificCooldowns" index="31"]
-
-process_mode = 1
-wait_time = 10.0
-one_shot = false
-autostart = false
-
-[node name="AID_21" type="Timer" parent="Player/PlayerSpecificCooldowns" index="32"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="AID_22" type="Timer" parent="Player/PlayerSpecificCooldowns" index="33"]
-
-process_mode = 1
-wait_time = 4.0
-one_shot = true
-autostart = false
-
-[node name="AID_23" type="Timer" parent="Player/PlayerSpecificCooldowns" index="34"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="AID_24" type="Timer" parent="Player/PlayerSpecificCooldowns" index="35"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="AID_25" type="Timer" parent="Player/PlayerSpecificCooldowns" index="36"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="AID_26" type="Timer" parent="Player/PlayerSpecificCooldowns" index="37"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="AID_27" type="Timer" parent="Player/PlayerSpecificCooldowns" index="38"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="AID_10_StunDuration" type="Timer" parent="Player/PlayerSpecificCooldowns" index="39"]
-
-process_mode = 1
-wait_time = 2.0
-one_shot = true
-autostart = false
-
-[node name="Insult_Label" type="Label" parent="Player" index="11"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 14.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="Insult_timer" type="Timer" parent="Player" index="12"]
-
-process_mode = 1
-wait_time = 3.0
-one_shot = true
-autostart = false
-
-[node name="Enemy" type="KinematicBody2D" parent="." index="3"]
-
->>>>>>> 897c64697b715bf524f06aaeba810b9382867b4c
+visible = false
 position = Vector2( 460, 220 )
 input_pickable = false
 collision_layer = 1
@@ -1534,7 +1119,7 @@ autostart = false
 [node name="StunStarSprite" type="AnimatedSprite" parent="Enemy" index="1"]
 
 position = Vector2( 1.0972, -47.8993 )
-frames = SubResource( 8 )
+frames = SubResource( 1 )
 animation = "spin"
 frame = 3
 
@@ -1542,16 +1127,12 @@ frame = 3
 
 position = Vector2( -1, -1 )
 scale = Vector2( 3, 3 )
-<<<<<<< HEAD
-shape = SubResource( 1 )
-=======
-shape = SubResource( 9 )
->>>>>>> 897c64697b715bf524f06aaeba810b9382867b4c
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Enemy" index="3"]
 
 position = Vector2( -0.999969, -0.999985 )
-texture = ExtResource( 12 )
+texture = ExtResource( 16 )
 
 [node name="PauseMenu" type="PopupPanel" parent="." index="5"]
 
@@ -1571,7 +1152,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
-script = ExtResource( 13 )
+script = ExtResource( 17 )
 _sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu" index="0"]
