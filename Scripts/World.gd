@@ -7,7 +7,7 @@ func _process(delta):
 		get_node("PauseMenu").popup()
 		get_node("PauseMenu/VBoxContainer/Label").text = "Paused !!1!"
 		get_node("PauseMenu/VBoxContainer/Continue").show()
-	if get_node("Enemy").current_HP <= 0:
+	if get_node("Player").current_HP <= 0 or  get_node("Player2").current_HP <= 0:
 		get_tree().paused = true
 		get_node("PauseMenu").popup()
 		get_node("PauseMenu/VBoxContainer/Label").text = "You Win !!1!"

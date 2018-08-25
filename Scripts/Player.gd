@@ -13,7 +13,7 @@ const UP = Vector2(0, -1)
 const GRAV = 20
 const SPEED = 200
 const JUMP_HEIGHT = -450
-const hit_ID = 1
+var hit_ID = 1
 
 #Import Winebottle missile
 const WINEBOTTLE_SCENE = preload("res://Scenes/WineBottle.tscn")
@@ -49,6 +49,10 @@ var errorInsults = ["Error"]
 var up_key = ""
 var right_key = ""
 var left_key = ""
+var AB_1_key = ""
+var AB_2_key = ""
+var At_key = ""
+var Ulti_key = ""
 
 onready var CoolLabelA1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1/Label")
 onready var CoolLabelA2 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability2/Label")
@@ -107,6 +111,12 @@ func _ready():
 		up_key = "key_up"
 		right_key = "key_right"
 		left_key = "key_left"
+		At_key = "Attack"
+		AB_1_key = "Ability1"
+		AB_2_key = "Ability2"
+		Ulti_key = "AbilityUlti"
+		hit_ID = 1
+		#print(hit_ID)
 	else:
 		myAbility1 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability1")
 		myAbility2 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability2")
@@ -128,6 +138,11 @@ func _ready():
 		up_key = "key_upP2"
 		right_key = "key_rightP2"
 		left_key = "key_leftP2"
+		At_key = "AttackP2"
+		AB_1_key = "Ability1P2"
+		AB_2_key = "Ability2P2"
+		Ulti_key = "AbilityUltiP2"
+		hit_ID = 2
 
 #Setting Timer Function, called within the main loop
 func playerDependentCooldowns():
@@ -276,37 +291,37 @@ func _physics_process(delta):
 	#	$MissileCooldown.start()
 		
 	#AID4, Anton Ultimate, Integral 
-	if(Input.is_action_just_pressed("AbilityUlti") && ($PlayerSpecificCooldowns/AID_4.time_left == 0)
+	if(Input.is_action_just_pressed(Ulti_key) && ($PlayerSpecificCooldowns/AID_4.time_left == 0)
 	&& (Asprite == $AntonSprite) && !isStunned):
 		dotimes[time + latency] = "AID_4"
 		$PlayerSpecificCooldowns/AID_4.start()
 
 	#AID0, Connor Primary, Coffeespill
-	if(Input.is_action_just_pressed("Ability1") && ($PlayerSpecificCooldowns/AID_0.time_left == 0)
+	if(Input.is_action_just_pressed(AB_1_key) && ($PlayerSpecificCooldowns/AID_0.time_left == 0)
 	&& (Asprite == $ConnorSprite) && !isStunned):
 		dotimes[time + latency] = "AID_0"
 		$PlayerSpecificCooldowns/AID_0.start()
 
 	#AID1, Connor Ultimate, Manly Sneeze
-	if(Input.is_action_just_pressed("AbilityUlti") && (Asprite == $ConnorSprite) &&
+	if(Input.is_action_just_pressed(Ulti_key) && (Asprite == $ConnorSprite) &&
 	($PlayerSpecificCooldowns/AID_1.time_left == 0) && !isStunned):
 		dotimes[time + latency] = "AID_1"
 		$PlayerSpecificCooldowns/AID_1.start()
 		
 	#AID12, Niklas Secondary, E-Bike
-	if((Input.is_action_just_pressed("Ability2")) && (Asprite == $NiklasSprite)
+	if((Input.is_action_just_pressed(AB_2_key)) && (Asprite == $NiklasSprite)
 	&& ($PlayerSpecificCooldowns/AID_12.time_left == 0) && !isStunned):
 		dotimes[time + latency] = "AID_12"
 		$PlayerSpecificCooldowns/AID_12.start()
 		
 	#AID10, Niklas Primary, Sweet Melody
-	if((Input.is_action_just_pressed("Ability1")) && (Asprite == $NiklasSprite)
+	if((Input.is_action_just_pressed(AB_1_key)) && (Asprite == $NiklasSprite)
 	&& ($PlayerSpecificCooldowns/AID_10.time_left == 0) && !isStunned):
 		dotimes[time + latency] = "AID_10"
 		$PlayerSpecificCooldowns/AID_10.start()
 
 	#BASIC ATTACK all. Only if an object is in basic attack range and if the cooldown is 0		
-	if(Input.is_action_just_pressed("Attack") && ($BasicAttackCooldown.time_left == 0) && basic_range && !isStunned):
+	if(Input.is_action_just_pressed(At_key) && ($BasicAttackCooldown.time_left == 0) && basic_range && !isStunned):
 		dotimes[time + latency] = "attack"
 		$BasicAttackCooldown.start()
 
@@ -316,7 +331,7 @@ func _physics_process(delta):
 			dotimes[time + latency] = "jump"
 			firstJump = true
 	# Niklas Doublejump
-	elif((Asprite == $NiklasSprite) && firstJump && Input.is_action_just_pressed("key_up")):
+	elif((Asprite == $NiklasSprite) && firstJump && Input.is_action_just_pressed(up_key)):
 		firstJump = false
 		dotimes[time + latency] = "jump"
 	else:
@@ -379,9 +394,10 @@ func create_Integral():
 
 #AID0, Connor Primary, Coffee Spill
 func create_ConnorCoffeeSpill():
+	print("HO:"+str(hit_ID))
 	var coffee = COFFEE_SCENE.instance()
 	get_parent().add_child(coffee)
-	coffee.hit_ID = hit_ID
+	coffee.hit_IDE = hit_ID
 	coffee.set_position($Position2D.global_position)
 	if looks_right:
 		coffee.flyright = true
@@ -525,3 +541,6 @@ func _on_Insult_timer_timeout():
 #Stun test
 func _on_Button_pressed_STUN():
 	$PlayerSpecificCooldowns/AID_10_StunDuration.start()
+	
+func change_HP(variance):
+	current_HP = current_HP + variance
