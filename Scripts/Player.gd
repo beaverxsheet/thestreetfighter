@@ -79,6 +79,7 @@ var ab11 = preload("res://Sprites/GUI/Icons/Icon11.png")
 var ab12 = preload("res://Sprites/GUI/Icons/Icon12.png")
 var ab13 = preload("res://Sprites/GUI/Icons/Icon13.png")
 var abID_18 = preload("res://Sprites/GUI/Icons/AID_18_logo.png")
+var abID_20 = preload("res://Sprites/GUI/Icons/AID20_Icon.png")
 
 onready var chosen_char = AutoloadNode.choose_char
 
@@ -167,7 +168,7 @@ func chooseSprite():
 		myAbility1.texture = ab2
 		myAbility2.texture = abID_18
 		myAbility3.texture = ab2
-		myAbility4.texture = ab2
+		myAbility4.texture = abID_20
 		myAbility5.texture = ab2
 		
 		# insults = load_insults("Ben.txt")
