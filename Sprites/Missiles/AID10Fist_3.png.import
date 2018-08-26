@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/AbilityRim.png-88731bea02c2b3471f0ed2c515e51470.stex"
+path="res://.import/AID10Fist_3.png-387c39d9a50007046f9e477c334e7bea.stex"
 
 [deps]
 
-source_file="res://Sprites/GUI/AbilityRim.png"
-dest_files=[ "res://.import/AbilityRim.png-88731bea02c2b3471f0ed2c515e51470.stex" ]
+source_file="res://Sprites/Missiles/AID10Fist_3.png"
+dest_files=[ "res://.import/AID10Fist_3.png-387c39d9a50007046f9e477c334e7bea.stex" ]
 
 [params]
 
