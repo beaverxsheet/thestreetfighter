@@ -12,6 +12,7 @@ config_version=3
 
 config/name="StreetFighter2"
 run/main_scene="res://Scenes/Control.tscn"
+boot_splash/image="res://Sprites/GUI/MenuStuff/Loadscreen.png"
 config/icon="res://icon.png"
 
 [autoload]
