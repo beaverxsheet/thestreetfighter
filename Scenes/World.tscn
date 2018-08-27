@@ -12,7 +12,7 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=11]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]

@@ -21,6 +21,8 @@ const INTEGRAL_SCENE = preload("res://Scenes/MissileAntonIntegrate.tscn")
 const COFFEE_SCENE = preload("res://Scenes/MissileConnorCoffeeSpill.tscn")
 const AID_1_SNEEZE_SCENE = preload("res://Scenes/AID1SneezeScene.tscn")
 const AID_10_HALO_SCENE = preload("res://Scenes/AID10_Halo.tscn")
+const AID_18_ZERO_SCENE = preload("res://Scenes/AID18_Zero.tscn")
+const AID_18_ONE_SCENE = preload("res://Scenes/AID18_One.tscn")
 
 #Motion var. Altered to represent direction and speed of travel.
 var motion = Vector2()
@@ -495,7 +497,22 @@ func done_AID_10():
 	
 #AID18, Ben Primary, I Know Programming
 func AID_18():
-	print("AID_18")
+	randomize()
+	var childnums_z = []
+	for i in range(0, 8):
+		var xloc = int(rand_range(0, 512))
+		childnums_z.append(AID_18_ZERO_SCENE.instance())
+		get_parent().add_child(childnums_z[i])
+		childnums_z[i].hit_ID = hit_ID
+		childnums_z[i].set_position(Vector2(xloc,50))
+	randomize()
+	var childnums_o = []
+	for i in range(0, 6):
+		var xloc = int(rand_range(0, 512))
+		childnums_o.append(AID_18_ONE_SCENE.instance())
+		get_parent().add_child(childnums_o[i])
+		childnums_o[i].hit_ID = hit_ID
+		childnums_o[i].set_position(Vector2(xloc,50))
 
 func load_insults(filename):
 	var outlist = []
