@@ -12,8 +12,8 @@ var tbf = 0 #time before
 const UP = Vector2(0, -1)
 const GRAV = 20
 const SPEED = 200
-const JUMP_HEIGHT = -450
-const hit_ID = 1
+const JUMP_HEIGHT = -500
+var hit_ID = 1
 
 #Import Winebottle missile
 const WINEBOTTLE_SCENE = preload("res://Scenes/WineBottle.tscn")
@@ -47,6 +47,14 @@ var CooldownA5 = float(0)
 var insults
 var errorInsults = ["Error"]
 
+var up_key = ""
+var right_key = ""
+var left_key = ""
+var AB_1_key = ""
+var AB_2_key = ""
+var At_key = ""
+var Ulti_key = ""
+
 onready var CoolLabelA1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1/Label")
 onready var CoolLabelA2 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability2/Label")
 onready var CoolLabelA3 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability3/Label")
@@ -78,8 +86,72 @@ var ab10 = preload("res://Sprites/GUI/Icons/Icon10.png")
 var ab11 = preload("res://Sprites/GUI/Icons/Icon11.png")
 var ab12 = preload("res://Sprites/GUI/Icons/Icon12.png")
 var ab13 = preload("res://Sprites/GUI/Icons/Icon13.png")
+var abID_18 = preload("res://Sprites/GUI/Icons/AID_18_logo.png")
+var abID_20 = preload("res://Sprites/GUI/Icons/AID20_Icon.png")
 
-onready var chosen_char = AutoloadNode.choose_char
+export var PID = 0
+onready var chosen_char = AutoloadNode.choose_char[PID]
+
+var enemy
+
+func _ready():
+	if PID == 0:
+		myAbility1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1")
+		myAbility2 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability2")
+		myAbility3 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability3")
+		myAbility4 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability4")
+		myAbility5 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability5")
+		
+		myHP_Label = get_node("../HUD/Row/Player1_Cols/Player1_HP/HP_P1")
+		myHP_Gauge = get_node("../HUD/Row/Player1_Cols/Player1_HP/HPGauge_P1")
+		myINT_Label = get_node("../HUD/Row/Player1_Cols/Player1_INT/INT_P1")
+		myINT_Gauge = get_node("../HUD/Row/Player1_Cols/Player1_INT/INTGauge_P1")
+		
+		CoolLabelA1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1/Label")
+		CoolLabelA2 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability2/Label")
+		CoolLabelA3 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability3/Label")
+		CoolLabelA4 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability4/Label")
+		CoolLabelA5 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability5/Label")
+		
+		up_key = "key_up"
+		right_key = "key_right"
+		left_key = "key_left"
+		At_key = "Attack"
+		AB_1_key = "Ability1"
+		AB_2_key = "Ability2"
+		Ulti_key = "AbilityUlti"
+		hit_ID = 1
+		
+		enemy = get_node("../Player2")
+		#print(hit_ID)
+	else:
+		myAbility1 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability1")
+		myAbility2 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability2")
+		myAbility3 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability3")
+		myAbility4 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability4")
+		myAbility5 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability5")
+		myAbility5 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability5")
+		
+		myHP_Label = get_node("../HUD/Row/Player2_Cols/Player2_HP/HP_Player2")
+		myHP_Gauge = get_node("../HUD/Row/Player2_Cols/Player2_HP/HPGauge_P2")
+		myINT_Label = get_node("../HUD/Row/Player2_Cols/Player2_INT2/INT_Player2")
+		myINT_Gauge = get_node("../HUD/Row/Player2_Cols/Player2_INT2/INTGauge_P2")
+		
+		CoolLabelA1 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability1/Label")
+		CoolLabelA2 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability2/Label")
+		CoolLabelA3 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability3/Label")
+		CoolLabelA4 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability4/Label")
+		
+		up_key = "key_upP2"
+		right_key = "key_rightP2"
+		left_key = "key_leftP2"
+		At_key = "AttackP2"
+		AB_1_key = "Ability1P2"
+		AB_2_key = "Ability2P2"
+		Ulti_key = "AbilityUltiP2"
+		hit_ID = 2
+		
+		enemy = get_node("../Player")
 
 #Setting Timer Function, called within the main loop
 func playerDependentCooldowns():
@@ -163,12 +235,11 @@ func chooseSprite():
 		$NiklasSprite.hide()
 		$AntonSprite.hide()
 		
-		#:-(
-		#myAbility1.texture = ab188888
-		#myAbility2.texture = ab188888
-		#myAbility3.texture = ab188888
-		#myAbility4.texture = ab188888
-		#myAbility5.texture = ab188888
+		myAbility1.texture = ab2
+		myAbility2.texture = abID_18
+		myAbility3.texture = ab2
+		myAbility4.texture = abID_20
+		myAbility5.texture = ab2
 		
 		# insults = load_insults("Ben.txt")
 		return $BenSprite
@@ -211,10 +282,10 @@ func _physics_process(delta):
 	Asprite.show()
 	
 	#Horizontal movement: right
-	if Input.is_action_pressed("key_right") && !isStunned:
+	if Input.is_action_pressed(right_key) && !isStunned:
 		dotimes[time + latency] = "right"
 	#Horizontal movement: left
-	elif Input.is_action_pressed("key_left") && !isStunned:
+	elif Input.is_action_pressed(left_key) && !isStunned:
 		dotimes[time + latency] = "left"
 	#If BasicA cooldown timer is on, then the animation should run
 	elif $BasicAttackCooldown.time_left > 0:
@@ -226,49 +297,56 @@ func _physics_process(delta):
 	#if(Input.is_action_just_pressed("Ability1") && ($MissileCooldown.time_left == 0) && !isStunned):
 	#	dotimes[time + latency] = "ability1"
 	#	$MissileCooldown.start()
-		
+	
+	
 	#AID4, Anton Ultimate, Integral 
-	if(Input.is_action_just_pressed("AbilityUlti") && ($PlayerSpecificCooldowns/AID_4.time_left == 0)
+	if(Input.is_action_just_pressed(Ulti_key) && ($PlayerSpecificCooldowns/AID_4.time_left == 0)
 	&& (Asprite == $AntonSprite) && !isStunned):
 		dotimes[time + latency] = "AID_4"
 		$PlayerSpecificCooldowns/AID_4.start()
 
 	#AID0, Connor Primary, Coffeespill
-	if(Input.is_action_just_pressed("Ability1") && ($PlayerSpecificCooldowns/AID_0.time_left == 0)
+	if(Input.is_action_just_pressed(AB_1_key) && ($PlayerSpecificCooldowns/AID_0.time_left == 0)
 	&& (Asprite == $ConnorSprite) && !isStunned):
 		dotimes[time + latency] = "AID_0"
 		$PlayerSpecificCooldowns/AID_0.start()
 
 	#AID1, Connor Ultimate, Manly Sneeze
-	if(Input.is_action_just_pressed("AbilityUlti") && (Asprite == $ConnorSprite) &&
+	if(Input.is_action_just_pressed(Ulti_key) && (Asprite == $ConnorSprite) &&
 	($PlayerSpecificCooldowns/AID_1.time_left == 0) && !isStunned):
 		dotimes[time + latency] = "AID_1"
 		$PlayerSpecificCooldowns/AID_1.start()
 		
 	#AID12, Niklas Secondary, E-Bike
-	if((Input.is_action_just_pressed("Ability2")) && (Asprite == $NiklasSprite)
+	if((Input.is_action_just_pressed(AB_2_key)) && (Asprite == $NiklasSprite)
 	&& ($PlayerSpecificCooldowns/AID_12.time_left == 0) && !isStunned):
 		dotimes[time + latency] = "AID_12"
 		$PlayerSpecificCooldowns/AID_12.start()
 		
 	#AID10, Niklas Primary, Sweet Melody
-	if((Input.is_action_just_pressed("Ability1")) && (Asprite == $NiklasSprite)
+	if((Input.is_action_just_pressed(AB_1_key)) && (Asprite == $NiklasSprite)
 	&& ($PlayerSpecificCooldowns/AID_10.time_left == 0) && !isStunned):
 		dotimes[time + latency] = "AID_10"
 		$PlayerSpecificCooldowns/AID_10.start()
+	
+	#AID18, Ben Primary, I Know Programming
+	if(Input.is_action_just_pressed("Ability1") && (Asprite == $BenSprite)
+	&& ($PlayerSpecificCooldowns/AID_18.time_left == 0) && !isStunned):
+		dotimes[time + latency] = "AID_18"
+		$PlayerSpecificCooldowns/AID_18.start()
 
 	#BASIC ATTACK all. Only if an object is in basic attack range and if the cooldown is 0		
-	if(Input.is_action_just_pressed("Attack") && ($BasicAttackCooldown.time_left == 0) && basic_range && !isStunned):
+	if(Input.is_action_just_pressed(At_key) && ($BasicAttackCooldown.time_left == 0) && basic_range && !isStunned):
 		dotimes[time + latency] = "attack"
 		$BasicAttackCooldown.start()
 
 	#If on the floor, allow for jumps
 	if is_on_floor():
-		if Input.is_action_just_pressed("key_up") && !isStunned:
+		if Input.is_action_just_pressed(up_key) && !isStunned:
 			dotimes[time + latency] = "jump"
 			firstJump = true
 	# Niklas Doublejump
-	elif((Asprite == $NiklasSprite) && firstJump && Input.is_action_just_pressed("key_up")):
+	elif((Asprite == $NiklasSprite) && firstJump && Input.is_action_just_pressed(up_key)):
 		firstJump = false
 		dotimes[time + latency] = "jump"
 	else:
@@ -304,6 +382,14 @@ func _physics_process(delta):
 	#myAbility4.shader.set("shader_param/opac", abs(1 - CooldownA4))
 	#myAbility5.shader.set("shader_param/opac", abs(1 - CooldownA5))
 	
+	if $PlayerSpecificCooldowns/AID_10_StunDuration.is_stopped():
+		isStunned = false
+		$StunStarSprite.hide()
+	else:
+		isStunned = true
+		$StunStarSprite.show()
+		$StunStarSprite.play("spin")
+	
 #Create Winebottle to throw
 func create_WineBottle():
 	#Instance the winebottle
@@ -331,9 +417,10 @@ func create_Integral():
 
 #AID0, Connor Primary, Coffee Spill
 func create_ConnorCoffeeSpill():
+	print("HO:"+str(hit_ID))
 	var coffee = COFFEE_SCENE.instance()
 	get_parent().add_child(coffee)
-	coffee.hit_ID = hit_ID
+	coffee.hit_IDE = hit_ID
 	coffee.set_position($Position2D.global_position)
 	if looks_right:
 		coffee.flyright = true
@@ -391,10 +478,18 @@ func AID_12():
 
 #AID10, Niklas Primary, Sweet Melody
 func AID_10():
+	enemy.done_AID_10()
+
+func done_AID_10():
+	$PlayerSpecificCooldowns/AID_10_StunDuration.start()
 	get_node("../Enemy").done_AID_10()
 	var halo = AID_10_HALO_SCENE.instance()
 	get_parent().add_child(halo)
 	halo.set_position(get_node("Position2D").global_position)
+	
+#AID18, Ben Primary, I Know Programming
+func AID_18():
+	print("AID_18")
 
 func load_insults(filename):
 	var outlist = []
@@ -471,6 +566,8 @@ func do_latency(time):
 				AID_12()
 			if dotimes[i] == "AID_10":
 				AID_10()
+			if dotimes[i] == "AID_18":
+				AID_18()
 				
 			dotimes.erase(i)
 
@@ -480,3 +577,6 @@ func _on_Insult_timer_timeout():
 #Stun test
 func _on_Button_pressed_STUN():
 	$PlayerSpecificCooldowns/AID_10_StunDuration.start()
+	
+func change_HP(variance):
+	current_HP = current_HP + variance

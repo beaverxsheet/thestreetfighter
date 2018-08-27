@@ -1,0 +1,340 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/KinematicBody2D.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/GUI/StunStars0.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/GUI/StunStars1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/GUI/StunStars2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/GUI/StunStars3.png" type="Texture" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "spin",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10.3333, 10 )
+
+[node name="Enemy" type="KinematicBody2D" index="0"]
+
+editor/display_folded = true
+position = Vector2( 460, 220 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "collision" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PlayerSpecificCooldowns" type="Node" parent="." index="0"]
+
+editor/display_folded = true
+
+[node name="Anton_4Cooldown" type="Timer" parent="PlayerSpecificCooldowns" index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="Timer" type="Timer" parent="PlayerSpecificCooldowns" index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_0" type="Timer" parent="PlayerSpecificCooldowns" index="2"]
+
+process_mode = 1
+wait_time = 6.0
+one_shot = true
+autostart = false
+
+[node name="AID_1" type="Timer" parent="PlayerSpecificCooldowns" index="3"]
+
+process_mode = 1
+wait_time = 20.0
+one_shot = true
+autostart = false
+
+[node name="AID_2" type="Timer" parent="PlayerSpecificCooldowns" index="4"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[node name="AID_3" type="Timer" parent="PlayerSpecificCooldowns" index="5"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_4" type="Timer" parent="PlayerSpecificCooldowns" index="6"]
+
+process_mode = 1
+wait_time = 30.0
+one_shot = true
+autostart = false
+
+[node name="AID_5" type="Timer" parent="PlayerSpecificCooldowns" index="7"]
+
+process_mode = 1
+wait_time = 6.0
+one_shot = true
+autostart = false
+
+[node name="AID_6" type="Timer" parent="PlayerSpecificCooldowns" index="8"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+[node name="AID_7" type="Timer" parent="PlayerSpecificCooldowns" index="9"]
+
+process_mode = 1
+wait_time = 25.0
+one_shot = true
+autostart = false
+
+[node name="AID_7_sixsecs" type="Timer" parent="PlayerSpecificCooldowns" index="10"]
+
+process_mode = 1
+wait_time = 6.0
+one_shot = true
+autostart = false
+
+[node name="AID_8" type="Timer" parent="PlayerSpecificCooldowns" index="11"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_9" type="Timer" parent="PlayerSpecificCooldowns" index="12"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_9_threesecs" type="Timer" parent="PlayerSpecificCooldowns" index="13"]
+
+process_mode = 1
+wait_time = 3.0
+one_shot = true
+autostart = false
+
+[node name="AID_10" type="Timer" parent="PlayerSpecificCooldowns" index="14"]
+
+process_mode = 1
+wait_time = 8.0
+one_shot = true
+autostart = false
+
+[node name="AID_11" type="Timer" parent="PlayerSpecificCooldowns" index="15"]
+
+process_mode = 1
+wait_time = 15.0
+one_shot = true
+autostart = false
+
+[node name="AID_12" type="Timer" parent="PlayerSpecificCooldowns" index="16"]
+
+process_mode = 1
+wait_time = 6.0
+one_shot = true
+autostart = false
+
+[node name="AID_12_runtime" type="Timer" parent="PlayerSpecificCooldowns" index="17"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="AID_13" type="Timer" parent="PlayerSpecificCooldowns" index="18"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_14" type="Timer" parent="PlayerSpecificCooldowns" index="19"]
+
+process_mode = 1
+wait_time = 8.0
+one_shot = true
+autostart = false
+
+[node name="AID_14_05secs" type="Timer" parent="PlayerSpecificCooldowns" index="20"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
+[node name="AID_14_08channel" type="Timer" parent="PlayerSpecificCooldowns" index="21"]
+
+process_mode = 1
+wait_time = 0.8
+one_shot = true
+autostart = false
+
+[node name="AID_15" type="Timer" parent="PlayerSpecificCooldowns" index="22"]
+
+process_mode = 1
+wait_time = 12.0
+one_shot = true
+autostart = false
+
+[node name="AID_15_1sec" type="Timer" parent="PlayerSpecificCooldowns" index="23"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_15_04channel" type="Timer" parent="PlayerSpecificCooldowns" index="24"]
+
+process_mode = 1
+wait_time = 0.4
+one_shot = true
+autostart = false
+
+[node name="AID_16" type="Timer" parent="PlayerSpecificCooldowns" index="25"]
+
+process_mode = 1
+wait_time = 25.0
+one_shot = true
+autostart = false
+
+[node name="AID_17" type="Timer" parent="PlayerSpecificCooldowns" index="26"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_18" type="Timer" parent="PlayerSpecificCooldowns" index="27"]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = true
+autostart = false
+
+[node name="AID_18_6secs" type="Timer" parent="PlayerSpecificCooldowns" index="28"]
+
+process_mode = 1
+wait_time = 6.0
+one_shot = true
+autostart = false
+
+[node name="AID_19" type="Timer" parent="PlayerSpecificCooldowns" index="29"]
+
+process_mode = 1
+wait_time = 25.0
+one_shot = true
+autostart = false
+
+[node name="AID_20" type="Timer" parent="PlayerSpecificCooldowns" index="30"]
+
+process_mode = 1
+wait_time = 45.0
+one_shot = true
+autostart = false
+
+[node name="AID_20_tensecs" type="Timer" parent="PlayerSpecificCooldowns" index="31"]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = false
+autostart = false
+
+[node name="AID_21" type="Timer" parent="PlayerSpecificCooldowns" index="32"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_22" type="Timer" parent="PlayerSpecificCooldowns" index="33"]
+
+process_mode = 1
+wait_time = 4.0
+one_shot = true
+autostart = false
+
+[node name="AID_23" type="Timer" parent="PlayerSpecificCooldowns" index="34"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_24" type="Timer" parent="PlayerSpecificCooldowns" index="35"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_25" type="Timer" parent="PlayerSpecificCooldowns" index="36"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_26" type="Timer" parent="PlayerSpecificCooldowns" index="37"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_27" type="Timer" parent="PlayerSpecificCooldowns" index="38"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_10_StunDuration" type="Timer" parent="PlayerSpecificCooldowns" index="39"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="StunStarSprite" type="AnimatedSprite" parent="." index="1"]
+
+position = Vector2( 1.0972, -47.8993 )
+frames = SubResource( 1 )
+animation = "spin"
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+
+position = Vector2( -1, -1 )
+scale = Vector2( 3, 3 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="." index="3"]
+
+position = Vector2( -0.999969, -0.999985 )
+texture = ExtResource( 6 )
+
+

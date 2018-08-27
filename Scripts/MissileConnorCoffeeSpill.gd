@@ -1,6 +1,6 @@
 extends Area2D
 
-var hit_ID = null
+var hit_IDE = null
 var flyright = true
 
 var protected_hit_ID = [1000]
@@ -21,6 +21,7 @@ func _ready():
 	$AnimatedSprite.play("spilling")
 
 
+
 func _on_Timer_timeout():
 	queue_free()
 
@@ -28,8 +29,10 @@ func _physics_process(delta):
 	pos = self.position.x
 
 func _on_CoffeeSpill_body_entered(body):
+	print(body.hit_ID)
+	print("H:" + str(hit_IDE))
 	#If hits parent or protected item, do nothing
-	if body.hit_ID == hit_ID or body.hit_ID in protected_hit_ID:
+	if body.hit_ID == hit_IDE or body.hit_ID in protected_hit_ID:
 		pass
 	#Reduce hittable objects HP
 	else:
