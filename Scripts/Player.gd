@@ -93,6 +93,7 @@ export var PID = 0
 onready var chosen_char = AutoloadNode.choose_char[PID]
 
 var enemy
+var p_name
 
 func _ready():
 	if PID == 0:
@@ -204,6 +205,7 @@ func chooseSprite():
 		myAbility4.texture = ab1
 		myAbility5.texture = ab8
 		
+		p_name = "Conner"
 		# insults = load_insults("Connor.txt")
 		return $ConnorSprite
 	elif chosen_char == 1:
@@ -217,6 +219,7 @@ func chooseSprite():
 		myAbility4.texture = ab7
 		myAbility5.texture = ab13
 		
+		p_name = "Niklas"
 		# insults = load_insults("Niklas.txt")
 		return $NiklasSprite
 	elif chosen_char == 2:
@@ -229,6 +232,8 @@ func chooseSprite():
 		myAbility3.texture = ab6
 		myAbility4.texture = ab4
 		myAbility5.texture = ab9
+		
+		p_name = "Anton"
 		return $AntonSprite
 	elif chosen_char == 3:
 		$ConnorSprite.hide()
@@ -241,6 +246,7 @@ func chooseSprite():
 		myAbility4.texture = abID_20
 		myAbility5.texture = ab2
 		
+		p_name
 		# insults = load_insults("Ben.txt")
 		return $BenSprite
 
@@ -482,7 +488,7 @@ func AID_10():
 
 func done_AID_10():
 	$PlayerSpecificCooldowns/AID_10_StunDuration.start()
-	get_node("../Enemy").done_AID_10()
+	#get_node("../Enemy").done_AID_10()
 	var halo = AID_10_HALO_SCENE.instance()
 	get_parent().add_child(halo)
 	halo.set_position(get_node("Position2D").global_position)
