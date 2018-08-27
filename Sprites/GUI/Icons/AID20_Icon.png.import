@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/AbilityRim.png-88731bea02c2b3471f0ed2c515e51470.stex"
+path="res://.import/AID20_Icon.png-6c7681fd43f341eeb50352c35b74123a.stex"
 
 [deps]
 
-source_file="res://Sprites/GUI/AbilityRim.png"
-dest_files=[ "res://.import/AbilityRim.png-88731bea02c2b3471f0ed2c515e51470.stex" ]
+source_file="res://Sprites/GUI/Icons/AID20_Icon.png"
+dest_files=[ "res://.import/AID20_Icon.png-6c7681fd43f341eeb50352c35b74123a.stex" ]
 
 [params]
 
