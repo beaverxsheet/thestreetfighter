@@ -338,7 +338,7 @@ func _physics_process(delta):
 		$PlayerSpecificCooldowns/AID_10.start()
 	
 	#AID18, Ben Primary, I Know Programming
-	if(Input.is_action_just_pressed("Ability1") && (Asprite == $BenSprite)
+	if(Input.is_action_just_pressed(AB_1_key) && (Asprite == $BenSprite)
 	&& ($PlayerSpecificCooldowns/AID_18.time_left == 0) && !isStunned):
 		dotimes[time + latency] = "AID_18"
 		$PlayerSpecificCooldowns/AID_18.start()
