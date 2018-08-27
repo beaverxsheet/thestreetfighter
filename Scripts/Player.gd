@@ -12,7 +12,7 @@ var tbf = 0 #time before
 const UP = Vector2(0, -1)
 const GRAV = 20
 const SPEED = 200
-const JUMP_HEIGHT = -450
+const JUMP_HEIGHT = -500
 var hit_ID = 1
 
 #Import Winebottle missile
@@ -89,6 +89,8 @@ var ab13 = preload("res://Sprites/GUI/Icons/Icon13.png")
 export var PID = 0
 onready var chosen_char = AutoloadNode.choose_char[PID]
 
+var enemy
+
 func _ready():
 	if PID == 0:
 		myAbility1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1")
@@ -116,6 +118,8 @@ func _ready():
 		AB_2_key = "Ability2"
 		Ulti_key = "AbilityUlti"
 		hit_ID = 1
+		
+		enemy = get_node("../Player2")
 		#print(hit_ID)
 	else:
 		myAbility1 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability1")
@@ -143,6 +147,8 @@ func _ready():
 		AB_2_key = "Ability2P2"
 		Ulti_key = "AbilityUltiP2"
 		hit_ID = 2
+		
+		enemy = get_node("../Player")
 
 #Setting Timer Function, called within the main loop
 func playerDependentCooldowns():
@@ -289,7 +295,8 @@ func _physics_process(delta):
 	#if(Input.is_action_just_pressed("Ability1") && ($MissileCooldown.time_left == 0) && !isStunned):
 	#	dotimes[time + latency] = "ability1"
 	#	$MissileCooldown.start()
-		
+	
+	
 	#AID4, Anton Ultimate, Integral 
 	if(Input.is_action_just_pressed(Ulti_key) && ($PlayerSpecificCooldowns/AID_4.time_left == 0)
 	&& (Asprite == $AntonSprite) && !isStunned):
@@ -366,6 +373,14 @@ func _physics_process(delta):
 	#myAbility3.shader.set("shader_param/opac", abs(1 - CooldownA3))
 	#myAbility4.shader.set("shader_param/opac", abs(1 - CooldownA4))
 	#myAbility5.shader.set("shader_param/opac", abs(1 - CooldownA5))
+	
+	if $PlayerSpecificCooldowns/AID_10_StunDuration.is_stopped():
+		isStunned = false
+		$StunStarSprite.hide()
+	else:
+		isStunned = true
+		$StunStarSprite.show()
+		$StunStarSprite.play("spin")
 	
 #Create Winebottle to throw
 func create_WineBottle():
@@ -455,7 +470,10 @@ func AID_12():
 
 #AID10, Niklas Primary, Sweet Melody
 func AID_10():
-	get_node("../Enemy").done_AID_10()
+	enemy.done_AID_10()
+
+func done_AID_10():
+	$PlayerSpecificCooldowns/AID_10_StunDuration.start()
 
 func load_insults(filename):
 	var outlist = []

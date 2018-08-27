@@ -13,15 +13,15 @@
 [ext_resource path="res://Sprites/Player/connorSprite3.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Player/connorSprite4.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Player/Niklas Idle.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Player/NiklasBike_0.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Player/NiklasBike_1.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Player/Niklas Jump.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Player/NiklasAttack0.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Player/NiklasAttack1.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Player/NiklasAttack2.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Player/NiklasAttack3.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Player/NiklasAttack4.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Player/NiklasAttack5.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Player/Niklas Jump.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Player/NiklasAttack0.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Player/NiklasAttack1.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Player/NiklasAttack2.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Player/NiklasAttack3.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Player/NiklasAttack4.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Player/NiklasAttack5.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Player/NiklasBike_0.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Player/NiklasBike_1.png" type="Texture" id=22]
 [ext_resource path="res://Sprites/Player/NiklasWalks0.png" type="Texture" id=23]
 [ext_resource path="res://Sprites/Player/NiklasWalks1.png" type="Texture" id=24]
 [ext_resource path="res://Sprites/Player/NiklasWalks2.png" type="Texture" id=25]
@@ -103,20 +103,20 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "Bicycle",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 16 ) ],
+"frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "Jumping",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
 "name": "BasicA",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "Bicycle",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
 "loop": true,
@@ -187,9 +187,8 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
-editor/display_folded = true
 position = Vector2( 190, 210 )
 input_pickable = false
 collision_layer = 1
@@ -200,6 +199,7 @@ _sections_unfolded = [ "Pause" ]
 __meta__ = {
 "_edit_group_": true
 }
+PID = 0
 
 [node name="ConnorSprite" type="AnimatedSprite" parent="." index="0"]
 
@@ -209,7 +209,6 @@ animation = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-visible = false
 position = Vector2( -1.99999, -4.26165 )
 scale = Vector2( 1, 1.36957 )
 shape = SubResource( 2 )
