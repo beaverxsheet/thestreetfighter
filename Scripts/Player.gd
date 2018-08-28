@@ -159,40 +159,40 @@ func _ready():
 #Setting Timer Function, called within the main loop
 func playerDependentCooldowns():
 	if Asprite == $AntonSprite:
-		CooldownA1 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
-		CooldownA2 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
-		CooldownA3 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
-		CooldownA4 = $PlayerSpecificCooldowns/AID_4.time_left
-		CooldownA5 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
+		CooldownA1 = $PlayerSpecificCooldowns/Anton_4Cooldown
+		CooldownA2 = $PlayerSpecificCooldowns/Anton_4Cooldown
+		CooldownA3 = $PlayerSpecificCooldowns/Anton_4Cooldown
+		CooldownA4 = $PlayerSpecificCooldowns/AID_4
+		CooldownA5 = $PlayerSpecificCooldowns/Anton_4Cooldown
 	elif Asprite == $ConnorSprite:
-		CooldownA1 = $BasicAttackCooldown.time_left
-		CooldownA2 = $PlayerSpecificCooldowns/AID_0.time_left
-		CooldownA3 = $PlayerSpecificCooldowns/AID_11.time_left
-		CooldownA4 = $PlayerSpecificCooldowns/AID_1.time_left
-		CooldownA5 = $PlayerSpecificCooldowns/AID_8.time_left
+		CooldownA1 = $BasicAttackCooldown
+		CooldownA2 = $PlayerSpecificCooldowns/AID_0
+		CooldownA3 = $PlayerSpecificCooldowns/AID_11
+		CooldownA4 = $PlayerSpecificCooldowns/AID_1
+		CooldownA5 = $PlayerSpecificCooldowns/AID_8
 	elif Asprite == $BenSprite:
-		CooldownA1 = $BasicAttackCooldown.time_left
-		CooldownA2 = $PlayerSpecificCooldowns/AID_18.time_left
-		CooldownA3 = $PlayerSpecificCooldowns/AID_19.time_left
-		CooldownA4 = $PlayerSpecificCooldowns/AID_20.time_left
-		CooldownA5 = $PlayerSpecificCooldowns/AID_17.time_left
+		CooldownA1 = $BasicAttackCooldown
+		CooldownA2 = $PlayerSpecificCooldowns/AID_18
+		CooldownA3 = $PlayerSpecificCooldowns/AID_19
+		CooldownA4 = $PlayerSpecificCooldowns/AID_20
+		CooldownA5 = $PlayerSpecificCooldowns/AID_17
 	elif Asprite == $NiklasSprite:
-		CooldownA1 = $BasicAttackCooldown.time_left
-		CooldownA2 = $PlayerSpecificCooldowns/AID_10.time_left
-		CooldownA3 = $PlayerSpecificCooldowns/AID_12.time_left
-		CooldownA4 = $PlayerSpecificCooldowns/AID_7.time_left
-		CooldownA5 = $PlayerSpecificCooldowns/AID_13.time_left
+		CooldownA1 = $BasicAttackCooldown
+		CooldownA2 = $PlayerSpecificCooldowns/AID_10
+		CooldownA3 = $PlayerSpecificCooldowns/AID_12
+		CooldownA4 = $PlayerSpecificCooldowns/AID_7
+		CooldownA5 = $PlayerSpecificCooldowns/AID_13
 	else:
-		CooldownA1 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
-		CooldownA2 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
-		CooldownA3 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
-		CooldownA4 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
-		CooldownA5 = $PlayerSpecificCooldowns/Anton_4Cooldown.time_left
-	CoolLabelA1.text = str(int(CooldownA1*10))
-	CoolLabelA2.text = str(int(CooldownA2*10))
-	CoolLabelA3.text = str(int(CooldownA3*10))
-	CoolLabelA4.text = str(int(CooldownA4*10))
-	CoolLabelA5.text = str(int(CooldownA5*10))
+		CooldownA1 = $PlayerSpecificCooldowns/Anton_4Cooldown
+		CooldownA2 = $PlayerSpecificCooldowns/Anton_4Cooldown
+		CooldownA3 = $PlayerSpecificCooldowns/Anton_4Cooldown
+		CooldownA4 = $PlayerSpecificCooldowns/Anton_4Cooldown
+		CooldownA5 = $PlayerSpecificCooldowns/Anton_4Cooldown
+	CoolLabelA1.text = str(int(CooldownA1.time_left*10))
+	CoolLabelA2.text = str(int(CooldownA2.time_left*10))
+	CoolLabelA3.text = str(int(CooldownA3.time_left*10))
+	CoolLabelA4.text = str(int(CooldownA4.time_left*10))
+	CoolLabelA5.text = str(int(CooldownA5.time_left*10))
 
 #Check which sprite to show (in a function, called later)
 func chooseSprite():
@@ -377,11 +377,11 @@ func _physics_process(delta):
 	playerDependentCooldowns()
 
 	#modulate opacity to show cooldown
-	myAbility1.modulate.a = abs(1-CooldownA1)
-	myAbility2.modulate.a = abs(1-CooldownA2)
-	myAbility3.modulate.a = abs(1-CooldownA3)
-	myAbility4.modulate.a = abs(1-CooldownA4)
-	myAbility5.modulate.a = abs(1-CooldownA5)
+	myAbility1.modulate.a = abs(CooldownA1.wait_time-CooldownA1.time_left)/CooldownA1.wait_time
+	myAbility2.modulate.a = abs(CooldownA2.wait_time-CooldownA2.time_left)/CooldownA2.wait_time
+	myAbility3.modulate.a = abs(CooldownA3.wait_time-CooldownA3.time_left)/CooldownA3.wait_time
+	myAbility4.modulate.a = abs(CooldownA4.wait_time-CooldownA4.time_left)/CooldownA4.wait_time
+	myAbility5.modulate.a = abs(CooldownA5.wait_time-CooldownA5.time_left)/CooldownA5.wait_time
 	
 	#if you want to use shaders to achieve this use the code below and put the Ability_material.tres into all sprites you use. Doesnt work on sprites with alpha
 	#myAbility1.shader.set("shader_param/opac", abs(1 - CooldownA1))
