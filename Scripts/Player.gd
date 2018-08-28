@@ -97,6 +97,8 @@ onready var chosen_char = AutoloadNode.choose_char[PID]
 var enemy
 var p_name
 
+var first_run = true
+
 func _ready():
 	if PID == 0:
 		myAbility1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1")
@@ -282,7 +284,9 @@ func _physics_process(delta):
 	tbf = time #set time before
 	
 	#Gravity
-	motion.y += GRAV
+	#check y movement then allow gravity
+	if not is_on_floor():
+		motion.y += GRAV
 	
 	#checking which sprite to show
 	#Asprite = necessary sprite
@@ -398,6 +402,9 @@ func _physics_process(delta):
 		$StunStarSprite.show()
 		$StunStarSprite.play("spin")
 	
+	if first_run:
+		first_run = false
+	
 #Create Winebottle to throw
 func create_WineBottle():
 	#Instance the winebottle
@@ -410,6 +417,8 @@ func create_WineBottle():
 		winebottle.flyright = true
 	else:
 		winebottle.flyright = false
+
+
 
 #AID4, Anton Ultimate, Integral
 func create_Integral():
