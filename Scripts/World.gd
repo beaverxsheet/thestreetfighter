@@ -3,6 +3,7 @@ extends Node
 const MUSICNBR = 2
 var stream1
 var stream2
+export var play_music = false
 
 func _ready():
 	stream1 = preload("res://Sounds/Music/BeepBox-Song.wav")
@@ -25,7 +26,7 @@ func _process(delta):
 		get_node("PauseMenu").popup()
 		get_node("PauseMenu/VBoxContainer/Label").text = "You Win !!1! " + winner
 		get_node("PauseMenu/VBoxContainer/Continue").hide()
-	if not $MusicPlayer.playing:
+	if not $MusicPlayer.playing && play_music:
 		randomize()
 		var pl = rand_range(0,100)
 		#print(pl)
