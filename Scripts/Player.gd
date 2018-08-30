@@ -56,6 +56,7 @@ var AB_1_key = ""
 var AB_2_key = ""
 var At_key = ""
 var Ulti_key = ""
+var ins_key = ""
 
 onready var CoolLabelA1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1/Label")
 onready var CoolLabelA2 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability2/Label")
@@ -97,6 +98,8 @@ onready var chosen_char = AutoloadNode.choose_char[PID]
 var enemy
 var p_name
 
+var first_run = true
+var d_latency = 0
 func _ready():
 	if PID == 0:
 		myAbility1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1")
@@ -124,6 +127,7 @@ func _ready():
 		AB_2_key = "Ability2"
 		Ulti_key = "AbilityUlti"
 		hit_ID = 1
+		ins_key = "Insult"
 		
 		enemy = get_node("../Player2")
 		#print(hit_ID)
@@ -153,8 +157,9 @@ func _ready():
 		AB_2_key = "Ability2P2"
 		Ulti_key = "AbilityUltiP2"
 		hit_ID = 2
-		
+		ins_key = "InsultP2"
 		enemy = get_node("../Player")
+
 
 #Setting Timer Function, called within the main loop
 func playerDependentCooldowns():
@@ -208,7 +213,7 @@ func chooseSprite():
 		myAbility5.texture = ab8
 		
 		p_name = "Conner"
-		# insults = load_insults("Connor.txt")
+		
 		return $ConnorSprite
 	elif chosen_char == 1:
 		$ConnorSprite.hide()
@@ -222,7 +227,7 @@ func chooseSprite():
 		myAbility5.texture = ab13
 		
 		p_name = "Niklas"
-		# insults = load_insults("Niklas.txt")
+		
 		return $NiklasSprite
 	elif chosen_char == 2:
 		$ConnorSprite.hide()
@@ -248,13 +253,13 @@ func chooseSprite():
 		myAbility4.texture = abID_20
 		myAbility5.texture = ab2
 		
-		p_name
-		# insults = load_insults("Ben.txt")
+		p_name = "Ben"
 		return $BenSprite
 
 
 #Movement func called between frames
 func _physics_process(delta):
+	
 	#update time (delta is the time between each tick in s)
 	time += int(delta * 1000)
 	#call the latency function
@@ -265,7 +270,12 @@ func _physics_process(delta):
 	#Natural resistance to stupidity
 	else:
 		if latency > 0:
-			latency = latency - 0.4
+			#pass
+			d_latency += 0.4
+			#print(d_latency)
+			if d_latency >= 1:
+				latency -= 1
+				d_latency = 0
 	#Effect Antons AID_9 Passive
 	if((Asprite == $AntonSprite) && AID_9_range):
 		AID_9_inRange.change_INT(1)
@@ -282,7 +292,9 @@ func _physics_process(delta):
 	tbf = time #set time before
 	
 	#Gravity
-	motion.y += GRAV
+	#check y movement then allow gravity
+	if not is_on_floor():
+		motion.y += GRAV
 	
 	#checking which sprite to show
 	#Asprite = necessary sprite
@@ -361,8 +373,8 @@ func _physics_process(delta):
 		#Sprite and anim
 		Asprite.play("Jumping")
 
-	#if Input.is_action_just_pressed("Insult"):
-	#	insult(insults)
+	if Input.is_action_just_pressed(ins_key):
+		insult(insults)
 
 	#Put movement into actual action
 	move_and_slide(motion, UP)
@@ -398,6 +410,26 @@ func _physics_process(delta):
 		$StunStarSprite.show()
 		$StunStarSprite.play("spin")
 	
+	if first_run and enemy.p_name != null:
+		if enemy.p_name == "Conner":
+			insults = load_insults("Connor.txt")
+			first_run = false
+		elif enemy.p_name == "Niklas":
+			insults = load_insults("Niklas.txt")
+			first_run = false
+		elif enemy.p_name == "Anton":
+			insults = load_insults("Anton.txt")
+			first_run = false
+		elif enemy.p_name == "Ben":
+			insults = load_insults("Ben.txt")
+			first_run = false
+		else:
+			print("error" + enemy.p_name)
+		
+	#debug key
+	if Input.is_action_pressed("ui_select"):
+		pass
+	
 #Create Winebottle to throw
 func create_WineBottle():
 	#Instance the winebottle
@@ -410,6 +442,8 @@ func create_WineBottle():
 		winebottle.flyright = true
 	else:
 		winebottle.flyright = false
+
+
 
 #AID4, Anton Ultimate, Integral
 func create_Integral():
@@ -468,6 +502,7 @@ func _on_AID_9Effector_body_exited(body):
 #AID8, Connor Passive, Ingenious ...?
 func AID_8(time):
 	self.latency = int((cos(float(float(time)/3000))*150)+152)
+	#pass
 
 #AID1, Connor Ultimate, Manly Sneeze
 func AID_1():
@@ -535,7 +570,7 @@ func insult(insults_l):
 
 func do_latency(time):
 	#for every milisecond between the last and this tick
-	for i in range(tbf, time + 1, 1):
+	for i in range(tbf, int(time + 1), 1):
 		#see if dotimes has that millisecond
 		if dotimes.has(i):
 			#find which command was put in the dictionary for this time
@@ -603,3 +638,7 @@ func _on_Button_pressed_STUN():
 	
 func change_HP(variance):
 	current_HP = current_HP + variance
+
+func change_INT(variance):
+	if latency <= 500:
+		latency = latency + variance
