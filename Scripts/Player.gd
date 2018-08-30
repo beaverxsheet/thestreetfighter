@@ -98,7 +98,7 @@ var enemy
 var p_name
 
 var first_run = true
-
+var d_latency = 0
 func _ready():
 	if PID == 0:
 		myAbility1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1")
@@ -157,6 +157,7 @@ func _ready():
 		hit_ID = 2
 		
 		enemy = get_node("../Player")
+
 
 #Setting Timer Function, called within the main loop
 func playerDependentCooldowns():
@@ -267,7 +268,12 @@ func _physics_process(delta):
 	#Natural resistance to stupidity
 	else:
 		if latency > 0:
-			latency = latency - 0.4
+			#pass
+			d_latency += 0.4
+			#print(d_latency)
+			if d_latency >= 1:
+				latency -= 1
+				d_latency = 0
 	#Effect Antons AID_9 Passive
 	if((Asprite == $AntonSprite) && AID_9_range):
 		AID_9_inRange.change_INT(1)
@@ -405,6 +411,10 @@ func _physics_process(delta):
 	if first_run:
 		first_run = false
 	
+	#debug key
+	if Input.is_action_pressed("ui_select"):
+		pass
+	
 #Create Winebottle to throw
 func create_WineBottle():
 	#Instance the winebottle
@@ -477,6 +487,7 @@ func _on_AID_9Effector_body_exited(body):
 #AID8, Connor Passive, Ingenious ...?
 func AID_8(time):
 	self.latency = int((cos(float(float(time)/3000))*150)+152)
+	#pass
 
 #AID1, Connor Ultimate, Manly Sneeze
 func AID_1():
@@ -544,7 +555,7 @@ func insult(insults_l):
 
 func do_latency(time):
 	#for every milisecond between the last and this tick
-	for i in range(tbf, time + 1, 1):
+	for i in range(tbf, int(time + 1), 1):
 		#see if dotimes has that millisecond
 		if dotimes.has(i):
 			#find which command was put in the dictionary for this time
@@ -612,3 +623,7 @@ func _on_Button_pressed_STUN():
 	
 func change_HP(variance):
 	current_HP = current_HP + variance
+
+func change_INT(variance):
+	if latency <= 500:
+		latency = latency + variance

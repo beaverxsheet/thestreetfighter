@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Other/DirtTiles.tres" type="TileSet" id=2]
@@ -11,8 +11,9 @@
 [ext_resource path="res://Sprites/GUI/Icons/Icon02.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=11]
+[ext_resource path="res://Sounds/Music/BeepBox-Song.wav" type="AudioStream" id=12]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -46,6 +47,7 @@ __meta__ = {
 
 [node name="HUD" type="MarginContainer" parent="." index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -790,7 +792,6 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 [node name="Player" parent="." index="2" instance=ExtResource( 10 )]
 
 position = Vector2( 83.4113, 205.589 )
-PID = 0
 
 [node name="Player2" parent="." index="3" instance=ExtResource( 10 )]
 
@@ -914,6 +915,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="StunButton" type="Button" parent="Testers" index="0"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -936,6 +938,15 @@ group = null
 text = "STUN TEST"
 flat = false
 align = 1
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 12 )
+volume_db = 0.7
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="popup_hide" from="PauseMenu" to="." method="_on_PauseMenu_popup_hide"]
 
