@@ -56,6 +56,7 @@ var AB_1_key = ""
 var AB_2_key = ""
 var At_key = ""
 var Ulti_key = ""
+var ins_key = ""
 
 onready var CoolLabelA1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1/Label")
 onready var CoolLabelA2 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability2/Label")
@@ -126,6 +127,7 @@ func _ready():
 		AB_2_key = "Ability2"
 		Ulti_key = "AbilityUlti"
 		hit_ID = 1
+		ins_key = "Insult"
 		
 		enemy = get_node("../Player2")
 		#print(hit_ID)
@@ -155,7 +157,7 @@ func _ready():
 		AB_2_key = "Ability2P2"
 		Ulti_key = "AbilityUltiP2"
 		hit_ID = 2
-		
+		ins_key = "InsultP2"
 		enemy = get_node("../Player")
 
 
@@ -211,7 +213,7 @@ func chooseSprite():
 		myAbility5.texture = ab8
 		
 		p_name = "Conner"
-		# insults = load_insults("Connor.txt")
+		
 		return $ConnorSprite
 	elif chosen_char == 1:
 		$ConnorSprite.hide()
@@ -225,7 +227,7 @@ func chooseSprite():
 		myAbility5.texture = ab13
 		
 		p_name = "Niklas"
-		# insults = load_insults("Niklas.txt")
+		
 		return $NiklasSprite
 	elif chosen_char == 2:
 		$ConnorSprite.hide()
@@ -251,13 +253,13 @@ func chooseSprite():
 		myAbility4.texture = abID_20
 		myAbility5.texture = ab2
 		
-		p_name
-		# insults = load_insults("Ben.txt")
+		p_name = "Ben"
 		return $BenSprite
 
 
 #Movement func called between frames
 func _physics_process(delta):
+	
 	#update time (delta is the time between each tick in s)
 	time += int(delta * 1000)
 	#call the latency function
@@ -371,8 +373,8 @@ func _physics_process(delta):
 		#Sprite and anim
 		Asprite.play("Jumping")
 
-	#if Input.is_action_just_pressed("Insult"):
-	#	insult(insults)
+	if Input.is_action_just_pressed(ins_key):
+		insult(insults)
 
 	#Put movement into actual action
 	move_and_slide(motion, UP)
@@ -408,9 +410,22 @@ func _physics_process(delta):
 		$StunStarSprite.show()
 		$StunStarSprite.play("spin")
 	
-	if first_run:
-		first_run = false
-	
+	if first_run and enemy.p_name != null:
+		if enemy.p_name == "Conner":
+			insults = load_insults("Connor.txt")
+			first_run = false
+		elif enemy.p_name == "Niklas":
+			insults = load_insults("Niklas.txt")
+			first_run = false
+		elif enemy.p_name == "Anton":
+			insults = load_insults("Anton.txt")
+			first_run = false
+		elif enemy.p_name == "Ben":
+			insults = load_insults("Ben.txt")
+			first_run = false
+		else:
+			print("error" + enemy.p_name)
+		
 	#debug key
 	if Input.is_action_pressed("ui_select"):
 		pass
