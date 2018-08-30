@@ -4,6 +4,7 @@ const INTEGRAL_SPEED = 400
 
 var flyright = true
 var hit_ID = null
+var own
 
 var protected_hit_ID = [1000]
 
@@ -30,5 +31,7 @@ func _on_Sneeze_body_entered(body):
 		pass
 	#If hits enemy/hittable object, reduce its HP
 	else:
-		queue_free()
 		body.change_HP(-5)
+		if body.do_AID_20:
+			own.AID_20_fist()
+		queue_free()

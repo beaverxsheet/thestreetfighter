@@ -23,6 +23,7 @@ const AID_1_SNEEZE_SCENE = preload("res://Scenes/AID1SneezeScene.tscn")
 const AID_10_HALO_SCENE = preload("res://Scenes/AID10_Halo.tscn")
 const AID_18_ZERO_SCENE = preload("res://Scenes/AID18_Zero.tscn")
 const AID_18_ONE_SCENE = preload("res://Scenes/AID18_One.tscn")
+const AID_20_SCENE = preload("res://Scenes/AID20_Fist.tscn")
 
 #Motion var. Altered to represent direction and speed of travel.
 var motion = Vector2()
@@ -100,6 +101,8 @@ var p_name
 
 var first_run = true
 var d_latency = 0
+
+var do_AID_20 = false
 func _ready():
 	if PID == 0:
 		myAbility1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1")
@@ -276,6 +279,13 @@ func _physics_process(delta):
 			if d_latency >= 1:
 				latency -= 1
 				d_latency = 0
+	
+	if current_HP < 10:
+		if Asprite == $BenSprite:
+			current_HP += 0.003
+		else:
+			current_HP += 0.001
+	
 	#Effect Antons AID_9 Passive
 	if((Asprite == $AntonSprite) && AID_9_range):
 		AID_9_inRange.change_INT(1)
@@ -354,7 +364,13 @@ func _physics_process(delta):
 	&& ($PlayerSpecificCooldowns/AID_18.time_left == 0) && !isStunned):
 		dotimes[time + latency] = "AID_18"
 		$PlayerSpecificCooldowns/AID_18.start()
-
+		
+	#AID20, Ben Ultimate, Father
+	if Input.is_action_just_pressed(Ulti_key) && Asprite == $BenSprite && $PlayerSpecificCooldowns/AID_20.time_left == 0 && !isStunned:
+		dotimes[time + latency] = "AID_20"
+		$PlayerSpecificCooldowns/AID_20.start()
+		pass
+	
 	#BASIC ATTACK all. Only if an object is in basic attack range and if the cooldown is 0		
 	if(Input.is_action_just_pressed(At_key) && ($BasicAttackCooldown.time_left == 0) && basic_range && !isStunned):
 		dotimes[time + latency] = "attack"
@@ -380,7 +396,7 @@ func _physics_process(delta):
 	move_and_slide(motion, UP)
 
 	#Communication with the HUD
-	myHP_Label.text = "(" + str(current_HP) + "/10)"
+	myHP_Label.text = "(" + str(int(current_HP)) + "/10)"
 	myHP_Gauge.value = current_HP
 	myINT_Label.text = str(int(latency/100))
 	myINT_Gauge.value = latency
@@ -425,7 +441,9 @@ func _physics_process(delta):
 			first_run = false
 		else:
 			print("error" + enemy.p_name)
-		
+	
+	if do_AID_20:
+		AID_20()
 	#debug key
 	if Input.is_action_pressed("ui_select"):
 		pass
@@ -450,6 +468,7 @@ func create_Integral():
 	var integral = INTEGRAL_SCENE.instance()
 	get_parent().add_child(integral)
 	integral.hit_ID = hit_ID
+	integral.own = self
 	integral.set_position(get_node("Position2D").global_position)
 	#Check for direction player is facing, pass information on to child
 	if looks_right:
@@ -459,11 +478,12 @@ func create_Integral():
 
 #AID0, Connor Primary, Coffee Spill
 func create_ConnorCoffeeSpill():
-	print("HO:"+str(hit_ID))
+	#print("HO:"+str(hit_ID))
 	var coffee = COFFEE_SCENE.instance()
 	get_parent().add_child(coffee)
 	coffee.hit_IDE = hit_ID
 	coffee.set_position($Position2D.global_position)
+	coffee.own = self
 	if looks_right:
 		coffee.flyright = true
 	else:
@@ -509,6 +529,7 @@ func AID_1():
 	var sneeze = AID_1_SNEEZE_SCENE.instance()
 	get_parent().add_child(sneeze)
 	sneeze.hit_ID = hit_ID
+	sneeze.own = self
 	sneeze.set_position(get_node("Position2D").global_position)
 	if looks_right:
 		sneeze.flyright = true
@@ -568,6 +589,24 @@ func insult(insults_l):
 	$Insult_timer.start()
 	pass
 
+func AID_20():
+	if !do_AID_20:
+		do_AID_20 = true
+		$PlayerSpecificCooldowns/AID_20_tensecs.start()
+	if $PlayerSpecificCooldowns/AID_20_tensecs.time_left == 0:
+		do_AID_20 = false
+
+func AID_20_fist():
+	#print("HO:"+str(hit_ID))
+	var fist = AID_20_SCENE.instance()
+	get_parent().add_child(fist)
+	#fist.hit_IDE = hit_ID
+	fist.set_position(Vector2($Position2D.global_position.x, $Position2D.global_position.y -800))
+	fist.own = self
+	
+	change_HP(-85)
+
+
 func do_latency(time):
 	#for every milisecond between the last and this tick
 	for i in range(tbf, int(time + 1), 1):
@@ -616,6 +655,8 @@ func do_latency(time):
 				create_ConnorCoffeeSpill() #Create coffee spill see function
 			if dotimes[i] == "attack":
 				in_basic_range.change_HP(-1)
+				if in_basic_range.do_AID_20:
+					AID_20_fist()
 			if dotimes[i] == "jump":
 				motion.y = JUMP_HEIGHT
 			if dotimes[i] == "AID_1":
@@ -626,7 +667,10 @@ func do_latency(time):
 				AID_10()
 			if dotimes[i] == "AID_18":
 				AID_18()
-				
+			if dotimes[i] == "AID_20":
+				AID_20()
+			
+			
 			dotimes.erase(i)
 
 func _on_Insult_timer_timeout():

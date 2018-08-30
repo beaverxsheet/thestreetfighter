@@ -1,25 +1,26 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Sprites/Missiles/AID10Fist_3.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Missiles/AID10Fist_4.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Missiles/AID10Fist_5.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Missiles/AID10Fist_6.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/AID20_Fist.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Missiles/AID10Fist_3.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Missiles/AID10Fist_4.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Missiles/AID10Fist_5.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Missiles/AID10Fist_6.png" type="Texture" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": false,
 "name": "hit",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": false,
 "name": "still",
 "speed": 0.0
 } ]
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -30,11 +31,21 @@ collision_layer = 4
 collision_mask = 11
 audio_bus_override = false
 audio_bus_name = "Master"
+script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
 frames = SubResource( 1 )
 animation = "still"
+
+[node name="Timer" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 

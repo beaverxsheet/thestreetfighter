@@ -6,6 +6,8 @@ var flyright = true
 var hit_ID = null
 var returnflight = false
 
+var own
+
 var protected_hit_ID = [1000]
 
 func _process(delta):
@@ -46,5 +48,8 @@ func _on_Integrate_body_entered(body):
 		queue_free()
 	#If hits enemy/hittable object, reduce its HP
 	else:
-		queue_free()
 		body.change_HP(-5)
+		if body.do_AID_20:
+			own.AID_20_fist()
+		queue_free()
+
