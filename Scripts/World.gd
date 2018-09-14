@@ -5,9 +5,14 @@ var stream1
 var stream2
 export var play_music = false
 
+var p1
+var p2
+
 func _ready():
 	stream1 = preload("res://Sounds/Music/BeepBox-Song.wav")
 	stream2 = preload("res://Sounds/Music/BeepBox-Song2.wav")
+	p1 = $Player
+	p2 = $Player2
 #Open Popup
 func _process(delta):
 	if Input.is_action_just_pressed("Escape"):
@@ -26,6 +31,7 @@ func _process(delta):
 		get_node("PauseMenu").popup()
 		get_node("PauseMenu/VBoxContainer/Label").text = "You Win !!1! " + winner
 		get_node("PauseMenu/VBoxContainer/Continue").hide()
+	
 	if not $MusicPlayer.playing && play_music:
 		randomize()
 		var pl = rand_range(0,100)
@@ -38,7 +44,8 @@ func _process(delta):
 			#print("2")
 		$MusicPlayer.playing = true
 		pass
-
+	if Input.is_action_just_pressed("ui_select"):
+		pass
 #Make sure that the game runs when the popup is closed
 func _on_PauseMenu_popup_hide():
 	get_tree().paused = false

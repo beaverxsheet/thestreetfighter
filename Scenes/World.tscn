@@ -1,29 +1,38 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
-[ext_resource path="res://Other/DirtTiles.tres" type="TileSet" id=2]
-[ext_resource path="res://Scripts/TileMap.gd" type="Script" id=3]
-[ext_resource path="res://Sprites/GUI/HPBar_Empty.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/GUI/HPBar_Fill.png" type="Texture" id=5]
-[ext_resource path="res://Other/font_cousine.tres" type="DynamicFont" id=6]
-[ext_resource path="res://Sprites/GUI/INTBar_Fill.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/GUI/AbilityRim.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/GUI/Icons/Icon02.png" type="Texture" id=9]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=11]
-[ext_resource path="res://Sounds/Music/BeepBox-Song.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sprites/Tiles/TestBack.png" type="Texture" id=2]
+[ext_resource path="res://Other/DirtTiles.tres" type="TileSet" id=3]
+[ext_resource path="res://Scripts/TileMap.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/GUI/HPBar_Empty.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/GUI/HPBar_Fill.png" type="Texture" id=6]
+[ext_resource path="res://Other/font_cousine.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Sprites/GUI/INTBar_Fill.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/GUI/AbilityRim.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/GUI/Icons/Icon02.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=12]
+[ext_resource path="res://Sounds/Music/BeepBox-Song.wav" type="AudioStream" id=13]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
 play_music = false
 
-[node name="TileMap" type="TileMap" parent="." index="0"]
+[node name="Background" type="Sprite" parent="." index="0"]
+
+position = Vector2( 251.67, 142.84 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 640, 480 )
+_sections_unfolded = [ "Region" ]
+
+[node name="TileMap" type="TileMap" parent="." index="1"]
 
 position = Vector2( -310, 40 )
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -39,14 +48,14 @@ collision_mask = 7
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( -196600, 4, 0, -196599, 4, 0, -196598, 4, 0, -196597, 4, 0, -196596, 4, 0, -196595, 4, 0, -196594, 4, 0, -196593, 4, 0, -196592, 4, 0, -196591, 4, 0, -196590, 4, 0, -196589, 4, 0, -196588, 4, 0, -196587, 4, 0, -196586, 4, 0, -196585, 4, 0, -196584, 4, 0, -196583, 4, 0, -196582, 4, 0, -131064, 4, 0, -131046, 4, 0, -65528, 4, 0, -65510, 4, 0, 8, 4, 0, 26, 4, 0, 65544, 4, 0, 65562, 4, 0, 131080, 4, 0, 131098, 4, 0, 196616, 4, 0, 196634, 4, 0, 262152, 4, 0, 262170, 4, 0, 327688, 4, 0, 327706, 4, 0, 393224, 4, 0, 393242, 4, 0, 458760, 4, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 1, 0, 458767, 1, 0, 458768, 1, 0, 458769, 1, 0, 458770, 1, 0, 458771, 1, 0, 458772, 1, 0, 458773, 1, 0, 458774, 1, 0, 458775, 1, 0, 458776, 1, 0, 458777, 1, 0, 458778, 4, 0 )
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Cell", "Collision" ]
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="HUD" type="MarginContainer" parent="." index="1"]
+[node name="HUD" type="MarginContainer" parent="." index="2"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -138,9 +147,9 @@ page = 0.0
 value = 7.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 4 )
+texture_under = ExtResource( 5 )
 texture_over = null
-texture_progress = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
@@ -162,7 +171,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 text = "(07/10)"
 percent_visible = 1.0
 lines_skipped = 0
@@ -208,9 +217,9 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 4 )
+texture_under = ExtResource( 5 )
 texture_over = null
-texture_progress = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
@@ -232,7 +241,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 text = "0"
 percent_visible = 1.0
 lines_skipped = 0
@@ -242,7 +251,7 @@ _sections_unfolded = [ "custom_fonts" ]
 [node name="Rim" type="Sprite" parent="HUD/Row/Player1_Cols" index="2"]
 
 position = Vector2( 113.092, 94.1955 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Player1_ABL" type="HBoxContainer" parent="HUD/Row/Player1_Cols" index="3"]
 
@@ -265,7 +274,7 @@ _sections_unfolded = [ "Material" ]
 [node name="Ability1" type="Sprite" parent="HUD/Row/Player1_Cols/Player1_ABL" index="0"]
 
 position = Vector2( 16, 22 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability1" index="0"]
@@ -284,7 +293,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 align = 1
@@ -298,7 +307,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 editor/display_folded = true
 position = Vector2( 65, 22 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability2" index="0"]
@@ -317,7 +326,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 align = 1
@@ -331,7 +340,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 editor/display_folded = true
 position = Vector2( 113, 22 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability3" index="0"]
@@ -350,7 +359,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 align = 1
@@ -364,7 +373,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 editor/display_folded = true
 position = Vector2( 161, 22 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability4" index="0"]
@@ -383,7 +392,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 align = 1
@@ -397,7 +406,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 editor/display_folded = true
 position = Vector2( 209, 22 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability5" index="0"]
@@ -416,7 +425,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 align = 1
@@ -493,7 +502,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 text = "(07/10)"
 align = 2
 percent_visible = 1.0
@@ -523,9 +532,9 @@ page = 0.0
 value = 7.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 4 )
+texture_under = ExtResource( 5 )
 texture_over = null
-texture_progress = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
 fill_mode = 1
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
@@ -565,7 +574,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 text = "0"
 align = 2
 percent_visible = 1.0
@@ -595,9 +604,9 @@ page = 0.0
 value = 0.0
 exp_edit = false
 rounded = false
-texture_under = ExtResource( 4 )
+texture_under = ExtResource( 5 )
 texture_over = null
-texture_progress = ExtResource( 7 )
+texture_progress = ExtResource( 8 )
 fill_mode = 1
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
@@ -607,7 +616,7 @@ _sections_unfolded = [ "Textures" ]
 [node name="Rim2" type="Sprite" parent="HUD/Row/Player2_Cols" index="2"]
 
 position = Vector2( 113.166, 94.6832 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 
 [node name="Player2_ABL" type="HBoxContainer" parent="HUD/Row/Player2_Cols" index="3"]
 
@@ -630,7 +639,7 @@ alignment = 0
 
 editor/display_folded = true
 position = Vector2( 17, 22 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player2_Cols/Player2_ABL/Ability1" index="0"]
@@ -649,7 +658,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 align = 1
@@ -663,7 +672,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 editor/display_folded = true
 position = Vector2( 65, 22 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player2_Cols/Player2_ABL/Ability2" index="0"]
@@ -682,7 +691,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 align = 1
@@ -695,7 +704,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 [node name="Ability3" type="Sprite" parent="HUD/Row/Player2_Cols/Player2_ABL" index="2"]
 
 position = Vector2( 113, 22 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player2_Cols/Player2_ABL/Ability3" index="0"]
@@ -714,7 +723,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 align = 1
@@ -728,7 +737,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 editor/display_folded = true
 position = Vector2( 161, 22 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player2_Cols/Player2_ABL/Ability4" index="0"]
@@ -747,7 +756,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 align = 1
@@ -761,7 +770,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 editor/display_folded = true
 position = Vector2( 209, 22 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player2_Cols/Player2_ABL/Ability5" index="0"]
@@ -780,7 +789,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 align = 1
@@ -790,22 +799,20 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_colors" ]
 
-[node name="Player" parent="." index="2" instance=ExtResource( 10 )]
+[node name="Player" parent="." index="3" instance=ExtResource( 11 )]
 
 position = Vector2( 83.4113, 205.589 )
 collision_layer = 2
-collision_mask = 7
-_sections_unfolded = [ "Collision", "Pause" ]
+collision_mask = 15
 
-[node name="Player2" parent="." index="3" instance=ExtResource( 10 )]
+[node name="Player2" parent="." index="4" instance=ExtResource( 11 )]
 
 position = Vector2( 337.754, 201.914 )
-collision_layer = 2
-collision_mask = 13
-_sections_unfolded = [ "Collision", "Pause" ]
+collision_layer = 8
+collision_mask = 15
 PID = 1
 
-[node name="PauseMenu" type="PopupPanel" parent="." index="4"]
+[node name="PauseMenu" type="PopupPanel" parent="." index="5"]
 
 pause_mode = 2
 editor/display_folded = true
@@ -823,7 +830,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
-script = ExtResource( 11 )
+script = ExtResource( 12 )
 _sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu" index="0"]
@@ -859,7 +866,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 text = "Paused !1!!"
 percent_visible = 1.0
 lines_skipped = 0
@@ -882,7 +889,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -908,7 +915,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -918,7 +925,9 @@ flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="Testers" type="Node" parent="." index="5"]
+[node name="Testers" type="Node" parent="." index="6"]
+
+editor/display_folded = true
 
 [node name="StunButton" type="Button" parent="Testers" index="0"]
 
@@ -946,14 +955,18 @@ text = "STUN TEST"
 flat = false
 align = 1
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="." index="6"]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." index="7"]
 
-stream = ExtResource( 12 )
+stream = ExtResource( 13 )
 volume_db = 0.7
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
+
+[connection signal="toggleGhost" from="Player" to="Player2" method="make_ghost"]
+
+[connection signal="toggleGhost" from="Player2" to="Player" method="make_ghost"]
 
 [connection signal="popup_hide" from="PauseMenu" to="." method="_on_PauseMenu_popup_hide"]
 

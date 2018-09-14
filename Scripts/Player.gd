@@ -103,6 +103,14 @@ var first_run = true
 var d_latency = 0
 
 var do_AID_20 = false
+var isGhost = false
+var do_AID_7 = false
+
+var AID_7_range
+var AID_7_inRange = false
+var AID_7_canHit = true
+
+signal toggleGhost
 func _ready():
 	if PID == 0:
 		myAbility1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1")
@@ -268,6 +276,12 @@ func _physics_process(delta):
 	#call the latency function
 	do_latency(time)
 	#Effect Connors Stupidity Cyclic Function AID_8 Passive
+	if current_HP < 10:
+		if Asprite == $BenSprite:
+			current_HP += 0.003
+		else:
+			current_HP += 0.001
+	
 	if Asprite == $ConnorSprite:
 		AID_8(time)
 	#Natural resistance to stupidity
@@ -346,7 +360,13 @@ func _physics_process(delta):
 	($PlayerSpecificCooldowns/AID_1.time_left == 0) && !isStunned):
 		dotimes[time + latency] = "AID_1"
 		$PlayerSpecificCooldowns/AID_1.start()
-		
+	
+	#AID7, Niklas Ultimate, 
+	if Input.is_action_just_pressed(Ulti_key) and Asprite == $NiklasSprite and $PlayerSpecificCooldowns/AID_7.time_left == 0 and not isStunned:
+		dotimes[time + latency] = "AID_7"
+		$PlayerSpecificCooldowns/AID_7.start()
+	
+	
 	#AID12, Niklas Secondary, E-Bike
 	if((Input.is_action_just_pressed(AB_2_key)) && (Asprite == $NiklasSprite)
 	&& ($PlayerSpecificCooldowns/AID_12.time_left == 0) && !isStunned):
@@ -444,10 +464,12 @@ func _physics_process(delta):
 	
 	if do_AID_20:
 		AID_20()
-	#debug key
-	if Input.is_action_pressed("ui_select"):
-		pass
-	
+
+		
+	if AID_7_range and do_AID_7 and AID_7_canHit:
+		AID_7_inRange.change_HP(-5)
+		$PlayerSpecificCooldowns/AID_7onesec.start()
+		AID_7_canHit = false
 #Create Winebottle to throw
 func create_WineBottle():
 	#Instance the winebottle
@@ -518,6 +540,18 @@ func _on_AID_9Effector_body_entered(body):
 func _on_AID_9Effector_body_exited(body):
 	AID_9_inRange = null
 	AID_9_range = false
+
+func on_AID7Effector_ben(body):
+	#Ignore own body
+	if(body.hit_ID == hit_ID or body.hit_ID == 1000):
+		pass
+	else:
+		AID_7_range = true
+		AID_7_inRange = body
+
+func on_AID7Effector_bex(body):
+	AID_7_inRange = null
+	AID_7_range = false
 
 #AID8, Connor Passive, Ingenious ...?
 func AID_8(time):
@@ -606,6 +640,12 @@ func AID_20_fist():
 	
 	change_HP(-85)
 
+func AID_7():
+	emit_signal("toggleGhost")
+	make_ghost()
+	do_AID_7 = true
+	$PlayerSpecificCooldowns/AID_7_sixsecs.start()
+	Asprite.play("Waltz")
 
 func do_latency(time):
 	#for every milisecond between the last and this tick
@@ -619,6 +659,9 @@ func do_latency(time):
 				&& ($PlayerSpecificCooldowns/AID_12_runtime.is_stopped() == false)):
 					motion.x = SPEED*2
 					Asprite.play("Bicycle")
+				elif do_AID_7:
+					motion.x = SPEED
+					Asprite.play("Waltz")
 				else:
 					motion.x = SPEED
 					Asprite.play("Walking")
@@ -632,6 +675,9 @@ func do_latency(time):
 				&& ($PlayerSpecificCooldowns/AID_12_runtime.is_stopped() == false)):
 					motion.x = -SPEED*2
 					Asprite.play("Bicycle")
+				elif do_AID_7:
+					motion.x = -SPEED
+					Asprite.play("Waltz")
 				else:
 					motion.x = -SPEED
 					Asprite.play("Walking")
@@ -646,7 +692,8 @@ func do_latency(time):
 			if dotimes[i] == "stop":
 				motion.x = 0
 				#Sprite and anim
-				Asprite.play("Idle")
+				if not do_AID_7:
+					Asprite.play("Idle")
 			if dotimes[i] == "ability1":
 				create_WineBottle() #Create bottle (see function)
 			if dotimes[i] == "AID_4":
@@ -669,6 +716,8 @@ func do_latency(time):
 				AID_18()
 			if dotimes[i] == "AID_20":
 				AID_20()
+			if dotimes[i] == "AID_7":
+				AID_7()
 			
 			
 			dotimes.erase(i)
@@ -681,8 +730,39 @@ func _on_Button_pressed_STUN():
 	$PlayerSpecificCooldowns/AID_10_StunDuration.start()
 	
 func change_HP(variance):
-	current_HP = current_HP + variance
+	#if variance >= 0 and not do_AID_7 and Asprite == $NiklasSprite:
+	if Asprite == $NiklasSprite and do_AID_7:
+		if variance >= 0:
+			current_HP = current_HP + variance
+	else:
+		current_HP = current_HP + variance
 
 func change_INT(variance):
-	if latency <= 500:
-		latency = latency + variance
+	#if variance >= 0 and not (Asprite == $NiklasSprite and do_AID_7):
+	if Asprite == $NiklasSprite and do_AID_7:
+		if variance >= 0:
+			if latency <= 500:
+				latency = latency + variance
+	else:
+		if latency <= 500:
+			latency = latency + variance
+
+func make_ghost():
+	if not isGhost:
+		isGhost = true
+		set_collision_mask_bit(1,false)
+		set_collision_mask_bit(3,false)
+	else:
+		isGhost = false
+		set_collision_mask_bit(1,true)
+		set_collision_mask_bit(3,true)
+
+func _on_AID_7_sixsecs_timeout():
+	do_AID_7 = false
+	emit_signal("toggleGhost")
+	make_ghost()
+	AID_7_canHit = true
+	
+
+func AID_7_delaytimeout():
+	AID_7_canHit = true

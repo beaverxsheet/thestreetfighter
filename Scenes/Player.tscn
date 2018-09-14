@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=83 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player/Connor Idle.png" type="Texture" id=2]
@@ -14,50 +14,65 @@
 [ext_resource path="res://Sprites/Player/connorSprite4.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Player/Niklas Idle.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Player/Niklas Jump.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Player/NiklasAttack0.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Player/NiklasAttack1.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Player/NiklasAttack2.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Player/NiklasAttack3.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Player/NiklasAttack4.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Player/NiklasAttack5.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Player/NiklasBike_0.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Player/NiklasBike_1.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Player/NiklasBike_0.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Player/NiklasBike_1.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Player/NiklasAttack0.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Player/NiklasAttack1.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Player/NiklasAttack2.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Player/NiklasAttack3.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Player/NiklasAttack4.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Player/NiklasAttack5.png" type="Texture" id=22]
 [ext_resource path="res://Sprites/Player/NiklasWalks0.png" type="Texture" id=23]
 [ext_resource path="res://Sprites/Player/NiklasWalks1.png" type="Texture" id=24]
 [ext_resource path="res://Sprites/Player/NiklasWalks2.png" type="Texture" id=25]
 [ext_resource path="res://Sprites/Player/NiklasWalks3.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Player/AntonIdle0.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Player/AntonIdle1.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Player/AntonIdle2.png" type="Texture" id=29]
-[ext_resource path="res://Sprites/Player/AntonIdle3.png" type="Texture" id=30]
-[ext_resource path="res://Sprites/Player/AntonIdle4.png" type="Texture" id=31]
-[ext_resource path="res://Sprites/Player/AntonIdle6.png" type="Texture" id=32]
-[ext_resource path="res://Sprites/Player/AntonIdle5.png" type="Texture" id=33]
-[ext_resource path="res://Sprites/Player/Anton Jump.png" type="Texture" id=34]
-[ext_resource path="res://Sprites/Player/AntonAttack0.png" type="Texture" id=35]
-[ext_resource path="res://Sprites/Player/AntonAttack1.png" type="Texture" id=36]
-[ext_resource path="res://Sprites/Player/AntonAttack2.png" type="Texture" id=37]
-[ext_resource path="res://Sprites/Player/AntonAttack4.png" type="Texture" id=38]
-[ext_resource path="res://Sprites/Player/AntonAttack3.png" type="Texture" id=39]
-[ext_resource path="res://Sprites/Player/AntonAttack5.png" type="Texture" id=40]
-[ext_resource path="res://Sprites/Player/AntonWalk0.png" type="Texture" id=41]
-[ext_resource path="res://Sprites/Player/AntonWalk1.png" type="Texture" id=42]
-[ext_resource path="res://Sprites/Player/AntonWalk2.png" type="Texture" id=43]
-[ext_resource path="res://Sprites/Player/AntonWalk3.png" type="Texture" id=44]
-[ext_resource path="res://Sprites/Player/Ben Idle(1).png" type="Texture" id=45]
-[ext_resource path="res://Sprites/Player/Ben Jump.png" type="Texture" id=46]
-[ext_resource path="res://Sprites/Player/BenAttack0.png" type="Texture" id=47]
-[ext_resource path="res://Sprites/Player/BenAttack1.png" type="Texture" id=48]
-[ext_resource path="res://Sprites/Player/BenAttack2.png" type="Texture" id=49]
-[ext_resource path="res://Sprites/Player/BenWalk0.png" type="Texture" id=50]
-[ext_resource path="res://Sprites/Player/BenWalk1.png" type="Texture" id=51]
-[ext_resource path="res://Sprites/Player/BenWalk2.png" type="Texture" id=52]
-[ext_resource path="res://Sprites/Player/BenWalk3.png" type="Texture" id=53]
-[ext_resource path="res://Sprites/GUI/StunStars0.png" type="Texture" id=54]
-[ext_resource path="res://Sprites/GUI/StunStars1.png" type="Texture" id=55]
-[ext_resource path="res://Sprites/GUI/StunStars2.png" type="Texture" id=56]
-[ext_resource path="res://Sprites/GUI/StunStars3.png" type="Texture" id=57]
-[ext_resource path="res://Other/font_cousine.tres" type="DynamicFont" id=58]
+[ext_resource path="res://Sprites/Player/AID7_00.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Player/AID7_01.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Player/AID7_02.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Player/AID7_03.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Player/AID7_04.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Player/AID7_05.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Player/AID7_06.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Player/AID7_07.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Player/AID7_08.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Player/AID7_09.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/Player/AID7_10.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Player/AID7_11.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/Player/AID7_12.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/Player/AID7_13.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Player/AID7_14.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Player/AntonIdle0.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/Player/AntonIdle1.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Player/AntonIdle2.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/Player/AntonIdle3.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/Player/AntonIdle4.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Player/AntonIdle6.png" type="Texture" id=47]
+[ext_resource path="res://Sprites/Player/AntonIdle5.png" type="Texture" id=48]
+[ext_resource path="res://Sprites/Player/Anton Jump.png" type="Texture" id=49]
+[ext_resource path="res://Sprites/Player/AntonAttack0.png" type="Texture" id=50]
+[ext_resource path="res://Sprites/Player/AntonAttack1.png" type="Texture" id=51]
+[ext_resource path="res://Sprites/Player/AntonAttack2.png" type="Texture" id=52]
+[ext_resource path="res://Sprites/Player/AntonAttack4.png" type="Texture" id=53]
+[ext_resource path="res://Sprites/Player/AntonAttack3.png" type="Texture" id=54]
+[ext_resource path="res://Sprites/Player/AntonAttack5.png" type="Texture" id=55]
+[ext_resource path="res://Sprites/Player/AntonWalk0.png" type="Texture" id=56]
+[ext_resource path="res://Sprites/Player/AntonWalk1.png" type="Texture" id=57]
+[ext_resource path="res://Sprites/Player/AntonWalk2.png" type="Texture" id=58]
+[ext_resource path="res://Sprites/Player/AntonWalk3.png" type="Texture" id=59]
+[ext_resource path="res://Sprites/Player/Ben Idle(1).png" type="Texture" id=60]
+[ext_resource path="res://Sprites/Player/Ben Jump.png" type="Texture" id=61]
+[ext_resource path="res://Sprites/Player/BenAttack0.png" type="Texture" id=62]
+[ext_resource path="res://Sprites/Player/BenAttack1.png" type="Texture" id=63]
+[ext_resource path="res://Sprites/Player/BenAttack2.png" type="Texture" id=64]
+[ext_resource path="res://Sprites/Player/BenWalk0.png" type="Texture" id=65]
+[ext_resource path="res://Sprites/Player/BenWalk1.png" type="Texture" id=66]
+[ext_resource path="res://Sprites/Player/BenWalk2.png" type="Texture" id=67]
+[ext_resource path="res://Sprites/Player/BenWalk3.png" type="Texture" id=68]
+[ext_resource path="res://Sprites/GUI/StunStars0.png" type="Texture" id=69]
+[ext_resource path="res://Sprites/GUI/StunStars1.png" type="Texture" id=70]
+[ext_resource path="res://Sprites/GUI/StunStars2.png" type="Texture" id=71]
+[ext_resource path="res://Sprites/GUI/StunStars3.png" type="Texture" id=72]
+[ext_resource path="res://Other/font_cousine.tres" type="DynamicFont" id=73]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -108,42 +123,52 @@ animations = [ {
 "name": "Jumping",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "BasicA",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "Bicycle",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "BasicA",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
 "loop": true,
 "name": "Walking",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
+"loop": true,
+"name": "Waltz",
+"speed": 24.0
 } ]
 _sections_unfolded = [ "Resource" ]
+
+[sub_resource type="CircleShape2D" id=9]
+
+custom_solver_bias = 0.0
+radius = 10.0
 
 [sub_resource type="SpriteFrames" id=5]
 
 animations = [ {
-"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 34 ) ],
+"frames": [ ExtResource( 49 ) ],
 "loop": true,
 "name": "Jumping",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ) ],
+"frames": [ ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ) ],
 "loop": true,
 "name": "BasicA",
 "speed": 22.22
 }, {
-"frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ) ],
+"frames": [ ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ) ],
 "loop": true,
 "name": "Walking",
 "speed": 5.0
@@ -157,22 +182,22 @@ radius = 79.9148
 [sub_resource type="SpriteFrames" id=7]
 
 animations = [ {
-"frames": [ ExtResource( 45 ) ],
+"frames": [ ExtResource( 60 ) ],
 "loop": false,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 46 ) ],
+"frames": [ ExtResource( 61 ) ],
 "loop": true,
 "name": "Jumping",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
+"frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ) ],
 "loop": true,
 "name": "BasicA",
 "speed": 11.0
 }, {
-"frames": [ ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ],
+"frames": [ ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ) ],
 "loop": true,
 "name": "Walking",
 "speed": 12.0
@@ -181,7 +206,7 @@ animations = [ {
 [sub_resource type="SpriteFrames" id=8]
 
 animations = [ {
-"frames": [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ) ],
+"frames": [ ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ) ],
 "loop": true,
 "name": "spin",
 "speed": 10.0
@@ -195,7 +220,7 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Pause" ]
+_sections_unfolded = [ "Collision", "Pause" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -262,6 +287,22 @@ visible = false
 frames = SubResource( 4 )
 animation = "Idle"
 
+[node name="AID_7Effector" type="Area2D" parent="NiklasSprite" index="0"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="AID_7Effectorspace" type="CollisionShape2D" parent="NiklasSprite/AID_7Effector" index="0"]
+
+position = Vector2( 0.65567, -11.463 )
+scale = Vector2( 7.14941, 7.14941 )
+shape = SubResource( 9 )
+
 [node name="AntonSprite" type="AnimatedSprite" parent="." index="7"]
 
 position = Vector2( 0, -4 )
@@ -297,8 +338,6 @@ animation = "spin"
 frame = 3
 
 [node name="PlayerSpecificCooldowns" type="Node" parent="." index="10"]
-
-editor/display_folded = true
 
 [node name="Anton_4Cooldown" type="Timer" parent="PlayerSpecificCooldowns" index="0"]
 
@@ -370,210 +409,217 @@ wait_time = 25.0
 one_shot = true
 autostart = false
 
-[node name="AID_7_sixsecs" type="Timer" parent="PlayerSpecificCooldowns" index="10"]
+[node name="AID_7onesec" type="Timer" parent="PlayerSpecificCooldowns" index="10"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="AID_7_sixsecs" type="Timer" parent="PlayerSpecificCooldowns" index="11"]
 
 process_mode = 1
 wait_time = 6.0
 one_shot = true
 autostart = false
 
-[node name="AID_8" type="Timer" parent="PlayerSpecificCooldowns" index="11"]
+[node name="AID_8" type="Timer" parent="PlayerSpecificCooldowns" index="12"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_9" type="Timer" parent="PlayerSpecificCooldowns" index="12"]
+[node name="AID_9" type="Timer" parent="PlayerSpecificCooldowns" index="13"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_9_threesecs" type="Timer" parent="PlayerSpecificCooldowns" index="13"]
+[node name="AID_9_threesecs" type="Timer" parent="PlayerSpecificCooldowns" index="14"]
 
 process_mode = 1
 wait_time = 3.0
 one_shot = true
 autostart = false
 
-[node name="AID_10" type="Timer" parent="PlayerSpecificCooldowns" index="14"]
+[node name="AID_10" type="Timer" parent="PlayerSpecificCooldowns" index="15"]
 
 process_mode = 1
 wait_time = 8.0
 one_shot = true
 autostart = false
 
-[node name="AID_11" type="Timer" parent="PlayerSpecificCooldowns" index="15"]
+[node name="AID_11" type="Timer" parent="PlayerSpecificCooldowns" index="16"]
 
 process_mode = 1
 wait_time = 15.0
 one_shot = true
 autostart = false
 
-[node name="AID_12" type="Timer" parent="PlayerSpecificCooldowns" index="16"]
+[node name="AID_12" type="Timer" parent="PlayerSpecificCooldowns" index="17"]
 
 process_mode = 1
 wait_time = 6.0
 one_shot = true
 autostart = false
 
-[node name="AID_12_runtime" type="Timer" parent="PlayerSpecificCooldowns" index="17"]
+[node name="AID_12_runtime" type="Timer" parent="PlayerSpecificCooldowns" index="18"]
 
 process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = false
 
-[node name="AID_13" type="Timer" parent="PlayerSpecificCooldowns" index="18"]
+[node name="AID_13" type="Timer" parent="PlayerSpecificCooldowns" index="19"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_14" type="Timer" parent="PlayerSpecificCooldowns" index="19"]
+[node name="AID_14" type="Timer" parent="PlayerSpecificCooldowns" index="20"]
 
 process_mode = 1
 wait_time = 8.0
 one_shot = true
 autostart = false
 
-[node name="AID_14_05secs" type="Timer" parent="PlayerSpecificCooldowns" index="20"]
+[node name="AID_14_05secs" type="Timer" parent="PlayerSpecificCooldowns" index="21"]
 
 process_mode = 1
 wait_time = 0.5
 one_shot = true
 autostart = false
 
-[node name="AID_14_08channel" type="Timer" parent="PlayerSpecificCooldowns" index="21"]
+[node name="AID_14_08channel" type="Timer" parent="PlayerSpecificCooldowns" index="22"]
 
 process_mode = 1
 wait_time = 0.8
 one_shot = true
 autostart = false
 
-[node name="AID_15" type="Timer" parent="PlayerSpecificCooldowns" index="22"]
+[node name="AID_15" type="Timer" parent="PlayerSpecificCooldowns" index="23"]
 
 process_mode = 1
 wait_time = 12.0
 one_shot = true
 autostart = false
 
-[node name="AID_15_1sec" type="Timer" parent="PlayerSpecificCooldowns" index="23"]
+[node name="AID_15_1sec" type="Timer" parent="PlayerSpecificCooldowns" index="24"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_15_04channel" type="Timer" parent="PlayerSpecificCooldowns" index="24"]
+[node name="AID_15_04channel" type="Timer" parent="PlayerSpecificCooldowns" index="25"]
 
 process_mode = 1
 wait_time = 0.4
 one_shot = true
 autostart = false
 
-[node name="AID_16" type="Timer" parent="PlayerSpecificCooldowns" index="25"]
+[node name="AID_16" type="Timer" parent="PlayerSpecificCooldowns" index="26"]
 
 process_mode = 1
 wait_time = 25.0
 one_shot = true
 autostart = false
 
-[node name="AID_17" type="Timer" parent="PlayerSpecificCooldowns" index="26"]
+[node name="AID_17" type="Timer" parent="PlayerSpecificCooldowns" index="27"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_18" type="Timer" parent="PlayerSpecificCooldowns" index="27"]
+[node name="AID_18" type="Timer" parent="PlayerSpecificCooldowns" index="28"]
 
 process_mode = 1
 wait_time = 10.0
 one_shot = true
 autostart = false
 
-[node name="AID_18_6secs" type="Timer" parent="PlayerSpecificCooldowns" index="28"]
+[node name="AID_18_6secs" type="Timer" parent="PlayerSpecificCooldowns" index="29"]
 
 process_mode = 1
 wait_time = 6.0
 one_shot = true
 autostart = false
 
-[node name="AID_19" type="Timer" parent="PlayerSpecificCooldowns" index="29"]
+[node name="AID_19" type="Timer" parent="PlayerSpecificCooldowns" index="30"]
 
 process_mode = 1
 wait_time = 25.0
 one_shot = true
 autostart = false
 
-[node name="AID_20" type="Timer" parent="PlayerSpecificCooldowns" index="30"]
+[node name="AID_20" type="Timer" parent="PlayerSpecificCooldowns" index="31"]
 
 process_mode = 1
 wait_time = 45.0
 one_shot = true
 autostart = false
 
-[node name="AID_20_tensecs" type="Timer" parent="PlayerSpecificCooldowns" index="31"]
+[node name="AID_20_tensecs" type="Timer" parent="PlayerSpecificCooldowns" index="32"]
 
 process_mode = 1
 wait_time = 10.0
 one_shot = false
 autostart = false
 
-[node name="AID_21" type="Timer" parent="PlayerSpecificCooldowns" index="32"]
+[node name="AID_21" type="Timer" parent="PlayerSpecificCooldowns" index="33"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_22" type="Timer" parent="PlayerSpecificCooldowns" index="33"]
+[node name="AID_22" type="Timer" parent="PlayerSpecificCooldowns" index="34"]
 
 process_mode = 1
 wait_time = 4.0
 one_shot = true
 autostart = false
 
-[node name="AID_23" type="Timer" parent="PlayerSpecificCooldowns" index="34"]
+[node name="AID_23" type="Timer" parent="PlayerSpecificCooldowns" index="35"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_24" type="Timer" parent="PlayerSpecificCooldowns" index="35"]
+[node name="AID_24" type="Timer" parent="PlayerSpecificCooldowns" index="36"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_25" type="Timer" parent="PlayerSpecificCooldowns" index="36"]
+[node name="AID_25" type="Timer" parent="PlayerSpecificCooldowns" index="37"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_26" type="Timer" parent="PlayerSpecificCooldowns" index="37"]
+[node name="AID_26" type="Timer" parent="PlayerSpecificCooldowns" index="38"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_27" type="Timer" parent="PlayerSpecificCooldowns" index="38"]
+[node name="AID_27" type="Timer" parent="PlayerSpecificCooldowns" index="39"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_10_StunDuration" type="Timer" parent="PlayerSpecificCooldowns" index="39"]
+[node name="AID_10_StunDuration" type="Timer" parent="PlayerSpecificCooldowns" index="40"]
 
 process_mode = 1
 wait_time = 2.0
@@ -594,7 +640,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 58 )
+custom_fonts/font = ExtResource( 73 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -610,9 +656,17 @@ autostart = false
 
 [connection signal="body_exited" from="BasicAttackArea" to="." method="_on_BasicAttackArea_body_exited"]
 
+[connection signal="body_entered" from="NiklasSprite/AID_7Effector" to="." method="on_AID7Effector_ben"]
+
+[connection signal="body_exited" from="NiklasSprite/AID_7Effector" to="." method="on_AID7Effector_bex"]
+
 [connection signal="body_entered" from="AntonSprite/AID_9Effector" to="." method="_on_AID_9Effector_body_entered"]
 
 [connection signal="body_exited" from="AntonSprite/AID_9Effector" to="." method="_on_AID_9Effector_body_exited"]
+
+[connection signal="timeout" from="PlayerSpecificCooldowns/AID_7onesec" to="." method="AID_7_delaytimeout"]
+
+[connection signal="timeout" from="PlayerSpecificCooldowns/AID_7_sixsecs" to="." method="_on_AID_7_sixsecs_timeout"]
 
 [connection signal="timeout" from="Insult_timer" to="." method="_on_Insult_timer_timeout"]
 
