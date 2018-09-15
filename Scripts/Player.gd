@@ -110,6 +110,9 @@ var AID_7_range
 var AID_7_inRange = false
 var AID_7_canHit = true
 
+var AID_5_range
+var AID_5_inRange = false
+
 signal toggleGhost
 func _ready():
 	if PID == 0:
@@ -360,6 +363,17 @@ func _physics_process(delta):
 	($PlayerSpecificCooldowns/AID_1.time_left == 0) && !isStunned):
 		dotimes[time + latency] = "AID_1"
 		$PlayerSpecificCooldowns/AID_1.start()
+	
+	#AID 5 Anton Primary
+	if Input.is_action_just_pressed(AB_1_key) and Asprite == $AntonSprite and $PlayerSpecificCooldowns/AID_5.time_left == 0 and not isStunned:
+		dotimes[time + latency] = "AID_5"
+		$PlayerSpecificCooldowns/AID_5.start()
+		pass
+	
+	#AID 6 Anton Secondary
+	if Input.is_action_just_pressed(AB_2_key) and Asprite == $AntonSprite and $PlayerSpecificCooldowns/AID_6.time_left == 0 and not isStunned:
+		dotimes[time + latency] = "AID_6"
+		$PlayerSpecificCooldowns/AID_6.start()
 	
 	#AID7, Niklas Ultimate, 
 	if Input.is_action_just_pressed(Ulti_key) and Asprite == $NiklasSprite and $PlayerSpecificCooldowns/AID_7.time_left == 0 and not isStunned:
@@ -647,6 +661,16 @@ func AID_7():
 	$PlayerSpecificCooldowns/AID_7_sixsecs.start()
 	Asprite.play("Waltz")
 
+func AID_5():
+	if AID_5_range:
+		AID_5_inRange.change_HP(-4)
+		if not AID_5_inRange.Asprite == $ConnorSprite:
+			AID_5_inRange.change_INT(20)
+
+func AID_6():
+	if AID_9_range and not AID_9_inRange.Asprite == $ConnorSprite:
+		AID_9_inRange.change_INT(35)
+
 func do_latency(time):
 	#for every milisecond between the last and this tick
 	for i in range(tbf, int(time + 1), 1):
@@ -718,7 +742,10 @@ func do_latency(time):
 				AID_20()
 			if dotimes[i] == "AID_7":
 				AID_7()
-			
+			if dotimes[i] == "AID_5":
+				AID_5()
+			if dotimes[i] == "AID_6":
+				AID_6()
 			
 			dotimes.erase(i)
 
@@ -766,3 +793,16 @@ func _on_AID_7_sixsecs_timeout():
 
 func AID_7_delaytimeout():
 	AID_7_canHit = true
+
+
+func _on_AID_5Effector_body_entered(body):
+	#Ignore own body
+	if(body.hit_ID == hit_ID or body.hit_ID == 1000):
+		pass
+	else:
+		AID_5_range = true
+		AID_5_inRange = body
+
+func _on_AID_5Effector_body_exited(body):
+	AID_5_inRange = null
+	AID_5_range = false

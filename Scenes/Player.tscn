@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=2]
+[gd_scene load_steps=84 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player/Connor Idle.png" type="Texture" id=2]
@@ -13,9 +13,9 @@
 [ext_resource path="res://Sprites/Player/connorSprite3.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Player/connorSprite4.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Player/Niklas Idle.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Player/Niklas Jump.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Player/NiklasBike_0.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Player/NiklasBike_1.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Player/NiklasBike_0.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Player/NiklasBike_1.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Player/Niklas Jump.png" type="Texture" id=16]
 [ext_resource path="res://Sprites/Player/NiklasAttack0.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/Player/NiklasAttack1.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Player/NiklasAttack2.png" type="Texture" id=19]
@@ -118,15 +118,15 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "Jumping",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
 "loop": true,
 "name": "Bicycle",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": true,
@@ -145,12 +145,12 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[sub_resource type="CircleShape2D" id=9]
+[sub_resource type="CircleShape2D" id=5]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=6]
 
 animations = [ {
 "frames": [ ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ) ],
@@ -174,12 +174,17 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=7]
 
 custom_solver_bias = 0.0
 radius = 79.9148
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="CircleShape2D" id=8]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[sub_resource type="SpriteFrames" id=9]
 
 animations = [ {
 "frames": [ ExtResource( 60 ) ],
@@ -203,7 +208,7 @@ animations = [ {
 "speed": 12.0
 } ]
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=10]
 
 animations = [ {
 "frames": [ ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ) ],
@@ -301,12 +306,12 @@ audio_bus_name = "Master"
 
 position = Vector2( 0.65567, -11.463 )
 scale = Vector2( 7.14941, 7.14941 )
-shape = SubResource( 9 )
+shape = SubResource( 5 )
 
 [node name="AntonSprite" type="AnimatedSprite" parent="." index="7"]
 
 position = Vector2( 0, -4 )
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 animation = "Idle"
 
 [node name="AID_9Effector" type="Area2D" parent="AntonSprite" index="0"]
@@ -322,18 +327,34 @@ audio_bus_name = "Master"
 
 [node name="AID_9Effectorspace" type="CollisionShape2D" parent="AntonSprite/AID_9Effector" index="0"]
 
-shape = SubResource( 6 )
+shape = SubResource( 7 )
+
+[node name="AID_5Effector" type="Area2D" parent="AntonSprite" index="1"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="AID_5Effectorspace" type="CollisionShape2D" parent="AntonSprite/AID_5Effector" index="0"]
+
+position = Vector2( -1.76331, 1.76331 )
+scale = Vector2( 13.036, 13.036 )
+shape = SubResource( 8 )
 
 [node name="BenSprite" type="AnimatedSprite" parent="." index="8"]
 
 visible = false
-frames = SubResource( 7 )
+frames = SubResource( 9 )
 animation = "Idle"
 
 [node name="StunStarSprite" type="AnimatedSprite" parent="." index="9"]
 
 position = Vector2( -0.261749, -63.3841 )
-frames = SubResource( 8 )
+frames = SubResource( 10 )
 animation = "spin"
 frame = 3
 
@@ -663,6 +684,10 @@ autostart = false
 [connection signal="body_entered" from="AntonSprite/AID_9Effector" to="." method="_on_AID_9Effector_body_entered"]
 
 [connection signal="body_exited" from="AntonSprite/AID_9Effector" to="." method="_on_AID_9Effector_body_exited"]
+
+[connection signal="body_entered" from="AntonSprite/AID_5Effector" to="." method="_on_AID_5Effector_body_entered"]
+
+[connection signal="body_exited" from="AntonSprite/AID_5Effector" to="." method="_on_AID_5Effector_body_exited"]
 
 [connection signal="timeout" from="PlayerSpecificCooldowns/AID_7onesec" to="." method="AID_7_delaytimeout"]
 
