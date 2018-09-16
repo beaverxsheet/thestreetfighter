@@ -42,7 +42,13 @@ func _on_Sneeze_body_entered(body):
 		if body.do_AID_20:
 			own.AID_20_fist()
 		if flyright:
-			body.position.x += 80
+			if body.position.x < 430:
+				body.position.x += 80
+			else:
+				body.position.x = 510
 		else:
-			body.position.x -= 80
+			if body.position.x > 75:
+				body.position.x -= 80
+			else:
+				body.position.x = -5
 		queue_free()
