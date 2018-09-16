@@ -11,12 +11,19 @@ var protected_hit_ID = [1000]
 func _process(delta):
 	var speed_x = 1
 	#Take var flyright from Main Scene (Player), determine direction of flight
-	if !flyright:
+	
+	if flyright:
+		$AnimatedSprite.play("default")
+		#print("right")
+	else:
+		$AnimatedSprite.play("left")
 		speed_x = -1
+		#print("left")
+	
 	var speed_y = 0
 	var motion = Vector2(speed_x, speed_y)*INTEGRAL_SPEED
 	self.position = self.position + motion*delta
-	$AnimatedSprite.play("default")
+	
 	
 	#Check if item has left screen, delete
 	if !$VisibilityNotifier2D.is_on_screen():
@@ -34,4 +41,8 @@ func _on_Sneeze_body_entered(body):
 		body.change_HP(-5)
 		if body.do_AID_20:
 			own.AID_20_fist()
+		if flyright:
+			body.position.x += 80
+		else:
+			body.position.x -= 80
 		queue_free()
