@@ -492,7 +492,12 @@ func _physics_process(delta):
 			print("error" + enemy.p_name)
 	
 	if do_AID_20:
-		AID_20()
+		#AID_20()
+		$BenSprite.modulate.r = 0.3
+	else:
+		do_AID_20 = false
+		$BenSprite.modulate.r = 1
+	#print($BenSprite.modulate.r)
 
 		
 	if AID_7_range and do_AID_7 and AID_7_canHit:
@@ -656,8 +661,8 @@ func AID_20():
 	if !do_AID_20:
 		do_AID_20 = true
 		$PlayerSpecificCooldowns/AID_20_tensecs.start()
-	if $PlayerSpecificCooldowns/AID_20_tensecs.time_left == 0:
-		do_AID_20 = false
+	#if $PlayerSpecificCooldowns/AID_20_tensecs.time_left == 0:
+	#	do_AID_20 = false
 
 func AID_20_fist():
 	#print("HO:"+str(hit_ID))
@@ -845,3 +850,7 @@ func _on_AID_5Effector_body_exited(body):
 
 func _on_AID_11twosec_timeout():
 	do_AID11 = false
+
+
+func _on_AID_20_tensecs_timeout():
+	do_AID_20 = false

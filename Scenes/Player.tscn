@@ -717,6 +717,8 @@ area_mask = 1
 
 [connection signal="timeout" from="PlayerSpecificCooldowns/AID_11twosec" to="." method="_on_AID_11twosec_timeout"]
 
+[connection signal="timeout" from="PlayerSpecificCooldowns/AID_20_tensecs" to="." method="_on_AID_20_tensecs_timeout"]
+
 [connection signal="timeout" from="Insult_timer" to="." method="_on_Insult_timer_timeout"]
 
 
