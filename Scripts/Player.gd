@@ -30,7 +30,7 @@ var motion = Vector2()
 
 #Setting variables
 var can_shoot = true
-var current_HP = 10
+var current_HP = 100
 var looks_right = true
 var basic_range = false
 var AID_9_range = false
@@ -122,9 +122,9 @@ func _ready():
 		myAbility4 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability4")
 		myAbility5 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability5")
 		
-		myHP_Label = get_node("../HUD/Row/Player1_Cols/Player1_HP/HP_P1")
+		myHP_Label = get_node("../HUD/Row/Player1_Cols/Player1_HP/HPGauge_P1/HP_P1")
 		myHP_Gauge = get_node("../HUD/Row/Player1_Cols/Player1_HP/HPGauge_P1")
-		myINT_Label = get_node("../HUD/Row/Player1_Cols/Player1_INT/INT_P1")
+		myINT_Label = get_node("../HUD/Row/Player1_Cols/Player1_INT/INTGauge_P1/INT_P1")
 		myINT_Gauge = get_node("../HUD/Row/Player1_Cols/Player1_INT/INTGauge_P1")
 		
 		CoolLabelA1 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability1/Label")
@@ -153,9 +153,9 @@ func _ready():
 		myAbility5 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability5")
 		myAbility5 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability5")
 		
-		myHP_Label = get_node("../HUD/Row/Player2_Cols/Player2_HP/HP_Player2")
+		myHP_Label = get_node("../HUD/Row/Player2_Cols/Player2_HP/HPGauge_P2/HP_Player2")
 		myHP_Gauge = get_node("../HUD/Row/Player2_Cols/Player2_HP/HPGauge_P2")
-		myINT_Label = get_node("../HUD/Row/Player2_Cols/Player2_INT2/INT_Player2")
+		myINT_Label = get_node("../HUD/Row/Player2_Cols/Player2_INT2/INTGauge_P2/INT_Player2")
 		myINT_Gauge = get_node("../HUD/Row/Player2_Cols/Player2_INT2/INTGauge_P2")
 		
 		CoolLabelA1 = get_node("../HUD/Row/Player2_Cols/Player2_ABL/Ability1/Label")
@@ -279,11 +279,11 @@ func _physics_process(delta):
 	#call the latency function
 	do_latency(time)
 	#Effect Connors Stupidity Cyclic Function AID_8 Passive
-	if current_HP < 10:
+	if current_HP < 100:
 		if Asprite == $BenSprite:
-			current_HP += 0.003
+			current_HP += 0.015
 		else:
-			current_HP += 0.001
+			current_HP += 0.005
 	
 	if Asprite == $ConnorSprite:
 		AID_8(time)
@@ -297,11 +297,11 @@ func _physics_process(delta):
 				latency -= 1
 				d_latency = 0
 	
-	if current_HP < 10:
-		if Asprite == $BenSprite:
-			current_HP += 0.003
-		else:
-			current_HP += 0.001
+	#if current_HP < 10:
+	#	if Asprite == $BenSprite:
+	#		current_HP += 0.003
+	#	else:
+	#		current_HP += 0.001
 	
 	#Effect Antons AID_9 Passive
 	if((Asprite == $AntonSprite) && AID_9_range):
@@ -430,8 +430,8 @@ func _physics_process(delta):
 	move_and_slide(motion, UP)
 
 	#Communication with the HUD
-	myHP_Label.text = "(" + str(int(current_HP)) + "/10)"
-	myHP_Gauge.value = current_HP
+	myHP_Label.text = "(" + str(int(current_HP)) + "/100)"
+	myHP_Gauge.value = current_HP/10
 	myINT_Label.text = str(int(latency/100))
 	myINT_Gauge.value = latency
 	

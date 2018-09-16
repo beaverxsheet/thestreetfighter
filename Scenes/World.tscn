@@ -14,7 +14,7 @@
 [ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=12]
 [ext_resource path="res://Sounds/Music/BeepBox-Song.wav" type="AudioStream" id=13]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -57,7 +57,6 @@ __meta__ = {
 
 [node name="HUD" type="MarginContainer" parent="." index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -93,7 +92,6 @@ alignment = 1
 
 [node name="Player1_Cols" type="VBoxContainer" parent="HUD/Row" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -111,7 +109,6 @@ alignment = 0
 
 [node name="Player1_HP" type="HBoxContainer" parent="HUD/Row/Player1_Cols" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -128,6 +125,7 @@ alignment = 0
 
 [node name="HPGauge_P1" type="TextureProgress" parent="HUD/Row/Player1_Cols/Player1_HP" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -155,7 +153,30 @@ radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 _sections_unfolded = [ "Textures" ]
 
-[node name="HP_P1" type="Label" parent="HUD/Row/Player1_Cols/Player1_HP" index="1"]
+[node name="HP_P1" type="Label" parent="HUD/Row/Player1_Cols/Player1_HP/HPGauge_P1" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 71.0
+margin_top = 6.0
+margin_right = 152.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+text = "(007/100)"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Spacer" type="Label" parent="HUD/Row/Player1_Cols/Player1_HP" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -172,7 +193,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 7 )
-text = "(07/10)"
+text = "       "
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -180,7 +201,6 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Player1_INT" type="HBoxContainer" parent="HUD/Row/Player1_Cols" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -223,17 +243,17 @@ texture_progress = ExtResource( 8 )
 radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
-_sections_unfolded = [ "Textures" ]
+_sections_unfolded = [ "Rect", "Textures" ]
 
-[node name="INT_P1" type="Label" parent="HUD/Row/Player1_Cols/Player1_INT" index="1"]
+[node name="INT_P1" type="Label" parent="HUD/Row/Player1_Cols/Player1_INT/INTGauge_P1" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 164.0
+margin_left = 137.0
 margin_top = 7.0
-margin_right = 173.0
+margin_right = 146.0
 margin_bottom = 25.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -273,6 +293,7 @@ _sections_unfolded = [ "Material" ]
 
 [node name="Ability1" type="Sprite" parent="HUD/Row/Player1_Cols/Player1_ABL" index="0"]
 
+editor/display_folded = true
 position = Vector2( 16, 22 )
 texture = ExtResource( 10 )
 _sections_unfolded = [ "Material" ]
@@ -472,7 +493,6 @@ alignment = 0
 
 [node name="Player2_HP" type="HBoxContainer" parent="HUD/Row/Player2_Cols" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -487,7 +507,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 2
 
-[node name="HP_Player2" type="Label" parent="HUD/Row/Player2_Cols/Player2_HP" index="0"]
+[node name="Spacer" type="Label" parent="HUD/Row/Player2_Cols/Player2_HP" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -503,8 +523,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 7 )
-text = "(07/10)"
-align = 2
+text = "       "
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -541,6 +560,30 @@ radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 _sections_unfolded = [ "Textures" ]
 
+[node name="HP_Player2" type="Label" parent="HUD/Row/Player2_Cols/Player2_HP/HPGauge_P2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 5.0
+margin_top = 6.0
+margin_right = 86.0
+margin_bottom = 24.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+text = "(007/100)"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags", "Theme", "custom_constants", "custom_fonts", "custom_styles" ]
+
 [node name="Player2_INT2" type="HBoxContainer" parent="HUD/Row/Player2_Cols" index="1"]
 
 anchor_left = 0.0
@@ -558,31 +601,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 2
 
-[node name="INT_Player2" type="Label" parent="HUD/Row/Player2_Cols/Player2_INT2" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 54.0
-margin_top = 7.0
-margin_right = 63.0
-margin_bottom = 25.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = ExtResource( 7 )
-text = "0"
-align = 2
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_colors", "custom_fonts" ]
-
-[node name="INTGauge_P2" type="TextureProgress" parent="HUD/Row/Player2_Cols/Player2_INT2" index="1"]
+[node name="INTGauge_P2" type="TextureProgress" parent="HUD/Row/Player2_Cols/Player2_INT2" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -612,6 +631,30 @@ radial_fill_degrees = 360.0
 radial_center_offset = Vector2( 0, 0 )
 nine_patch_stretch = false
 _sections_unfolded = [ "Textures" ]
+
+[node name="INT_Player2" type="Label" parent="HUD/Row/Player2_Cols/Player2_INT2/INTGauge_P2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 13.0
+margin_top = 7.0
+margin_right = 22.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+text = "0"
+align = 2
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="Rim2" type="Sprite" parent="HUD/Row/Player2_Cols" index="2"]
 
@@ -768,7 +811,6 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="Ability5" type="Sprite" parent="HUD/Row/Player2_Cols/Player2_ABL" index="4"]
 
-editor/display_folded = true
 position = Vector2( 209, 22 )
 texture = ExtResource( 10 )
 _sections_unfolded = [ "Material" ]
