@@ -231,6 +231,7 @@ __meta__ = {
 "_edit_group_": true
 }
 PID = 0
+playSound = false
 
 [node name="ConnorSprite" type="AnimatedSprite" parent="." index="0"]
 
@@ -363,8 +364,6 @@ frame = 3
 
 [node name="PlayerSpecificCooldowns" type="Node" parent="." index="10"]
 
-editor/display_folded = true
-
 [node name="Anton_4Cooldown" type="Timer" parent="PlayerSpecificCooldowns" index="0"]
 
 process_mode = 1
@@ -484,168 +483,175 @@ wait_time = 15.0
 one_shot = true
 autostart = false
 
-[node name="AID_12" type="Timer" parent="PlayerSpecificCooldowns" index="17"]
+[node name="AID_11twosec" type="Timer" parent="PlayerSpecificCooldowns" index="17"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = false
+autostart = false
+
+[node name="AID_12" type="Timer" parent="PlayerSpecificCooldowns" index="18"]
 
 process_mode = 1
 wait_time = 6.0
 one_shot = true
 autostart = false
 
-[node name="AID_12_runtime" type="Timer" parent="PlayerSpecificCooldowns" index="18"]
+[node name="AID_12_runtime" type="Timer" parent="PlayerSpecificCooldowns" index="19"]
 
 process_mode = 1
 wait_time = 2.0
 one_shot = true
 autostart = false
 
-[node name="AID_13" type="Timer" parent="PlayerSpecificCooldowns" index="19"]
+[node name="AID_13" type="Timer" parent="PlayerSpecificCooldowns" index="20"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_14" type="Timer" parent="PlayerSpecificCooldowns" index="20"]
+[node name="AID_14" type="Timer" parent="PlayerSpecificCooldowns" index="21"]
 
 process_mode = 1
 wait_time = 8.0
 one_shot = true
 autostart = false
 
-[node name="AID_14_05secs" type="Timer" parent="PlayerSpecificCooldowns" index="21"]
+[node name="AID_14_05secs" type="Timer" parent="PlayerSpecificCooldowns" index="22"]
 
 process_mode = 1
 wait_time = 0.5
 one_shot = true
 autostart = false
 
-[node name="AID_14_08channel" type="Timer" parent="PlayerSpecificCooldowns" index="22"]
+[node name="AID_14_08channel" type="Timer" parent="PlayerSpecificCooldowns" index="23"]
 
 process_mode = 1
 wait_time = 0.8
 one_shot = true
 autostart = false
 
-[node name="AID_15" type="Timer" parent="PlayerSpecificCooldowns" index="23"]
+[node name="AID_15" type="Timer" parent="PlayerSpecificCooldowns" index="24"]
 
 process_mode = 1
 wait_time = 12.0
 one_shot = true
 autostart = false
 
-[node name="AID_15_1sec" type="Timer" parent="PlayerSpecificCooldowns" index="24"]
+[node name="AID_15_1sec" type="Timer" parent="PlayerSpecificCooldowns" index="25"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_15_04channel" type="Timer" parent="PlayerSpecificCooldowns" index="25"]
+[node name="AID_15_04channel" type="Timer" parent="PlayerSpecificCooldowns" index="26"]
 
 process_mode = 1
 wait_time = 0.4
 one_shot = true
 autostart = false
 
-[node name="AID_16" type="Timer" parent="PlayerSpecificCooldowns" index="26"]
+[node name="AID_16" type="Timer" parent="PlayerSpecificCooldowns" index="27"]
 
 process_mode = 1
 wait_time = 25.0
 one_shot = true
 autostart = false
 
-[node name="AID_17" type="Timer" parent="PlayerSpecificCooldowns" index="27"]
+[node name="AID_17" type="Timer" parent="PlayerSpecificCooldowns" index="28"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_18" type="Timer" parent="PlayerSpecificCooldowns" index="28"]
+[node name="AID_18" type="Timer" parent="PlayerSpecificCooldowns" index="29"]
 
 process_mode = 1
 wait_time = 10.0
 one_shot = true
 autostart = false
 
-[node name="AID_18_6secs" type="Timer" parent="PlayerSpecificCooldowns" index="29"]
+[node name="AID_18_6secs" type="Timer" parent="PlayerSpecificCooldowns" index="30"]
 
 process_mode = 1
 wait_time = 6.0
 one_shot = true
 autostart = false
 
-[node name="AID_19" type="Timer" parent="PlayerSpecificCooldowns" index="30"]
+[node name="AID_19" type="Timer" parent="PlayerSpecificCooldowns" index="31"]
 
 process_mode = 1
 wait_time = 25.0
 one_shot = true
 autostart = false
 
-[node name="AID_20" type="Timer" parent="PlayerSpecificCooldowns" index="31"]
+[node name="AID_20" type="Timer" parent="PlayerSpecificCooldowns" index="32"]
 
 process_mode = 1
 wait_time = 45.0
 one_shot = true
 autostart = false
 
-[node name="AID_20_tensecs" type="Timer" parent="PlayerSpecificCooldowns" index="32"]
+[node name="AID_20_tensecs" type="Timer" parent="PlayerSpecificCooldowns" index="33"]
 
 process_mode = 1
 wait_time = 10.0
 one_shot = false
 autostart = false
 
-[node name="AID_21" type="Timer" parent="PlayerSpecificCooldowns" index="33"]
+[node name="AID_21" type="Timer" parent="PlayerSpecificCooldowns" index="34"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_22" type="Timer" parent="PlayerSpecificCooldowns" index="34"]
+[node name="AID_22" type="Timer" parent="PlayerSpecificCooldowns" index="35"]
 
 process_mode = 1
 wait_time = 4.0
 one_shot = true
 autostart = false
 
-[node name="AID_23" type="Timer" parent="PlayerSpecificCooldowns" index="35"]
+[node name="AID_23" type="Timer" parent="PlayerSpecificCooldowns" index="36"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_24" type="Timer" parent="PlayerSpecificCooldowns" index="36"]
+[node name="AID_24" type="Timer" parent="PlayerSpecificCooldowns" index="37"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_25" type="Timer" parent="PlayerSpecificCooldowns" index="37"]
+[node name="AID_25" type="Timer" parent="PlayerSpecificCooldowns" index="38"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_26" type="Timer" parent="PlayerSpecificCooldowns" index="38"]
+[node name="AID_26" type="Timer" parent="PlayerSpecificCooldowns" index="39"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_27" type="Timer" parent="PlayerSpecificCooldowns" index="39"]
+[node name="AID_27" type="Timer" parent="PlayerSpecificCooldowns" index="40"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_10_StunDuration" type="Timer" parent="PlayerSpecificCooldowns" index="40"]
+[node name="AID_10_StunDuration" type="Timer" parent="PlayerSpecificCooldowns" index="41"]
 
 process_mode = 1
 wait_time = 2.0
@@ -708,6 +714,8 @@ area_mask = 1
 [connection signal="timeout" from="PlayerSpecificCooldowns/AID_7onesec" to="." method="AID_7_delaytimeout"]
 
 [connection signal="timeout" from="PlayerSpecificCooldowns/AID_7_sixsecs" to="." method="_on_AID_7_sixsecs_timeout"]
+
+[connection signal="timeout" from="PlayerSpecificCooldowns/AID_11twosec" to="." method="_on_AID_11twosec_timeout"]
 
 [connection signal="timeout" from="Insult_timer" to="." method="_on_Insult_timer_timeout"]
 

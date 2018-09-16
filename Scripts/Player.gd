@@ -113,6 +113,8 @@ var AID_7_canHit = true
 var AID_5_range
 var AID_5_inRange = false
 
+var do_AID11 = false
+
 export var playSound = false
 signal toggleGhost
 func _ready():
@@ -179,9 +181,12 @@ func _ready():
 #Setting Timer Function, called within the main loop
 func playerDependentCooldowns():
 	if Asprite == $AntonSprite:
-		CooldownA1 = $PlayerSpecificCooldowns/Anton_4Cooldown
-		CooldownA2 = $PlayerSpecificCooldowns/Anton_4Cooldown
-		CooldownA3 = $PlayerSpecificCooldowns/Anton_4Cooldown
+		#CooldownA1 = $PlayerSpecificCooldowns/Anton_4Cooldown
+		#CooldownA2 = $PlayerSpecificCooldowns/Anton_4Cooldown
+		#CooldownA3 = $PlayerSpecificCooldowns/Anton_4Cooldown
+		CooldownA1 = $BasicAttackCooldown
+		CooldownA2 = $PlayerSpecificCooldowns/AID_5
+		CooldownA3 = $PlayerSpecificCooldowns/AID_6
 		CooldownA4 = $PlayerSpecificCooldowns/AID_4
 		CooldownA5 = $PlayerSpecificCooldowns/Anton_4Cooldown
 	elif Asprite == $ConnorSprite:
@@ -381,6 +386,11 @@ func _physics_process(delta):
 		dotimes[time + latency] = "AID_7"
 		$PlayerSpecificCooldowns/AID_7.start()
 	
+	#AID11, Connor Secondary
+	if Input.is_action_just_pressed(AB_2_key) and Asprite == $ConnorSprite and $PlayerSpecificCooldowns/AID_11.time_left == 0 and not isStunned:
+		dotimes[time + latency] = "AID_11"
+		$PlayerSpecificCooldowns/AID_11.start()
+		pass
 	
 	#AID12, Niklas Secondary, E-Bike
 	if((Input.is_action_just_pressed(AB_2_key)) && (Asprite == $NiklasSprite)
@@ -408,7 +418,11 @@ func _physics_process(delta):
 	
 	#BASIC ATTACK all. Only if an object is in basic attack range and if the cooldown is 0		
 	if(Input.is_action_just_pressed(At_key) && ($BasicAttackCooldown.time_left == 0) && basic_range && !isStunned):
-		dotimes[time + latency] = "attack"
+		if do_AID11:
+			dotimes[time + latency] = "attackA11"
+			do_AID11 = false
+		else:
+			dotimes[time + latency] = "attack"
 		$BasicAttackCooldown.start()
 
 	#If on the floor, allow for jumps
@@ -672,6 +686,16 @@ func AID_6():
 	if AID_9_range and not AID_9_inRange.Asprite == $ConnorSprite:
 		AID_9_inRange.change_INT(35)
 
+func AID_11():
+	do_AID11 = true
+	$PlayerSpecificCooldowns/AID_11twosec.start()
+
+func reset_cooldowns():
+	CooldownA1.start()
+	CooldownA2.start()
+	CooldownA3.start()
+	CooldownA4.start()
+
 func do_latency(time):
 	#for every milisecond between the last and this tick
 	for i in range(tbf, int(time + 1), 1):
@@ -749,6 +773,14 @@ func do_latency(time):
 				AID_5()
 			if dotimes[i] == "AID_6":
 				AID_6()
+			if dotimes[i] == "AID_11":
+				AID_11()
+			if dotimes[i] == "attackA11":
+				in_basic_range.change_HP(-1)
+				if in_basic_range.do_AID_20:
+					AID_20_fist()
+				in_basic_range.reset_cooldowns()
+				
 			
 			dotimes.erase(i)
 
@@ -809,3 +841,7 @@ func _on_AID_5Effector_body_entered(body):
 func _on_AID_5Effector_body_exited(body):
 	AID_5_inRange = null
 	AID_5_range = false
+
+
+func _on_AID_11twosec_timeout():
+	do_AID11 = false
