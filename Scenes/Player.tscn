@@ -14,18 +14,18 @@
 [ext_resource path="res://Sprites/Player/connorSprite4.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Player/Niklas Idle.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Player/Niklas Jump.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Player/NiklasAttack0.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Player/NiklasAttack1.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Player/NiklasAttack2.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Player/NiklasAttack3.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Player/NiklasAttack4.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Player/NiklasAttack5.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Player/NiklasWalks0.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Player/NiklasWalks1.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Player/NiklasWalks2.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Player/NiklasWalks3.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Player/NiklasBike_0.png" type="Texture" id=25]
-[ext_resource path="res://Sprites/Player/NiklasBike_1.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Player/NiklasBike_0.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Player/NiklasBike_1.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Player/NiklasAttack0.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Player/NiklasAttack1.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Player/NiklasAttack2.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Player/NiklasAttack3.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Player/NiklasAttack4.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Player/NiklasAttack5.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Player/NiklasWalks0.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Player/NiklasWalks1.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Player/NiklasWalks2.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Player/NiklasWalks3.png" type="Texture" id=26]
 [ext_resource path="res://Sprites/Player/AID7_00.png" type="Texture" id=27]
 [ext_resource path="res://Sprites/Player/AID7_01.png" type="Texture" id=28]
 [ext_resource path="res://Sprites/Player/AID7_02.png" type="Texture" id=29]
@@ -124,19 +124,19 @@ animations = [ {
 "name": "Jumping",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Bicycle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "BasicA",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ) ],
 "loop": true,
 "name": "Walking",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ) ],
-"loop": true,
-"name": "Bicycle",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ) ],
