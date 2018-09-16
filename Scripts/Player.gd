@@ -113,6 +113,7 @@ var AID_7_canHit = true
 var AID_5_range
 var AID_5_inRange = false
 
+export var playSound = false
 signal toggleGhost
 func _ready():
 	if PID == 0:
@@ -730,6 +731,8 @@ func do_latency(time):
 					AID_20_fist()
 			if dotimes[i] == "jump":
 				motion.y = JUMP_HEIGHT
+				if playSound:
+					$AudioStreamPlayer2D.play()
 			if dotimes[i] == "AID_1":
 				AID_1()
 			if dotimes[i] == "AID_12":
