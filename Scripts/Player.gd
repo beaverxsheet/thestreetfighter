@@ -114,6 +114,7 @@ var AID_5_range
 var AID_5_inRange = false
 
 var do_AID11 = false
+var playing_anim = false
 
 export var playSound = false
 signal toggleGhost
@@ -303,6 +304,10 @@ func _physics_process(delta):
 				latency -= 1
 				d_latency = 0
 	
+	if playing_anim:
+		if Asprite.playing:
+			playing_anim = false
+	
 	#if current_HP < 10:
 	#	if Asprite == $BenSprite:
 	#		current_HP += 0.003
@@ -391,6 +396,11 @@ func _physics_process(delta):
 		dotimes[time + latency] = "AID_11"
 		$PlayerSpecificCooldowns/AID_11.start()
 		pass
+	
+	#AID_19, Ben Secondary
+	if Input.is_action_just_pressed(AB_2_key) and Asprite == $BenSprite and $PlayerSpecificCooldowns/AID_19.time_left == 0 and not isStunned and basic_range:
+		dotimes[time + latency] = "AID_19"
+		$PlayerSpecificCooldowns/AID_19.start()
 	
 	#AID12, Niklas Secondary, E-Bike
 	if((Input.is_action_just_pressed(AB_2_key)) && (Asprite == $NiklasSprite)
@@ -638,6 +648,11 @@ func AID_18():
 		childnums_o[i].hit_ID = hit_ID
 		childnums_o[i].set_position(Vector2(xloc,50))
 
+func AID_19():
+	if basic_range:
+		in_basic_range.change_HP(-20)
+	pass
+
 func load_insults(filename):
 	var outlist = []
 	var insult_file = File.new()
@@ -746,7 +761,8 @@ func do_latency(time):
 			if dotimes[i] == "stop":
 				motion.x = 0
 				#Sprite and anim
-				if not do_AID_7:
+				#print(Asprite.animation)
+				if not do_AID_7 or not playing_anim:
 					Asprite.play("Idle")
 			if dotimes[i] == "ability1":
 				create_WineBottle() #Create bottle (see function)
@@ -785,7 +801,12 @@ func do_latency(time):
 				if in_basic_range.do_AID_20:
 					AID_20_fist()
 				in_basic_range.reset_cooldowns()
-				
+			if dotimes[i] == "AID_19":
+				AID_19()
+				Asprite.play("BasicA")
+				playing_anim = true
+				if in_basic_range.do_AID_20:
+					AID_20_fist()
 			
 			dotimes.erase(i)
 
