@@ -30,6 +30,7 @@ var motion = Vector2()
 
 #Setting variables
 var can_shoot = true
+var max_HP = 100
 var current_HP = 100
 var looks_right = true
 var basic_range = false
@@ -177,6 +178,19 @@ func _ready():
 		hit_ID = 2
 		ins_key = "InsultP2"
 		enemy = get_node("../Player")
+	
+	#Set maximum health according to character
+	if chosen_char == 0:
+		max_HP = 100
+	elif chosen_char == 1:
+		max_HP = 60
+	elif chosen_char == 2:
+		max_HP = 85
+	elif chosen_char == 3:
+		max_HP = 100
+	else:
+		max_HP = 100
+	current_HP = max_HP
 
 
 #Setting Timer Function, called within the main loop
@@ -277,7 +291,6 @@ func chooseSprite():
 		p_name = "Ben"
 		return $BenSprite
 
-
 #Movement func called between frames
 func _physics_process(delta):
 	
@@ -286,7 +299,7 @@ func _physics_process(delta):
 	#call the latency function
 	do_latency(time)
 	#Effect Connors Stupidity Cyclic Function AID_8 Passive
-	if current_HP < 100:
+	if current_HP < max_HP:
 		if Asprite == $BenSprite:
 			current_HP += 0.015
 		else:
@@ -455,7 +468,7 @@ func _physics_process(delta):
 	move_and_slide(motion, UP)
 
 	#Communication with the HUD
-	myHP_Label.text = "(" + str(int(current_HP)) + "/100)"
+	myHP_Label.text = "(" + str(int(current_HP)) + "/" + str(int(max_HP)) + ")"
 	myHP_Gauge.value = current_HP/10
 	myINT_Label.text = str(int(latency/100))
 	myINT_Gauge.value = latency
