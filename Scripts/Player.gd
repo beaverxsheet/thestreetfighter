@@ -182,14 +182,19 @@ func _ready():
 	#Set maximum health according to character
 	if chosen_char == 0:
 		max_HP = 100
+		myHP_Gauge.max_value = 10.0
 	elif chosen_char == 1:
 		max_HP = 60
+		myHP_Gauge.max_value = 6.0
 	elif chosen_char == 2:
 		max_HP = 85
+		myHP_Gauge.max_value = 8.2
 	elif chosen_char == 3:
 		max_HP = 100
+		myHP_Gauge.max_value = 10.0
 	else:
 		max_HP = 100
+		myHP_Gauge.max_value = 10.0
 	current_HP = max_HP
 
 

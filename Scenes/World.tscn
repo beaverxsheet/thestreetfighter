@@ -125,7 +125,6 @@ alignment = 0
 
 [node name="HPGauge_P1" type="TextureProgress" parent="HUD/Row/Player1_Cols/Player1_HP" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -171,6 +170,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 7 )
 text = "(007/100)"
+align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -579,7 +579,6 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 7 )
 text = "(007/100)"
-align = 2
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
