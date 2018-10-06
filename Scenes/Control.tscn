@@ -8,7 +8,7 @@
 [ext_resource path="res://Scripts/PopupPanel.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Settings_menu.gd" type="Script" id=7]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -40,7 +40,7 @@ anchor_bottom = 0.0
 margin_left = 170.0
 margin_top = 32.0
 margin_right = 350.0
-margin_bottom = 183.0
+margin_bottom = 239.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -181,7 +181,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Credits"
+text = "Help"
 flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
@@ -244,8 +244,6 @@ script = ExtResource( 5 )
 
 [node name="PopupPanel" type="PopupPanel" parent="." index="3"]
 
-editor/display_folded = true
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -264,15 +262,15 @@ popup_exclusive = false
 script = ExtResource( 6 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PopupPanel" index="0"]
+[node name="Text" type="RichTextLabel" parent="PopupPanel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 32.0
-margin_top = 32.0
-margin_right = 416.0
+margin_left = 128.0
+margin_top = 16.0
+margin_right = 432.0
 margin_bottom = 192.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
@@ -315,7 +313,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect" ]
 
-[node name="CloseCredits" type="Button" parent="PopupPanel" index="1"]
+[node name="Close" type="Button" parent="PopupPanel" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -336,7 +334,68 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Close Credits"
+text = "Close"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PopupPanel" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 112.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+scroll_horizontal_enabled = true
+scroll_horizontal = 0
+scroll_vertical_enabled = true
+scroll_vertical = 0
+scroll_deadzone = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel/ScrollContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 12.0
+margin_bottom = 188.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="Button" type="Button" parent="PopupPanel/ScrollContainer/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 80.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
 flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
@@ -552,6 +611,7 @@ max_lines_visible = -1
 
 [node name="Container2" type="Container" parent="Settings" index="3"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -792,7 +852,7 @@ _sections_unfolded = [ "Rect" ]
 
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
 
-[connection signal="pressed" from="PopupPanel/CloseCredits" to="PopupPanel" method="_on_CloseCredits_pressed"]
+[connection signal="pressed" from="PopupPanel/Close" to="PopupPanel" method="_on_CloseCredits_pressed"]
 
 [connection signal="pressed" from="Settings/CloseSettings" to="Settings" method="_on_CloseSettings_pressed"]
 
