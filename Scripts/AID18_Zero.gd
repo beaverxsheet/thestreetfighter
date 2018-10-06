@@ -23,6 +23,7 @@ func _on_Area2D_body_entered(body):
 	#If hits parent object for the first time, do nothing
 	elif body.hit_ID == hit_ID:
 		pass
-	#If hits enemy/hittable object, delete self
+	#If hits enemy/hittable object, delete self, change HP
 	else:
 		queue_free()
+		body.change_HP(-2)

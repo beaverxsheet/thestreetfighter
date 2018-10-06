@@ -611,6 +611,7 @@ func AID_12():
 #AID10, Niklas Primary, Sweet Melody
 func AID_10():
 	enemy.done_AID_10()
+	enemy.change_HP(-4)
 
 func done_AID_10():
 	$PlayerSpecificCooldowns/AID_10_StunDuration.start()
@@ -672,7 +673,7 @@ func AID_20_fist():
 	fist.set_position(Vector2($Position2D.global_position.x, $Position2D.global_position.y -800))
 	fist.own = self
 	
-	change_HP(-85)
+	change_HP(-65)
 
 func AID_7():
 	emit_signal("toggleGhost")
@@ -755,9 +756,16 @@ func do_latency(time):
 			if dotimes[i] == "AID_0":
 				create_ConnorCoffeeSpill() #Create coffee spill see function
 			if dotimes[i] == "attack":
-				in_basic_range.change_HP(-1)
 				if in_basic_range.do_AID_20:
 					AID_20_fist()
+				if Asprite == $ConnorSprite:
+					in_basic_range.change_HP(-4)
+				elif Asprite == $AntonSprite:
+					in_basic_range.change_HP(-4)
+				elif Asprite == $BenSprite:
+					in_basic_range.change_HP(-5)
+				elif Asprite == $NiklasSprite:
+					in_basic_range.change_HP(-3)
 			if dotimes[i] == "jump":
 				motion.y = JUMP_HEIGHT
 				if playSound:

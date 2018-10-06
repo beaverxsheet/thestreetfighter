@@ -38,7 +38,7 @@ func _on_Sneeze_body_entered(body):
 		pass
 	#If hits enemy/hittable object, reduce its HP
 	else:
-		body.change_HP(-5)
+		body.change_HP(-25)
 		if body.do_AID_20:
 			own.AID_20_fist()
 		if flyright:

@@ -48,7 +48,7 @@ func _on_Integrate_body_entered(body):
 		queue_free()
 	#If hits enemy/hittable object, reduce its HP
 	else:
-		body.change_HP(-5)
+		body.change_HP(-40)
 		if body.do_AID_20:
 			own.AID_20_fist()
 		queue_free()

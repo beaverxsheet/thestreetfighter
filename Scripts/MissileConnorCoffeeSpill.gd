@@ -48,14 +48,14 @@ func _on_HitTimer_timeout():
 	if not bod == null and not off:
 		if bod.position.x <= pos:
 			if bod.position.x >= pos - rang:
-				bod.change_HP(-1)
+				bod.change_HP(-8)
 				if bod.do_AID_20:
 					#print("fist2")
 					own.AID_20_fist()
 				off = true
 		else:
 			if bod.position.x <= pos + rang:
-				bod.change_HP(-1)
+				bod.change_HP(-8)
 				if bod.do_AID_20:
 					#print("fist2")
 					own.AID_20_fist()
