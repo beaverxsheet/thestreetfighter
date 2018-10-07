@@ -262,15 +262,58 @@ popup_exclusive = false
 script = ExtResource( 6 )
 _sections_unfolded = [ "Rect" ]
 
-[node name="Text" type="RichTextLabel" parent="PopupPanel" index="0"]
+[node name="Close" type="Button" parent="PopupPanel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 128.0
+margin_left = 352.0
+margin_top = 208.0
+margin_right = 432.0
+margin_bottom = 228.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Close"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="CreditsTainer" type="Container" parent="PopupPanel" index="1"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
 margin_top = 16.0
 margin_right = 432.0
+margin_bottom = 208.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="CreditsText" type="RichTextLabel" parent="PopupPanel/CreditsTainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 288.0
 margin_bottom = 192.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
@@ -313,33 +356,257 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "BBCode", "Rect" ]
 
-[node name="Close" type="Button" parent="PopupPanel" index="1"]
+[node name="NiklasTainer" type="Container" parent="PopupPanel" index="2"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 16.0
+margin_right = 432.0
+margin_bottom = 208.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="NiklasText" type="RichTextLabel" parent="PopupPanel/NiklasTainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 272.0
-margin_top = 208.0
-margin_right = 416.0
-margin_bottom = 228.0
+margin_right = 288.0
+margin_bottom = 192.0
 rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
+rect_clip_content = true
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Close"
-flat = false
-align = 1
-_sections_unfolded = [ "Rect" ]
+bbcode_enabled = true
+bbcode_text = "[u]Niklas[/u]
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PopupPanel" index="2"]
+Character details"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Niklas
+
+Character details"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect" ]
+
+[node name="ConnorTainer" type="Container" parent="PopupPanel" index="3"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 16.0
+margin_right = 432.0
+margin_bottom = 208.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="ConnorText" type="RichTextLabel" parent="PopupPanel/ConnorTainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 288.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = true
+bbcode_text = "[u]Connor[/u]
+
+Character details"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Connor
+
+Character details"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect" ]
+
+[node name="AntonTainer" type="Container" parent="PopupPanel" index="4"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 16.0
+margin_right = 432.0
+margin_bottom = 208.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="AntonText" type="RichTextLabel" parent="PopupPanel/AntonTainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 288.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = true
+bbcode_text = "[u]Anton[/u]
+
+Character details"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Anton
+
+Character details"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect" ]
+
+[node name="BenTainer" type="Container" parent="PopupPanel" index="5"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 16.0
+margin_right = 432.0
+margin_bottom = 208.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="BenText" type="RichTextLabel" parent="PopupPanel/BenTainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 288.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = true
+bbcode_text = "[u]Ben[/u]
+
+Character details"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Ben
+
+Character details"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect" ]
+
+[node name="BasicPTainer" type="Container" parent="PopupPanel" index="6"]
+
+editor/display_folded = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 144.0
+margin_top = 16.0
+margin_right = 432.0
+margin_bottom = 208.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="BasicPText" type="RichTextLabel" parent="PopupPanel/BasicPTainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 288.0
+margin_bottom = 192.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = true
+bbcode_text = "[u]Basic Gameplay[/u]
+
+This is how it goes!"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Basic Gameplay
+
+This is how it goes!"
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Rect" ]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PopupPanel" index="7"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -347,8 +614,8 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 112.0
-margin_bottom = 192.0
+margin_right = 128.0
+margin_bottom = 208.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -361,14 +628,14 @@ scroll_vertical_enabled = true
 scroll_vertical = 0
 scroll_deadzone = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel/ScrollContainer" index="2"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel/ScrollContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 12.0
-margin_bottom = 188.0
+margin_right = 90.0
+margin_bottom = 260.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -377,14 +644,15 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="Button" type="Button" parent="PopupPanel/ScrollContainer/VBoxContainer" index="0"]
+[node name="BasicP" type="Button" parent="PopupPanel/ScrollContainer/VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 80.0
+margin_right = 90.0
 margin_bottom = 20.0
+rect_min_size = Vector2( 90, 0 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -396,6 +664,137 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
+text = "Basic Play"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Connor" type="Button" parent="PopupPanel/ScrollContainer/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 24.0
+margin_right = 90.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 90, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Connor"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Niklas" type="Button" parent="PopupPanel/ScrollContainer/VBoxContainer" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 48.0
+margin_right = 90.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 90, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Niklas"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Anton" type="Button" parent="PopupPanel/ScrollContainer/VBoxContainer" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 72.0
+margin_right = 90.0
+margin_bottom = 92.0
+rect_min_size = Vector2( 90, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Anton"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Ben" type="Button" parent="PopupPanel/ScrollContainer/VBoxContainer" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 96.0
+margin_right = 90.0
+margin_bottom = 116.0
+rect_min_size = Vector2( 90, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Ben"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Credits" type="Button" parent="PopupPanel/ScrollContainer/VBoxContainer" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 120.0
+margin_right = 90.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 90, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Credits"
 flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
@@ -853,6 +1252,18 @@ _sections_unfolded = [ "Rect" ]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
 
 [connection signal="pressed" from="PopupPanel/Close" to="PopupPanel" method="_on_CloseCredits_pressed"]
+
+[connection signal="pressed" from="PopupPanel/ScrollContainer/VBoxContainer/BasicP" to="PopupPanel" method="_on_BasicP_pressed"]
+
+[connection signal="pressed" from="PopupPanel/ScrollContainer/VBoxContainer/Connor" to="PopupPanel" method="_on_Connor_pressed"]
+
+[connection signal="pressed" from="PopupPanel/ScrollContainer/VBoxContainer/Niklas" to="PopupPanel" method="_on_Niklas_pressed"]
+
+[connection signal="pressed" from="PopupPanel/ScrollContainer/VBoxContainer/Anton" to="PopupPanel" method="_on_Anton_pressed"]
+
+[connection signal="pressed" from="PopupPanel/ScrollContainer/VBoxContainer/Ben" to="PopupPanel" method="_on_Ben_pressed"]
+
+[connection signal="pressed" from="PopupPanel/ScrollContainer/VBoxContainer/Credits" to="PopupPanel" method="_on_CreditsCont_pressed"]
 
 [connection signal="pressed" from="Settings/CloseSettings" to="Settings" method="_on_CloseSettings_pressed"]
 
