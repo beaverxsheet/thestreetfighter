@@ -244,6 +244,7 @@ script = ExtResource( 5 )
 
 [node name="PopupPanel" type="PopupPanel" parent="." index="3"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -408,7 +409,6 @@ _sections_unfolded = [ "BBCode", "Rect" ]
 
 [node name="ConnorTainer" type="Container" parent="PopupPanel" index="3"]
 
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -442,14 +442,20 @@ size_flags_vertical = 1
 bbcode_enabled = true
 bbcode_text = "[u]Connor[/u]
 
-Character details"
+Character details
+
+Although Connor does enjoy drinking a lot, and even though he indulges in it a lot, and even though his friends have serious drinking problems, Connor
+is a very responsible drinker. Hence his ability to drink responsibly."
 visible_characters = -1
 percent_visible = 1.0
 meta_underlined = true
 tab_size = 4
 text = "Connor
 
-Character details"
+Character details
+
+Although Connor does enjoy drinking a lot, and even though he indulges in it a lot, and even though his friends have serious drinking problems, Connor
+is a very responsible drinker. Hence his ability to drink responsibly."
 scroll_active = true
 scroll_following = false
 selection_enabled = false
@@ -635,7 +641,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 90.0
-margin_bottom = 260.0
+margin_bottom = 140.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
