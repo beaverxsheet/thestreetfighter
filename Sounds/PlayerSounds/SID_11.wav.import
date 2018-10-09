@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SID_11.wav-0b95666d8ade924fe1275691691fd9fa.sample"
+
+[deps]
+
+source_file="res://Sounds/PlayerSounds/SID_11.wav"
+dest_files=[ "res://.import/SID_11.wav-0b95666d8ade924fe1275691691fd9fa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

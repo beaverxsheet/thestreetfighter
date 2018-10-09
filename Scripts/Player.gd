@@ -99,6 +99,15 @@ var abID_20 = preload("res://Sprites/GUI/Icons/AID20_Icon.png")
 export var PID = 0
 onready var chosen_char = AutoloadNode.choose_char[PID]
 
+var dmg1_s
+var dmg2_s
+var dmg3_s
+var jump_s
+var ab1_s
+var ab2_s
+var heal_s
+var ulti_s
+
 var enemy
 var p_name
 
@@ -119,7 +128,7 @@ var AID_5_inRange = false
 var do_AID11 = false
 var playing_anim = false
 
-export var playSound = false
+export var playSound = true
 signal toggleGhost
 func _ready():
 	if PID == 0:
@@ -283,6 +292,15 @@ func chooseSprite():
 		myAbility5.texture = ab9
 		
 		p_name = "Anton"
+		
+		jump_s = load("res://Sounds/PlayerSounds/SID_9.wav")
+		dmg1_s = load("res://Sounds/PlayerSounds/SID_6.wav")
+		dmg2_s = load("res://Sounds/PlayerSounds/SID_7.wav")
+		dmg3_s = load("res://Sounds/PlayerSounds/SID_8.wav")
+		ab1_s = load("res://Sounds/PlayerSounds/SID_10.wav")
+		ab1_s = load("res://Sounds/PlayerSounds/SID_11.wav")
+		heal_s = load("res://Sounds/PlayerSounds/SID_12.wav")
+		
 		return $AntonSprite
 	elif chosen_char == 3:
 		$ConnorSprite.hide()
@@ -718,6 +736,9 @@ func AID_7():
 	Asprite.play("Waltz")
 
 func AID_5():
+	if playSound:
+		$AudioStreamPlayer2D.stream = ab1_s
+		$AudioStreamPlayer2D.play()
 	if AID_5_range:
 		AID_5_inRange.change_HP(-4)
 		if not AID_5_inRange.Asprite == $ConnorSprite:
@@ -805,6 +826,7 @@ func do_latency(time):
 			if dotimes[i] == "jump":
 				motion.y = JUMP_HEIGHT
 				if playSound:
+					$AudioStreamPlayer2D.stream = jump_s
 					$AudioStreamPlayer2D.play()
 			if dotimes[i] == "AID_1":
 				AID_1()
@@ -821,6 +843,8 @@ func do_latency(time):
 			if dotimes[i] == "AID_5":
 				AID_5()
 			if dotimes[i] == "AID_6":
+				$AudioStreamPlayer2D.stream = ab2_s
+				$AudioStreamPlayer2D.play()
 				AID_6()
 			if dotimes[i] == "AID_11":
 				AID_11()
@@ -846,6 +870,8 @@ func _on_Button_pressed_STUN():
 	$PlayerSpecificCooldowns/AID_10_StunDuration.start()
 	
 func change_HP(variance):
+	$AudioStreamPlayer2D.stream = dmg1_s
+	$AudioStreamPlayer2D.play()
 	#if variance >= 0 and not do_AID_7 and Asprite == $NiklasSprite:
 	if Asprite == $NiklasSprite and do_AID_7:
 		if variance >= 0:

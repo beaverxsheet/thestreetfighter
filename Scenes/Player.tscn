@@ -73,7 +73,7 @@
 [ext_resource path="res://Sprites/GUI/StunStars2.png" type="Texture" id=71]
 [ext_resource path="res://Sprites/GUI/StunStars3.png" type="Texture" id=72]
 [ext_resource path="res://Other/font_cousine.tres" type="DynamicFont" id=73]
-[ext_resource path="res://Sounds/PlayerSounds/Jump.wav" type="AudioStream" id=74]
+[ext_resource path="res://Sounds/PlayerSounds/SID_9.wav" type="AudioStream" id=74]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -218,7 +218,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 190, 210 )
 input_pickable = false
@@ -231,7 +231,7 @@ __meta__ = {
 "_edit_group_": true
 }
 PID = 0
-playSound = false
+playSound = true
 
 [node name="ConnorSprite" type="AnimatedSprite" parent="." index="0"]
 
@@ -363,6 +363,8 @@ animation = "spin"
 frame = 3
 
 [node name="PlayerSpecificCooldowns" type="Node" parent="." index="10"]
+
+editor/display_folded = true
 
 [node name="Anton_4Cooldown" type="Timer" parent="PlayerSpecificCooldowns" index="0"]
 
