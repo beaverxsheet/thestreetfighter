@@ -91,7 +91,9 @@ var ab10 = preload("res://Sprites/GUI/Icons/Icon10.png")
 var ab11 = preload("res://Sprites/GUI/Icons/Icon11.png")
 var ab12 = preload("res://Sprites/GUI/Icons/Icon12.png")
 var ab13 = preload("res://Sprites/GUI/Icons/Icon13.png")
+var abID_17 = preload("res://Sprites/GUI/Icons/AID17_Icon.png")
 var abID_18 = preload("res://Sprites/GUI/Icons/AID_18_logo.png")
+var abID_19 = preload("res://Sprites/GUI/Icons/AID_19_Icon.png")
 var abID_20 = preload("res://Sprites/GUI/Icons/AID20_Icon.png")
 
 export var PID = 0
@@ -187,8 +189,8 @@ func _ready():
 		max_HP = 60
 		myHP_Gauge.max_value = 6.0
 	elif chosen_char == 2:
-		max_HP = 85
-		myHP_Gauge.max_value = 8.2
+		max_HP = 80
+		myHP_Gauge.max_value = 8.0
 	elif chosen_char == 3:
 		max_HP = 100
 		myHP_Gauge.max_value = 10.0
@@ -289,9 +291,9 @@ func chooseSprite():
 		
 		myAbility1.texture = ab2
 		myAbility2.texture = abID_18
-		myAbility3.texture = ab2
+		myAbility3.texture = abID_19
 		myAbility4.texture = abID_20
-		myAbility5.texture = ab2
+		myAbility5.texture = abID_17
 		
 		p_name = "Ben"
 		return $BenSprite
