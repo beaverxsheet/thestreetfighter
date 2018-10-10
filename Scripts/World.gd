@@ -24,9 +24,12 @@ func _process(delta):
 		var winner
 		if get_node("Player").current_HP <= 0:
 			winner = get_node("Player2").p_name
+			$VicSound.stream = get_node("Player2").vic_s
+			$VicSound.play()
 		else:
 			winner = get_node("Player").p_name
-		
+			$VicSound.stream = get_node("Player").vic_s
+			$VicSound.play()
 		get_tree().paused = true
 		get_node("PauseMenu").popup()
 		get_node("PauseMenu/VBoxContainer/Label").text = "You Win !!1! " + winner

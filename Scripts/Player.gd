@@ -105,8 +105,9 @@ var dmg3_s
 var jump_s
 var ab1_s
 var ab2_s
+var ab3_s
 var heal_s
-var ulti_s
+var vic_s
 
 var enemy
 var p_name
@@ -263,6 +264,15 @@ func chooseSprite():
 		myAbility4.texture = ab1
 		myAbility5.texture = ab8
 		
+		#jump_s = load("res://Sounds/PlayerSounds/SID_15.wav")
+		#dmg1_s = load("res://Sounds/PlayerSounds/SID_13.wav")
+		#dmg2_s = load("res://Sounds/PlayerSounds/SID_14.wav")
+		#ab1_s = load("res://Sounds/PlayerSounds/SID_16.wav")
+		#ab2_s = load("res://Sounds/PlayerSounds/SID_17.wav")
+		#ab3_s = load("res://Sounds/PlayerSounds/SID_18.wav")
+		#heal_s = load("res://Sounds/PlayerSounds/SID_31.wav")
+		#vic_s = load("res://Sounds/PlayerSounds/SID_32.wav")
+		
 		p_name = "Conner"
 		
 		return $ConnorSprite
@@ -276,6 +286,15 @@ func chooseSprite():
 		myAbility3.texture = ab12
 		myAbility4.texture = ab7
 		myAbility5.texture = ab13
+		
+		jump_s = load("res://Sounds/PlayerSounds/SID_21.wav")
+		dmg1_s = load("res://Sounds/PlayerSounds/SID_19.wav")
+		dmg2_s = load("res://Sounds/PlayerSounds/SID_20.wav")
+		#ab1_s = load("res://Sounds/PlayerSounds/SID_22.wav")
+		ab2_s = load("res://Sounds/PlayerSounds/SID_23.wav")
+		heal_s = load("res://Sounds/PlayerSounds/SID_30.wav")
+		vic_s = load("res://Sounds/PlayerSounds/SID_33.wav")
+		#ab3_s = load("res://Sounds/PlayerSounds/SID_38.wav")
 		
 		p_name = "Niklas"
 		
@@ -298,8 +317,10 @@ func chooseSprite():
 		dmg2_s = load("res://Sounds/PlayerSounds/SID_7.wav")
 		dmg3_s = load("res://Sounds/PlayerSounds/SID_8.wav")
 		ab1_s = load("res://Sounds/PlayerSounds/SID_10.wav")
-		ab1_s = load("res://Sounds/PlayerSounds/SID_11.wav")
+		ab2_s = load("res://Sounds/PlayerSounds/SID_11.wav")
+		ab3_s = load("res://Sounds/PlayerSounds/SID_37.wav")
 		heal_s = load("res://Sounds/PlayerSounds/SID_12.wav")
+		vic_s = load("res://Sounds/PlayerSounds/SID_34.wav")
 		
 		return $AntonSprite
 	elif chosen_char == 3:
@@ -312,6 +333,15 @@ func chooseSprite():
 		myAbility3.texture = abID_19
 		myAbility4.texture = abID_20
 		myAbility5.texture = abID_17
+		
+		jump_s = load("res://Sounds/PlayerSounds/SID_26.wav")
+		dmg1_s = load("res://Sounds/PlayerSounds/SID_24.wav")
+		dmg2_s = load("res://Sounds/PlayerSounds/SID_25.wav")
+		ab1_s = load("res://Sounds/PlayerSounds/SID_27.wav")
+		ab2_s = load("res://Sounds/PlayerSounds/SID_28.wav")
+		ab3_s = load("res://Sounds/PlayerSounds/SID_36.wav")
+		heal_s = load("res://Sounds/PlayerSounds/SID_29.wav")
+		vic_s = load("res://Sounds/PlayerSounds/SID_35.wav")
 		
 		p_name = "Ben"
 		return $BenSprite
@@ -569,6 +599,8 @@ func create_WineBottle():
 
 #AID4, Anton Ultimate, Integral
 func create_Integral():
+	$Audio_AB3.stream = ab3_s
+	$Audio_AB3.play()
 	var integral = INTEGRAL_SCENE.instance()
 	get_parent().add_child(integral)
 	integral.hit_ID = hit_ID
@@ -654,6 +686,8 @@ func AID_1():
 
 #AID12, Niklas Secondary, E-Bike
 func AID_12():
+	$Audio_AB2.stream = ab2_s
+	$Audio_AB2.play()
 	$PlayerSpecificCooldowns/AID_12_runtime.start()
 
 #AID10, Niklas Primary, Sweet Melody
@@ -670,6 +704,8 @@ func done_AID_10():
 	
 #AID18, Ben Primary, I Know Programming
 func AID_18():
+	$Audio_AB1.stream = ab1_s
+	$Audio_AB1.play()
 	randomize()
 	var childnums_z = []
 	for i in range(0, 8):
@@ -688,6 +724,8 @@ func AID_18():
 		childnums_o[i].set_position(Vector2(xloc,50))
 
 func AID_19():
+	$Audio_AB2.stream = ab2_s
+	$Audio_AB2.play()
 	if basic_range:
 		in_basic_range.change_HP(-20)
 	pass
@@ -712,6 +750,8 @@ func insult(insults_l):
 	pass
 
 func AID_20():
+	$Audio_AB3.stream = ab3_s
+	$Audio_AB3.play()
 	if !do_AID_20:
 		do_AID_20 = true
 		$PlayerSpecificCooldowns/AID_20_tensecs.start()
@@ -737,8 +777,8 @@ func AID_7():
 
 func AID_5():
 	if playSound:
-		$AudioStreamPlayer2D.stream = ab1_s
-		$AudioStreamPlayer2D.play()
+		$Audio_AB1.stream = ab1_s
+		$Audio_AB1.play()
 	if AID_5_range:
 		AID_5_inRange.change_HP(-4)
 		if not AID_5_inRange.Asprite == $ConnorSprite:
@@ -746,6 +786,8 @@ func AID_5():
 
 func AID_6():
 	if AID_9_range and not AID_9_inRange.Asprite == $ConnorSprite:
+		$Audio_AB2.stream = ab2_s
+		$Audio_AB2.play()
 		AID_9_inRange.change_INT(35)
 
 func AID_11():
@@ -826,8 +868,8 @@ func do_latency(time):
 			if dotimes[i] == "jump":
 				motion.y = JUMP_HEIGHT
 				if playSound:
-					$AudioStreamPlayer2D.stream = jump_s
-					$AudioStreamPlayer2D.play()
+					$Audio_Jump.stream = jump_s
+					$Audio_Jump.play()
 			if dotimes[i] == "AID_1":
 				AID_1()
 			if dotimes[i] == "AID_12":
@@ -843,8 +885,6 @@ func do_latency(time):
 			if dotimes[i] == "AID_5":
 				AID_5()
 			if dotimes[i] == "AID_6":
-				$AudioStreamPlayer2D.stream = ab2_s
-				$AudioStreamPlayer2D.play()
 				AID_6()
 			if dotimes[i] == "AID_11":
 				AID_11()
@@ -870,8 +910,8 @@ func _on_Button_pressed_STUN():
 	$PlayerSpecificCooldowns/AID_10_StunDuration.start()
 	
 func change_HP(variance):
-	$AudioStreamPlayer2D.stream = dmg1_s
-	$AudioStreamPlayer2D.play()
+	$Audio_Damage.stream = dmg1_s
+	$Audio_Damage.play()
 	#if variance >= 0 and not do_AID_7 and Asprite == $NiklasSprite:
 	if Asprite == $NiklasSprite and do_AID_7:
 		if variance >= 0:

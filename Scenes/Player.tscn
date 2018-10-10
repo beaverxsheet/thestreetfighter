@@ -218,7 +218,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 position = Vector2( 190, 210 )
 input_pickable = false
@@ -686,9 +686,75 @@ wait_time = 3.0
 one_shot = true
 autostart = false
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="13"]
+[node name="Audio_Damage" type="AudioStreamPlayer2D" parent="." index="13"]
 
 stream = ExtResource( 74 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Audio_Jump" type="AudioStreamPlayer2D" parent="." index="14"]
+
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Audio_Heal" type="AudioStreamPlayer2D" parent="." index="15"]
+
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Audio_AB1" type="AudioStreamPlayer2D" parent="." index="16"]
+
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Audio_AB2" type="AudioStreamPlayer2D" parent="." index="17"]
+
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Audio_AB3" type="AudioStreamPlayer2D" parent="." index="18"]
+
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="Audio_Vic" type="AudioStreamPlayer2D" parent="." index="19"]
+
+stream = null
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false

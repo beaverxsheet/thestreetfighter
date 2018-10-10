@@ -14,7 +14,7 @@
 [ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=12]
 [ext_resource path="res://Sounds/Music/BeepBox-Song.wav" type="AudioStream" id=13]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -57,7 +57,6 @@ __meta__ = {
 
 [node name="HUD" type="MarginContainer" parent="." index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -76,6 +75,7 @@ _sections_unfolded = [ "Hint", "Rect" ]
 
 [node name="Row" type="HBoxContainer" parent="HUD" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1002,6 +1002,15 @@ align = 1
 
 stream = ExtResource( 13 )
 volume_db = 0.7
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="VicSound" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = null
+volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
