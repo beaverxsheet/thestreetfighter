@@ -290,7 +290,7 @@ func chooseSprite():
 		jump_s = load("res://Sounds/PlayerSounds/SID_21.wav")
 		dmg1_s = load("res://Sounds/PlayerSounds/SID_19.wav")
 		dmg2_s = load("res://Sounds/PlayerSounds/SID_20.wav")
-		#ab1_s = load("res://Sounds/PlayerSounds/SID_22.wav")
+		ab1_s = load("res://Sounds/PlayerSounds/SID_22.wav")
 		ab2_s = load("res://Sounds/PlayerSounds/SID_23.wav")
 		heal_s = load("res://Sounds/PlayerSounds/SID_30.wav")
 		vic_s = load("res://Sounds/PlayerSounds/SID_33.wav")
@@ -692,6 +692,8 @@ func AID_12():
 
 #AID10, Niklas Primary, Sweet Melody
 func AID_10():
+	$Audio_AB1.stream = ab1_s
+	$Audio_AB1.play()
 	enemy.done_AID_10()
 	enemy.change_HP(-4)
 

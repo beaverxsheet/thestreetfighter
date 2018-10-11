@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SID_40.wav-ca8fe63340e7f600294f917d1179a9cd.sample"
+
+[deps]
+
+source_file="res://Sounds/Music/SID_40.wav"
+dest_files=[ "res://.import/SID_40.wav-ca8fe63340e7f600294f917d1179a9cd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

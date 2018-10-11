@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Control.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/GUI/MenuStuff/Mainmenuscreen.png" type="Texture" id=2]
@@ -7,8 +7,9 @@
 [ext_resource path="res://Scripts/AutoloadNode.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/PopupPanel.gd" type="Script" id=6]
 [ext_resource path="res://Scripts/Settings_menu.gd" type="Script" id=7]
+[ext_resource path="res://Sounds/Music/SID_40.wav" type="AudioStream" id=8]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -244,6 +245,7 @@ script = ExtResource( 5 )
 
 [node name="PopupPanel" type="PopupPanel" parent="." index="3"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1248,6 +1250,37 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect" ]
 
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Backmusic"
+
+[node name="Label" type="Label" parent="MusicPlayer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 480.0
+margin_top = 272.0
+margin_right = 512.0
+margin_bottom = 288.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "v0.7"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
 [connection signal="pressed" from="VBoxContainer/BeginButton" to="." method="_on_BeginButton_pressed"]
 
 [connection signal="pressed" from="VBoxContainer/Credits" to="PopupPanel" method="_on_Credits_pressed"]
@@ -1271,5 +1304,7 @@ _sections_unfolded = [ "Rect" ]
 [connection signal="pressed" from="PopupPanel/ScrollContainer/VBoxContainer/Credits" to="PopupPanel" method="_on_CreditsCont_pressed"]
 
 [connection signal="pressed" from="Settings/CloseSettings" to="Settings" method="_on_CloseSettings_pressed"]
+
+[connection signal="finished" from="MusicPlayer" to="." method="_on_MusicPlayer_finished"]
 
 
