@@ -294,7 +294,7 @@ func chooseSprite():
 		ab2_s = load("res://Sounds/PlayerSounds/SID_23.wav")
 		heal_s = load("res://Sounds/PlayerSounds/SID_30.wav")
 		vic_s = load("res://Sounds/PlayerSounds/SID_33.wav")
-		#ab3_s = load("res://Sounds/PlayerSounds/SID_38.wav")
+		ab3_s = load("res://Sounds/PlayerSounds/SID_38.wav")
 		
 		p_name = "Niklas"
 		
@@ -769,6 +769,8 @@ func AID_20_fist():
 	change_HP(-65)
 
 func AID_7():
+	$Audio_AB3.stream = ab3_s
+	$Audio_AB3.play()
 	emit_signal("toggleGhost")
 	make_ghost()
 	do_AID_7 = true
