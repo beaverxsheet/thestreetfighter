@@ -208,6 +208,9 @@ func _ready():
 		max_HP = 100
 		myHP_Gauge.max_value = 10.0
 	current_HP = max_HP
+	if !chmaschecker():
+		$CHat.hide()
+	$CHat.offset = Vector2(CHatOffset(chosen_char, true), 0)
 
 
 #Setting Timer Function, called within the main loop
@@ -345,6 +348,28 @@ func chooseSprite():
 		
 		p_name = "Ben"
 		return $BenSprite
+
+func CHatOffset(pid, isright):
+	var xset = 0
+	if isright:
+		if pid == 0:
+			xset = 0
+		if pid == 1:
+			xset = 0
+		if pid == 2:
+			xset = 2
+		if pid == 3:
+			xset = 2
+	else:
+		if pid == 0:
+			xset = 11
+		if pid == 1:
+			xset = 11
+		if pid == 2:
+			xset = 11
+		if pid == 3:
+			xset = 11
+	return xset
 
 #Movement func called between frames
 func _physics_process(delta):
@@ -824,6 +849,8 @@ func do_latency(time):
 					Asprite.play("Walking")
 				#Flip sprite into right direction
 				Asprite.flip_h = false
+				$CHat.flip_h = false
+				$CHat.offset = Vector2(CHatOffset(chosen_char, true), 0)
 				#Important for missiles (should fly into the correct direction)
 				looks_right = true
 			if dotimes[i] == "left":
@@ -840,6 +867,8 @@ func do_latency(time):
 					Asprite.play("Walking")
 				#Flip sprite into right direction
 				Asprite.flip_h = true
+				$CHat.flip_h = true
+				$CHat.offset = Vector2(CHatOffset(chosen_char, false), 0)
 				#Play walking animation
 				#Important for missiles (should fly into the correct direction)
 				looks_right = false
@@ -953,6 +982,11 @@ func _on_AID_7_sixsecs_timeout():
 func AID_7_delaytimeout():
 	AID_7_canHit = true
 
+func chmaschecker():
+	var isit = false
+	if OS.get_date()["month"] == 12:
+		isit = true
+	return isit
 
 func _on_AID_5Effector_body_entered(body):
 	#Ignore own body

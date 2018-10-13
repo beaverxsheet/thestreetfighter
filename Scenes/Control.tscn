@@ -9,7 +9,7 @@
 [ext_resource path="res://Scripts/Settings_menu.gd" type="Script" id=7]
 [ext_resource path="res://Sounds/Music/SID_40.wav" type="AudioStream" id=8]
 
-[node name="Control" type="Control" index="0"]
+[node name="Control" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
