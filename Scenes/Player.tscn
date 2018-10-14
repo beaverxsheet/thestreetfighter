@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=2]
+[gd_scene load_steps=93 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player/Connor Idle.png" type="Texture" id=2]
@@ -59,19 +59,28 @@
 [ext_resource path="res://Sprites/Player/AntonWalk1.png" type="Texture" id=57]
 [ext_resource path="res://Sprites/Player/AntonWalk2.png" type="Texture" id=58]
 [ext_resource path="res://Sprites/Player/AntonWalk3.png" type="Texture" id=59]
-[ext_resource path="res://Sprites/Player/AlinaIdle.png" type="Texture" id=60]
-[ext_resource path="res://Sprites/Player/AlinaJump.png" type="Texture" id=61]
-[ext_resource path="res://Sprites/Player/AlinaAttack_0.png" type="Texture" id=62]
-[ext_resource path="res://Sprites/Player/AlinaAttack_1.png" type="Texture" id=63]
-[ext_resource path="res://Sprites/Player/AlinaAttack_2.png" type="Texture" id=64]
-[ext_resource path="res://Sprites/Player/AlinaAttack_3.png" type="Texture" id=65]
-[ext_resource path="res://Sprites/Player/Alina_0.png" type="Texture" id=66]
-[ext_resource path="res://Sprites/Player/Alina_1.png" type="Texture" id=67]
-[ext_resource path="res://Sprites/Player/Alina_2.png" type="Texture" id=68]
-[ext_resource path="res://Sprites/Player/Alina_3.png" type="Texture" id=69]
-[ext_resource path="res://Other/font_cousine.tres" type="DynamicFont" id=70]
-[ext_resource path="res://Sounds/PlayerSounds/SID_9.wav" type="AudioStream" id=71]
-[ext_resource path="res://Sprites/GUI/Icons/Rimm/ChmasHat.png" type="Texture" id=72]
+[ext_resource path="res://Sprites/Player/Ben Idle(1).png" type="Texture" id=60]
+[ext_resource path="res://Sprites/Player/Ben Jump.png" type="Texture" id=61]
+[ext_resource path="res://Sprites/Player/BenAttack0.png" type="Texture" id=62]
+[ext_resource path="res://Sprites/Player/BenAttack1.png" type="Texture" id=63]
+[ext_resource path="res://Sprites/Player/BenAttack2.png" type="Texture" id=64]
+[ext_resource path="res://Sprites/Player/BenWalk0.png" type="Texture" id=65]
+[ext_resource path="res://Sprites/Player/BenWalk1.png" type="Texture" id=66]
+[ext_resource path="res://Sprites/Player/BenWalk2.png" type="Texture" id=67]
+[ext_resource path="res://Sprites/Player/BenWalk3.png" type="Texture" id=68]
+[ext_resource path="res://Sprites/Player/AlinaIdle.png" type="Texture" id=69]
+[ext_resource path="res://Sprites/Player/AlinaJump.png" type="Texture" id=70]
+[ext_resource path="res://Sprites/Player/AlinaAttack_0.png" type="Texture" id=71]
+[ext_resource path="res://Sprites/Player/AlinaAttack_1.png" type="Texture" id=72]
+[ext_resource path="res://Sprites/Player/AlinaAttack_2.png" type="Texture" id=73]
+[ext_resource path="res://Sprites/Player/AlinaAttack_3.png" type="Texture" id=74]
+[ext_resource path="res://Sprites/Player/Alina_0.png" type="Texture" id=75]
+[ext_resource path="res://Sprites/Player/Alina_1.png" type="Texture" id=76]
+[ext_resource path="res://Sprites/Player/Alina_2.png" type="Texture" id=77]
+[ext_resource path="res://Sprites/Player/Alina_3.png" type="Texture" id=78]
+[ext_resource path="res://Other/font_cousine.tres" type="DynamicFont" id=79]
+[ext_resource path="res://Sounds/PlayerSounds/SID_9.wav" type="AudioStream" id=80]
+[ext_resource path="res://Sprites/GUI/Icons/Rimm/ChmasHat.png" type="Texture" id=81]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -183,11 +192,11 @@ radius = 79.9148
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=11]
 
 animations = [ {
 "frames": [ ExtResource( 60 ) ],
-"loop": false,
+"loop": true,
 "name": "Idle",
 "speed": 5.0
 }, {
@@ -196,12 +205,36 @@ animations = [ {
 "name": "Jumping",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ) ],
+"frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ) ],
 "loop": true,
 "name": "BasicA",
 "speed": 11.0
 }, {
-"frames": [ ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ) ],
+"frames": [ ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ), ExtResource( 68 ) ],
+"loop": true,
+"name": "Walking",
+"speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=9]
+
+animations = [ {
+"frames": [ ExtResource( 69 ) ],
+"loop": false,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 70 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ) ],
+"loop": true,
+"name": "BasicA",
+"speed": 11.0
+}, {
+"frames": [ ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ) ],
 "loop": true,
 "name": "Walking",
 "speed": 12.0
@@ -309,7 +342,6 @@ shape = SubResource( 5 )
 [node name="AntonSprite" type="AnimatedSprite" parent="." index="7"]
 
 editor/display_folded = true
-visible = false
 position = Vector2( 0, -4 )
 frames = SubResource( 6 )
 animation = "Idle"
@@ -348,7 +380,7 @@ shape = SubResource( 8 )
 [node name="BenSprite" type="AnimatedSprite" parent="." index="8"]
 
 visible = false
-frames = SubResource( 9 )
+frames = SubResource( 11 )
 animation = "Idle"
 
 [node name="AlinaSprite" type="AnimatedSprite" parent="." index="9"]
@@ -365,8 +397,6 @@ animation = "spin"
 frame = 3
 
 [node name="PlayerSpecificCooldowns" type="Node" parent="." index="11"]
-
-editor/display_folded = true
 
 [node name="Anton_4Cooldown" type="Timer" parent="PlayerSpecificCooldowns" index="0"]
 
@@ -655,7 +685,28 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="AID_10_StunDuration" type="Timer" parent="PlayerSpecificCooldowns" index="41"]
+[node name="AID_28" type="Timer" parent="PlayerSpecificCooldowns" index="41"]
+
+process_mode = 1
+wait_time = 8.0
+one_shot = true
+autostart = false
+
+[node name="AID_29" type="Timer" parent="PlayerSpecificCooldowns" index="42"]
+
+process_mode = 1
+wait_time = 8.0
+one_shot = true
+autostart = false
+
+[node name="AID_30" type="Timer" parent="PlayerSpecificCooldowns" index="43"]
+
+process_mode = 1
+wait_time = 45.0
+one_shot = true
+autostart = false
+
+[node name="AID_10_StunDuration" type="Timer" parent="PlayerSpecificCooldowns" index="44"]
 
 process_mode = 1
 wait_time = 2.0
@@ -676,7 +727,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 70 )
+custom_fonts/font = ExtResource( 79 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -690,7 +741,7 @@ autostart = false
 
 [node name="Audio_Damage" type="AudioStreamPlayer2D" parent="." index="14"]
 
-stream = ExtResource( 71 )
+stream = ExtResource( 80 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -769,7 +820,7 @@ area_mask = 1
 
 visible = false
 position = Vector2( -6, -48 )
-texture = ExtResource( 72 )
+texture = ExtResource( 81 )
 _sections_unfolded = [ "Offset" ]
 
 [connection signal="body_entered" from="BasicAttackArea" to="." method="_on_BasicAttackArea_body_entered"]

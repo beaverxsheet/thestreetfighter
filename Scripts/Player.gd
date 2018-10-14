@@ -247,6 +247,12 @@ func playerDependentCooldowns():
 		CooldownA3 = $PlayerSpecificCooldowns/AID_12
 		CooldownA4 = $PlayerSpecificCooldowns/AID_7
 		CooldownA5 = $PlayerSpecificCooldowns/AID_13
+	elif Asprite == $AlinaSprite:
+		CooldownA1 = $BasicAttackCooldown
+		CooldownA2 = $PlayerSpecificCooldowns/AID_28
+		CooldownA3 = $PlayerSpecificCooldowns/AID_29
+		CooldownA4 = $PlayerSpecificCooldowns/AID_30
+		CooldownA5 = $PlayerSpecificCooldowns/AID_27
 	else:
 		CooldownA1 = $PlayerSpecificCooldowns/Anton_4Cooldown
 		CooldownA2 = $PlayerSpecificCooldowns/Anton_4Cooldown
@@ -288,6 +294,7 @@ func chooseSprite():
 		$ConnorSprite.hide()
 		$AntonSprite.hide()
 		$BenSprite.hide()
+		$AlinaSprite.hide()
 		
 		myAbility1.texture = ab2
 		myAbility2.texture = ab10
@@ -311,6 +318,7 @@ func chooseSprite():
 		$ConnorSprite.hide()
 		$NiklasSprite.hide()
 		$BenSprite.hide()
+		$AlinaSprite.hide()
 		
 		myAbility1.texture = ab2
 		myAbility2.texture = ab5
@@ -335,6 +343,7 @@ func chooseSprite():
 		$ConnorSprite.hide()
 		$NiklasSprite.hide()
 		$AntonSprite.hide()
+		$AlinaSprite.hide()
 		
 		myAbility1.texture = ab2
 		myAbility2.texture = abID_18
