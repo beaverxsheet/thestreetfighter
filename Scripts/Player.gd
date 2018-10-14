@@ -95,6 +95,11 @@ var abID_17 = preload("res://Sprites/GUI/Icons/AID17_Icon.png")
 var abID_18 = preload("res://Sprites/GUI/Icons/AID_18_logo.png")
 var abID_19 = preload("res://Sprites/GUI/Icons/AID_19_Icon.png")
 var abID_20 = preload("res://Sprites/GUI/Icons/AID20_Icon.png")
+var abID_26 = preload("res://Sprites/GUI/Icons/AlinaIcon_0.png")
+var abID_27 = preload("res://Sprites/GUI/Icons/AlinaIcon_1.png")
+var abID_28 = preload("res://Sprites/GUI/Icons/AlinaIcon_2.png")
+var abID_29 = preload("res://Sprites/GUI/Icons/AlinaIcon_3.png")
+var abID_30 = preload("res://Sprites/GUI/Icons/AlinaIcon_4.png")
 
 export var PID = 0
 onready var chosen_char = AutoloadNode.choose_char[PID]
@@ -369,11 +374,11 @@ func chooseSprite():
 		$AntonSprite.hide()
 		$BenSprite.hide()
 		
-		myAbility1.texture = ab2
-		myAbility2.texture = ab2
-		myAbility3.texture = ab2
-		myAbility4.texture = ab2
-		myAbility5.texture = ab2
+		myAbility1.texture = abID_26
+		myAbility2.texture = abID_27
+		myAbility3.texture = abID_28
+		myAbility4.texture = abID_29
+		myAbility5.texture = abID_30
 		
 		#jump_s = load("res://Sounds/PlayerSounds/SID_15.wav")
 		#dmg1_s = load("res://Sounds/PlayerSounds/SID_13.wav")
@@ -1028,7 +1033,7 @@ func AID_7_delaytimeout():
 
 func chmaschecker():
 	var isit = false
-	if OS.get_date()["month"] == 10:
+	if OS.get_date()["month"] == 12:
 		isit = true
 	return isit
 
