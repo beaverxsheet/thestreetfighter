@@ -935,18 +935,19 @@ func do_latency(time):
 			if dotimes[i] == "AID_0":
 				create_ConnorCoffeeSpill() #Create coffee spill see function
 			if dotimes[i] == "attack":
-				if in_basic_range.do_AID_20:
-					AID_20_fist()
-				if Asprite == $ConnorSprite:
-					in_basic_range.change_HP(-4)
-				elif Asprite == $AntonSprite:
-					in_basic_range.change_HP(-4)
-				elif Asprite == $BenSprite:
-					in_basic_range.change_HP(-5)
-				elif Asprite == $NiklasSprite:
-					in_basic_range.change_HP(-3)
-				elif Asprite == $AlinaSprite:
-					in_basic_range.change_HP(-4)
+				if basic_range:
+					if in_basic_range.do_AID_20:
+						AID_20_fist()
+					if Asprite == $ConnorSprite:
+						in_basic_range.change_HP(-4)
+					elif Asprite == $AntonSprite:
+						in_basic_range.change_HP(-4)
+					elif Asprite == $BenSprite:
+						in_basic_range.change_HP(-5)
+					elif Asprite == $NiklasSprite:
+						in_basic_range.change_HP(-3)
+					elif Asprite == $AlinaSprite:
+						in_basic_range.change_HP(-4)
 			if dotimes[i] == "jump":
 				motion.y = JUMP_HEIGHT
 				if playSound:
