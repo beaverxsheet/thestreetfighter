@@ -204,12 +204,17 @@ func _ready():
 	elif chosen_char == 3:
 		max_HP = 100
 		myHP_Gauge.max_value = 10.0
+	elif chosen_char == 4:
+		max_HP = 80
+		myHP_Gauge.max_value = 8.0
 	else:
 		max_HP = 100
 		myHP_Gauge.max_value = 10.0
 	current_HP = max_HP
 	if !chmaschecker():
 		$CHat.hide()
+	else:
+		$CHat.show()
 	$CHat.offset = Vector2(CHatOffset(chosen_char, true), 0)
 
 
@@ -348,6 +353,30 @@ func chooseSprite():
 		
 		p_name = "Ben"
 		return $BenSprite
+		
+	elif chosen_char == 4:
+		$ConnorSprite.hide()
+		$NiklasSprite.hide()
+		$AntonSprite.hide()
+		$BenSprite.hide()
+		
+		myAbility1.texture = ab2
+		myAbility2.texture = ab2
+		myAbility3.texture = ab2
+		myAbility4.texture = ab2
+		myAbility5.texture = ab2
+		
+		#jump_s = load("res://Sounds/PlayerSounds/SID_15.wav")
+		#dmg1_s = load("res://Sounds/PlayerSounds/SID_13.wav")
+		#dmg2_s = load("res://Sounds/PlayerSounds/SID_14.wav")
+		#ab1_s = load("res://Sounds/PlayerSounds/SID_16.wav")
+		#ab2_s = load("res://Sounds/PlayerSounds/SID_17.wav")
+		#ab3_s = load("res://Sounds/PlayerSounds/SID_18.wav")
+		#heal_s = load("res://Sounds/PlayerSounds/SID_31.wav")
+		#vic_s = load("res://Sounds/PlayerSounds/SID_32.wav")
+		
+		p_name = "Alina"
+		return $AlinaSprite
 
 func CHatOffset(pid, isright):
 	var xset = 0
@@ -360,6 +389,8 @@ func CHatOffset(pid, isright):
 			xset = 2
 		if pid == 3:
 			xset = 2
+		if pid == 4:
+			xset = 1
 	else:
 		if pid == 0:
 			xset = 11
@@ -368,6 +399,8 @@ func CHatOffset(pid, isright):
 		if pid == 2:
 			xset = 11
 		if pid == 3:
+			xset = 11
+		if pid == 4:
 			xset = 11
 	return xset
 
@@ -898,6 +931,8 @@ func do_latency(time):
 					in_basic_range.change_HP(-5)
 				elif Asprite == $NiklasSprite:
 					in_basic_range.change_HP(-3)
+				elif Asprite == $AlinaSprite:
+					in_basic_range.change_HP(-4)
 			if dotimes[i] == "jump":
 				motion.y = JUMP_HEIGHT
 				if playSound:
@@ -984,7 +1019,7 @@ func AID_7_delaytimeout():
 
 func chmaschecker():
 	var isit = false
-	if OS.get_date()["month"] == 12:
+	if OS.get_date()["month"] == 10:
 		isit = true
 	return isit
 

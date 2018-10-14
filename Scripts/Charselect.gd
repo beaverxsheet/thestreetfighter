@@ -6,3 +6,4 @@ func _ready():
 	add_item("Niklas")
 	add_item("Anton")
 	add_item("Ben")
+	add_item("Alina")
