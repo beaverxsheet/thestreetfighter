@@ -949,6 +949,13 @@ func do_latency(time):
 					elif Asprite == $AlinaSprite:
 						in_basic_range.change_HP(-4)
 			if dotimes[i] == "jump":
+				#Is enemy standing on me?
+				if enemy.is_on_floor() and enemy.position.y <= 200:
+					#push enemy right or left?
+					if enemy.position.x >= position.x:
+						enemy.position.x += 30
+					else:
+						enemy.position.x -= 30
 				motion.y = JUMP_HEIGHT
 				if playSound:
 					$Audio_Jump.stream = jump_s
