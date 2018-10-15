@@ -48,3 +48,15 @@ func _on_Ben_pressed():
 	currShow.hide()
 	currShow = $BenTainer
 	currShow.show()
+
+
+func _on_Alina_pressed():
+	currShow.hide()
+	currShow = $AlinaTainer
+	currShow.show()
+
+
+func _on_Eoghan_pressed():
+	currShow.hide()
+	currShow = $EoghanTainer
+	currShow.show()
