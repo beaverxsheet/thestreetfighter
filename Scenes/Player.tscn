@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=2]
+[gd_scene load_steps=103 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player/Connor Idle.png" type="Texture" id=2]
@@ -87,8 +87,9 @@
 [ext_resource path="res://Sprites/Player/Eoghan_1.png" type="Texture" id=85]
 [ext_resource path="res://Sprites/Player/Eoghan_2.png" type="Texture" id=86]
 [ext_resource path="res://Sprites/Player/Eoghan_3.png" type="Texture" id=87]
-[ext_resource path="res://Other/font_cousine.tres" type="DynamicFont" id=88]
-[ext_resource path="res://Sprites/GUI/Icons/Rimm/ChmasHat.png" type="Texture" id=89]
+[ext_resource path="res://Sprites/Player/EoghanIJump.png" type="Texture" id=88]
+[ext_resource path="res://Other/font_cousine.tres" type="DynamicFont" id=89]
+[ext_resource path="res://Sprites/GUI/Icons/Rimm/ChmasHat.png" type="Texture" id=90]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -266,7 +267,7 @@ animations = [ {
 "name": "Walking",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 78 ) ],
+"frames": [ ExtResource( 88 ) ],
 "loop": true,
 "name": "Jumping",
 "speed": 5.0
@@ -418,15 +419,14 @@ animation = "Idle"
 
 [node name="AlinaSprite" type="AnimatedSprite" parent="." index="9"]
 
-visible = false
 frames = SubResource( 10 )
 animation = "Idle"
 
 [node name="EoghanSprite" type="AnimatedSprite" parent="." index="10"]
 
+visible = false
 frames = SubResource( 11 )
-animation = "Idle"
-frame = 4
+animation = "Jumping"
 playing = true
 offset = Vector2( 0, -3 )
 
@@ -770,7 +770,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 88 )
+custom_fonts/font = ExtResource( 89 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -863,7 +863,7 @@ area_mask = 1
 
 visible = false
 position = Vector2( -6, -48 )
-texture = ExtResource( 89 )
+texture = ExtResource( 90 )
 _sections_unfolded = [ "Offset" ]
 
 [connection signal="body_entered" from="BasicAttackArea" to="." method="_on_BasicAttackArea_body_entered"]
