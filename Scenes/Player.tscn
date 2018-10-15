@@ -419,15 +419,14 @@ animation = "Idle"
 
 [node name="AlinaSprite" type="AnimatedSprite" parent="." index="9"]
 
+visible = false
 frames = SubResource( 10 )
 animation = "Idle"
 
 [node name="EoghanSprite" type="AnimatedSprite" parent="." index="10"]
 
-visible = false
 frames = SubResource( 11 )
-animation = "Jumping"
-playing = true
+animation = "Idle"
 offset = Vector2( 0, -3 )
 
 [node name="StunStarSprite" type="AnimatedSprite" parent="." index="11"]
