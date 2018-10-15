@@ -100,6 +100,11 @@ var abID_27 = preload("res://Sprites/GUI/Icons/AlinaIcon_1.png")
 var abID_28 = preload("res://Sprites/GUI/Icons/AlinaIcon_2.png")
 var abID_29 = preload("res://Sprites/GUI/Icons/AlinaIcon_3.png")
 var abID_30 = preload("res://Sprites/GUI/Icons/AlinaIcon_4.png")
+#var abID_24 = preload("res://Sprites/GUI/Icons/EoghanIcon_0.png")
+#var abID_3 = preload("res://Sprites/GUI/Icons/EoghanIcon_1.png")
+#var abID_14 = preload("res://Sprites/GUI/Icons/EoghanIcon_2.png")
+#var abID_15 = preload("res://Sprites/GUI/Icons/EoghanIcon_3.png")
+#var abID_16 = preload("res://Sprites/GUI/Icons/EoghanIcon_4.png")
 
 export var PID = 0
 onready var chosen_char = AutoloadNode.choose_char[PID]
@@ -212,6 +217,9 @@ func _ready():
 	elif chosen_char == 4:
 		max_HP = 80
 		myHP_Gauge.max_value = 8.0
+	elif chosen_char == 5:
+		max_HP = 100
+		myHP_Gauge.max_value = 10.0
 	else:
 		max_HP = 100
 		myHP_Gauge.max_value = 10.0
@@ -258,6 +266,12 @@ func playerDependentCooldowns():
 		CooldownA3 = $PlayerSpecificCooldowns/AID_29
 		CooldownA4 = $PlayerSpecificCooldowns/AID_30
 		CooldownA5 = $PlayerSpecificCooldowns/AID_27
+	elif Asprite == $EoghanSprite:
+		CooldownA1 = $BasicAttackCooldown
+		CooldownA2 = $PlayerSpecificCooldowns/AID_14
+		CooldownA3 = $PlayerSpecificCooldowns/AID_15
+		CooldownA4 = $PlayerSpecificCooldowns/AID_16
+		CooldownA5 = $PlayerSpecificCooldowns/AID_3
 	else:
 		CooldownA1 = $PlayerSpecificCooldowns/Anton_4Cooldown
 		CooldownA2 = $PlayerSpecificCooldowns/Anton_4Cooldown
@@ -276,6 +290,8 @@ func chooseSprite():
 		$NiklasSprite.hide()
 		$AntonSprite.hide()
 		$BenSprite.hide()
+		$EoghanSprite.hide()
+		$AlinaSprite.hide()
 		
 		myAbility1.texture = ab2
 		myAbility2.texture = ab0
@@ -300,6 +316,7 @@ func chooseSprite():
 		$AntonSprite.hide()
 		$BenSprite.hide()
 		$AlinaSprite.hide()
+		$EoghanSprite.hide()
 		
 		myAbility1.texture = ab2
 		myAbility2.texture = ab10
@@ -324,6 +341,7 @@ func chooseSprite():
 		$NiklasSprite.hide()
 		$BenSprite.hide()
 		$AlinaSprite.hide()
+		$EoghanSprite.hide()
 		
 		myAbility1.texture = ab2
 		myAbility2.texture = ab5
@@ -349,6 +367,7 @@ func chooseSprite():
 		$NiklasSprite.hide()
 		$AntonSprite.hide()
 		$AlinaSprite.hide()
+		$EoghanSprite.hide()
 		
 		myAbility1.texture = ab2
 		myAbility2.texture = abID_18
@@ -373,6 +392,7 @@ func chooseSprite():
 		$NiklasSprite.hide()
 		$AntonSprite.hide()
 		$BenSprite.hide()
+		$EoghanSprite.hide()
 		
 		myAbility1.texture = abID_26
 		myAbility2.texture = abID_27
@@ -392,6 +412,37 @@ func chooseSprite():
 		p_name = "Alina"
 		return $AlinaSprite
 
+	elif chosen_char == 5:
+		$ConnorSprite.hide()
+		$NiklasSprite.hide()
+		$AntonSprite.hide()
+		$BenSprite.hide()
+		$AlinaSprite.hide()
+		
+		#myAbility1.texture = abID_3
+		#myAbility2.texture = abID_24
+		#myAbility3.texture = abID_14
+		#myAbility4.texture = abID_15
+		#myAbility5.texture = abID_16
+		
+		myAbility1.texture = ab2
+		myAbility2.texture = ab2
+		myAbility3.texture = ab2
+		myAbility4.texture = ab2
+		myAbility5.texture = ab2
+
+		#jump_s = load("res://Sounds/PlayerSounds/SID_15.wav")
+		#dmg1_s = load("res://Sounds/PlayerSounds/SID_13.wav")
+		#dmg2_s = load("res://Sounds/PlayerSounds/SID_14.wav")
+		#ab1_s = load("res://Sounds/PlayerSounds/SID_16.wav")
+		#ab2_s = load("res://Sounds/PlayerSounds/SID_17.wav")
+		#ab3_s = load("res://Sounds/PlayerSounds/SID_18.wav")
+		#heal_s = load("res://Sounds/PlayerSounds/SID_31.wav")
+		#vic_s = load("res://Sounds/PlayerSounds/SID_32.wav")
+		
+		p_name = "Eoghan"
+		return $EoghanSprite
+
 func CHatOffset(pid, isright):
 	var xset = 0
 	if isright:
@@ -405,6 +456,8 @@ func CHatOffset(pid, isright):
 			xset = 2
 		if pid == 4:
 			xset = 1
+		if pid == 5:
+			xset = 4
 	else:
 		if pid == 0:
 			xset = 11
@@ -416,6 +469,8 @@ func CHatOffset(pid, isright):
 			xset = 11
 		if pid == 4:
 			xset = 11
+		if pid == 5:
+			xset = 5
 	return xset
 
 #Movement func called between frames
