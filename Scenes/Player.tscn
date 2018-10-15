@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=2]
+[gd_scene load_steps=102 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player/Connor Idle.png" type="Texture" id=2]
@@ -78,12 +78,17 @@
 [ext_resource path="res://Sprites/Player/Alina_2.png" type="Texture" id=76]
 [ext_resource path="res://Sprites/Player/Alina_3.png" type="Texture" id=77]
 [ext_resource path="res://Sprites/Player/AlinaJump.png" type="Texture" id=78]
-[ext_resource path="res://Sprites/Player/Eoghan_0.png" type="Texture" id=79]
-[ext_resource path="res://Sprites/Player/Eoghan_1.png" type="Texture" id=80]
-[ext_resource path="res://Sprites/Player/Eoghan_2.png" type="Texture" id=81]
-[ext_resource path="res://Sprites/Player/Eoghan_3.png" type="Texture" id=82]
-[ext_resource path="res://Other/font_cousine.tres" type="DynamicFont" id=83]
-[ext_resource path="res://Sprites/GUI/Icons/Rimm/ChmasHat.png" type="Texture" id=84]
+[ext_resource path="res://Sprites/Player/EoghanIdle_0.png" type="Texture" id=79]
+[ext_resource path="res://Sprites/Player/EoghanIdle_1.png" type="Texture" id=80]
+[ext_resource path="res://Sprites/Player/EoghanIdle_2.png" type="Texture" id=81]
+[ext_resource path="res://Sprites/Player/EoghanIdle_3.png" type="Texture" id=82]
+[ext_resource path="res://Sprites/Player/EoghanIdle_4.png" type="Texture" id=83]
+[ext_resource path="res://Sprites/Player/Eoghan_0.png" type="Texture" id=84]
+[ext_resource path="res://Sprites/Player/Eoghan_1.png" type="Texture" id=85]
+[ext_resource path="res://Sprites/Player/Eoghan_2.png" type="Texture" id=86]
+[ext_resource path="res://Sprites/Player/Eoghan_3.png" type="Texture" id=87]
+[ext_resource path="res://Other/font_cousine.tres" type="DynamicFont" id=88]
+[ext_resource path="res://Sprites/GUI/Icons/Rimm/ChmasHat.png" type="Texture" id=89]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -246,17 +251,17 @@ animations = [ {
 [sub_resource type="SpriteFrames" id=11]
 
 animations = [ {
-"frames": [ ExtResource( 69 ) ],
-"loop": false,
+"frames": [ ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ) ],
+"loop": true,
 "name": "Idle",
-"speed": 5.0
+"speed": 1.5
 }, {
 "frames": [ ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ) ],
 "loop": true,
 "name": "BasicA",
 "speed": 11.0
 }, {
-"frames": [ ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ) ],
+"frames": [ ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ) ],
 "loop": true,
 "name": "Walking",
 "speed": 12.0
@@ -420,7 +425,9 @@ animation = "Idle"
 [node name="EoghanSprite" type="AnimatedSprite" parent="." index="10"]
 
 frames = SubResource( 11 )
-animation = "Walking"
+animation = "Idle"
+frame = 4
+playing = true
 offset = Vector2( 0, -3 )
 
 [node name="StunStarSprite" type="AnimatedSprite" parent="." index="11"]
@@ -763,7 +770,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 83 )
+custom_fonts/font = ExtResource( 88 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -856,7 +863,7 @@ area_mask = 1
 
 visible = false
 position = Vector2( -6, -48 )
-texture = ExtResource( 84 )
+texture = ExtResource( 89 )
 _sections_unfolded = [ "Offset" ]
 
 [connection signal="body_entered" from="BasicAttackArea" to="." method="_on_BasicAttackArea_body_entered"]
