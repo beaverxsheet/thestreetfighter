@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=2]
+[gd_scene load_steps=110 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Player/Connor Idle.png" type="Texture" id=2]
@@ -83,13 +83,20 @@
 [ext_resource path="res://Sprites/Player/EoghanIdle_2.png" type="Texture" id=81]
 [ext_resource path="res://Sprites/Player/EoghanIdle_3.png" type="Texture" id=82]
 [ext_resource path="res://Sprites/Player/EoghanIdle_4.png" type="Texture" id=83]
-[ext_resource path="res://Sprites/Player/Eoghan_0.png" type="Texture" id=84]
-[ext_resource path="res://Sprites/Player/Eoghan_1.png" type="Texture" id=85]
-[ext_resource path="res://Sprites/Player/Eoghan_2.png" type="Texture" id=86]
-[ext_resource path="res://Sprites/Player/Eoghan_3.png" type="Texture" id=87]
-[ext_resource path="res://Sprites/Player/EoghanIJump.png" type="Texture" id=88]
-[ext_resource path="res://Other/font_cousine.tres" type="DynamicFont" id=89]
-[ext_resource path="res://Sprites/GUI/Icons/Rimm/ChmasHat.png" type="Texture" id=90]
+[ext_resource path="res://Sprites/Player/EoghanAttack_0.png" type="Texture" id=84]
+[ext_resource path="res://Sprites/Player/EoghanAttack_1.png" type="Texture" id=85]
+[ext_resource path="res://Sprites/Player/EoghanAttack_2.png" type="Texture" id=86]
+[ext_resource path="res://Sprites/Player/EoghanAttack_3.png" type="Texture" id=87]
+[ext_resource path="res://Sprites/Player/EoghanAttack_5.png" type="Texture" id=88]
+[ext_resource path="res://Sprites/Player/EoghanAttack_4.png" type="Texture" id=89]
+[ext_resource path="res://Sprites/Player/EoghanAttack_6.png" type="Texture" id=90]
+[ext_resource path="res://Sprites/Player/Eoghan_0.png" type="Texture" id=91]
+[ext_resource path="res://Sprites/Player/Eoghan_1.png" type="Texture" id=92]
+[ext_resource path="res://Sprites/Player/Eoghan_2.png" type="Texture" id=93]
+[ext_resource path="res://Sprites/Player/Eoghan_3.png" type="Texture" id=94]
+[ext_resource path="res://Sprites/Player/EoghanIJump.png" type="Texture" id=95]
+[ext_resource path="res://Other/font_cousine.tres" type="DynamicFont" id=96]
+[ext_resource path="res://Sprites/GUI/Icons/Rimm/ChmasHat.png" type="Texture" id=97]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -257,17 +264,17 @@ animations = [ {
 "name": "Idle",
 "speed": 1.5
 }, {
-"frames": [ ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ) ],
+"frames": [ ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ) ],
 "loop": true,
 "name": "BasicA",
-"speed": 11.0
+"speed": 24.0
 }, {
-"frames": [ ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ) ],
+"frames": [ ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ) ],
 "loop": true,
 "name": "Walking",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 88 ) ],
+"frames": [ ExtResource( 95 ) ],
 "loop": true,
 "name": "Jumping",
 "speed": 5.0
@@ -282,7 +289,7 @@ animations = [ {
 "speed": 10.0
 } ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 position = Vector2( 190, 210 )
 input_pickable = false
@@ -769,7 +776,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 89 )
+custom_fonts/font = ExtResource( 96 )
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -862,7 +869,7 @@ area_mask = 1
 
 visible = false
 position = Vector2( -6, -48 )
-texture = ExtResource( 90 )
+texture = ExtResource( 97 )
 _sections_unfolded = [ "Offset" ]
 
 [connection signal="body_entered" from="BasicAttackArea" to="." method="_on_BasicAttackArea_body_entered"]
