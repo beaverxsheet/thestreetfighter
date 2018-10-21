@@ -41,6 +41,7 @@ var Asprite = null
 var firstJump = true
 var doubleSpeedNiklas = false
 var isStunned = false
+var flyingMissiles = []
 
 var CooldownA1 = float(0)
 var CooldownA2 = float(0)
@@ -395,10 +396,10 @@ func chooseSprite():
 		$EoghanSprite.hide()
 		
 		myAbility1.texture = abID_26
-		myAbility2.texture = abID_27
-		myAbility3.texture = abID_28
-		myAbility4.texture = abID_29
-		myAbility5.texture = abID_30
+		myAbility2.texture = abID_28
+		myAbility3.texture = abID_29
+		myAbility4.texture = abID_30
+		myAbility5.texture = abID_27
 		
 		#jump_s = load("res://Sounds/PlayerSounds/SID_15.wav")
 		#dmg1_s = load("res://Sounds/PlayerSounds/SID_13.wav")
@@ -620,6 +621,13 @@ func _physics_process(delta):
 		dotimes[time + latency] = "AID_20"
 		$PlayerSpecificCooldowns/AID_20.start()
 		pass
+		
+	#AID28, Alina Primary, Slow Time
+	if(Input.is_action_just_pressed(AB_1_key) && Asprite == $AlinaSprite
+	&& $PlayerSpecificCooldowns/AID_28.time_left == 0
+	&& !isStunned):
+		dotimes[time + latency] = "AID_28"
+		$PlayerSpecificCooldowns/AID_28.start()
 	
 	#BASIC ATTACK all. Only if an object is in basic attack range and if the cooldown is 0		
 	if(Input.is_action_just_pressed(At_key) && ($BasicAttackCooldown.time_left == 0) && basic_range && !isStunned):
@@ -734,6 +742,7 @@ func create_Integral():
 	integral.hit_ID = hit_ID
 	integral.own = self
 	integral.set_position(get_node("Position2D").global_position)
+	flyingMissiles.append(integral)
 	#Check for direction player is facing, pass information on to child
 	if looks_right:
 		integral.flyright = true
@@ -803,6 +812,7 @@ func AID_8(time):
 #AID1, Connor Ultimate, Manly Sneeze
 func AID_1():
 	var sneeze = AID_1_SNEEZE_SCENE.instance()
+	flyingMissiles.append(sneeze)
 	get_parent().add_child(sneeze)
 	sneeze.hit_ID = hit_ID
 	sneeze.own = self
@@ -897,6 +907,10 @@ func AID_20_fist():
 	fist.own = self
 	
 	change_HP(-65, true)
+
+func AID_28():
+	for i in enemy.flyingMissiles:
+		i.multiplier = 0.5
 
 func AID_7():
 	$Audio_AB3.stream = ab3_s
@@ -1048,6 +1062,8 @@ func do_latency(time):
 				if in_basic_range.do_AID_20:
 					AID_20_fist()
 					in_basic_range.do_AID_20 = false
+			if dotimes[i] == "AID_28":
+				AID_28()
 			
 			dotimes.erase(i)
 

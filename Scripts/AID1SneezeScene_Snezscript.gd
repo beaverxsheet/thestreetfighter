@@ -2,6 +2,8 @@ extends Area2D
 
 const INTEGRAL_SPEED = 400
 
+var multiplier = 1
+
 var flyright = true
 var hit_ID = null
 var own
@@ -21,12 +23,13 @@ func _process(delta):
 		#print("left")
 	
 	var speed_y = 0
-	var motion = Vector2(speed_x, speed_y)*INTEGRAL_SPEED
+	var motion = Vector2(speed_x, speed_y)*INTEGRAL_SPEED*multiplier
 	self.position = self.position + motion*delta
 	
 	
 	#Check if item has left screen, delete
 	if !$VisibilityNotifier2D.is_on_screen():
+		own.flyingMissiles.erase(self)
 		queue_free()
 
 func _on_Sneeze_body_entered(body):
@@ -38,7 +41,7 @@ func _on_Sneeze_body_entered(body):
 		pass
 	#If hits enemy/hittable object, reduce its HP
 	else:
-		body.change_HP(-25)
+		body.change_HP(-25, false)
 		if body.do_AID_20:
 			own.AID_20_fist()
 		if flyright:
@@ -51,4 +54,5 @@ func _on_Sneeze_body_entered(body):
 				body.position.x -= 80
 			else:
 				body.position.x = -5
+		own.flyingMissiles.erase(self)
 		queue_free()

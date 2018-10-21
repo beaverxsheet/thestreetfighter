@@ -25,4 +25,4 @@ func _on_Area2D_body_entered(body):
 	#If hits enemy/hittable object, reduce its HP
 	else:
 		queue_free()
-		body.change_HP(-4)
+		body.change_HP(-4, false)

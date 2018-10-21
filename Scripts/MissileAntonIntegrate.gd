@@ -1,6 +1,7 @@
 extends Area2D
 
 const INTEGRAL_SPEED = 300
+var multiplier = 1
 
 var flyright = true
 var hit_ID = null
@@ -16,7 +17,7 @@ func _process(delta):
 	if !flyright:
 		speed_x = -1
 	var speed_y = 0
-	var motion = Vector2(speed_x, speed_y)*INTEGRAL_SPEED
+	var motion = Vector2(speed_x, speed_y)*INTEGRAL_SPEED*multiplier
 	self.position = self.position + motion*delta
 	$AnimatedSprite.play("flying")
 	
@@ -34,6 +35,7 @@ func _process(delta):
 				returnflight = true
 		#Second time leaving viewport, delete
 		else:
+			own.flyingMissiles.erase(self)
 			queue_free()
 
 func _on_Integrate_body_entered(body):
@@ -45,11 +47,13 @@ func _on_Integrate_body_entered(body):
 		pass
 	#If hits parent object on the return flight, delete itself
 	elif body.hit_ID == hit_ID and returnflight:
+		own.flyingMissiles.erase(self)
 		queue_free()
 	#If hits enemy/hittable object, reduce its HP
 	else:
-		body.change_HP(-40)
+		body.change_HP(-40, false)
 		if body.do_AID_20:
 			own.AID_20_fist()
+		own.flyingMissiles.erase(self)
 		queue_free()
 
