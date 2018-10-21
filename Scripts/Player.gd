@@ -694,7 +694,8 @@ func _physics_process(delta):
 			insults = load_insults("Ben.txt")
 			first_run = false
 		else:
-			print("error" + enemy.p_name)
+			#print("error" + enemy.p_name)
+			pass
 	
 	if do_AID_20:
 		#AID_20()
@@ -706,7 +707,7 @@ func _physics_process(delta):
 
 		
 	if AID_7_range and do_AID_7 and AID_7_canHit:
-		AID_7_inRange.change_HP(-5)
+		AID_7_inRange.change_HP(-5, false)
 		$PlayerSpecificCooldowns/AID_7onesec.start()
 		AID_7_canHit = false
 #Create Winebottle to throw
@@ -822,7 +823,7 @@ func AID_10():
 	$Audio_AB1.stream = ab1_s
 	$Audio_AB1.play()
 	enemy.done_AID_10()
-	enemy.change_HP(-4)
+	enemy.change_HP(-4, false)
 
 func done_AID_10():
 	$PlayerSpecificCooldowns/AID_10_StunDuration.start()
@@ -856,7 +857,7 @@ func AID_19():
 	$Audio_AB2.stream = ab2_s
 	$Audio_AB2.play()
 	if basic_range:
-		in_basic_range.change_HP(-20)
+		in_basic_range.change_HP(-20, true)
 	pass
 
 func load_insults(filename):
@@ -895,7 +896,7 @@ func AID_20_fist():
 	fist.set_position(Vector2($Position2D.global_position.x, $Position2D.global_position.y -800))
 	fist.own = self
 	
-	change_HP(-65)
+	change_HP(-65, true)
 
 func AID_7():
 	$Audio_AB3.stream = ab3_s
@@ -911,7 +912,7 @@ func AID_5():
 		$Audio_AB1.stream = ab1_s
 		$Audio_AB1.play()
 	if AID_5_range:
-		AID_5_inRange.change_HP(-4)
+		AID_5_inRange.change_HP(-4, false)
 		if not AID_5_inRange.Asprite == $ConnorSprite:
 			AID_5_inRange.change_INT(20)
 
@@ -993,16 +994,17 @@ func do_latency(time):
 				if basic_range:
 					if in_basic_range.do_AID_20:
 						AID_20_fist()
+						in_basic_range.do_AID_20 = false
 					if Asprite == $ConnorSprite:
-						in_basic_range.change_HP(-4)
+						in_basic_range.change_HP(-4, true)
 					elif Asprite == $AntonSprite:
-						in_basic_range.change_HP(-4)
+						in_basic_range.change_HP(-4, true)
 					elif Asprite == $BenSprite:
-						in_basic_range.change_HP(-5)
+						in_basic_range.change_HP(-5, true)
 					elif Asprite == $NiklasSprite:
-						in_basic_range.change_HP(-3)
+						in_basic_range.change_HP(-3, true)
 					elif Asprite == $AlinaSprite:
-						in_basic_range.change_HP(-4)
+						in_basic_range.change_HP(-4, true)
 			if dotimes[i] == "jump":
 				#Is enemy standing on me?
 				if enemy.is_on_floor() and enemy.position.y <= 200:
@@ -1034,9 +1036,10 @@ func do_latency(time):
 			if dotimes[i] == "AID_11":
 				AID_11()
 			if dotimes[i] == "attackA11":
-				in_basic_range.change_HP(-1)
+				in_basic_range.change_HP(-1, true)
 				if in_basic_range.do_AID_20:
 					AID_20_fist()
+					in_basic_range.do_AID_20 = false
 				in_basic_range.reset_cooldowns()
 			if dotimes[i] == "AID_19":
 				AID_19()
@@ -1044,6 +1047,7 @@ func do_latency(time):
 				playing_anim = true
 				if in_basic_range.do_AID_20:
 					AID_20_fist()
+					in_basic_range.do_AID_20 = false
 			
 			dotimes.erase(i)
 
@@ -1054,13 +1058,15 @@ func _on_Insult_timer_timeout():
 func _on_Button_pressed_STUN():
 	$PlayerSpecificCooldowns/AID_10_StunDuration.start()
 	
-func change_HP(variance):
+func change_HP(variance, melee):
 	$Audio_Damage.stream = dmg1_s
 	$Audio_Damage.play()
 	#if variance >= 0 and not do_AID_7 and Asprite == $NiklasSprite:
 	if Asprite == $NiklasSprite and do_AID_7:
 		if variance >= 0:
 			current_HP = current_HP + variance
+	elif Asprite == $AlinaSprite and melee:
+		current_HP = current_HP + (variance/2)
 	else:
 		current_HP = current_HP + variance
 
