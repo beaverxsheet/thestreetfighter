@@ -75,7 +75,6 @@ _sections_unfolded = [ "Hint", "Rect" ]
 
 [node name="Row" type="HBoxContainer" parent="HUD" index="0"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -276,7 +275,6 @@ texture = ExtResource( 9 )
 
 [node name="Player1_ABL" type="HBoxContainer" parent="HUD/Row/Player1_Cols" index="3"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -328,7 +326,6 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="Ability2" type="Sprite" parent="HUD/Row/Player1_Cols/Player1_ABL" index="1"]
 
-editor/display_folded = true
 position = Vector2( 65, 22 )
 texture = ExtResource( 10 )
 _sections_unfolded = [ "Visibility" ]
@@ -361,10 +358,9 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="Ability3" type="Sprite" parent="HUD/Row/Player1_Cols/Player1_ABL" index="2"]
 
-editor/display_folded = true
 position = Vector2( 113, 22 )
 texture = ExtResource( 10 )
-_sections_unfolded = [ "Material" ]
+_sections_unfolded = [ "Material", "Transform" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability3" index="0"]
 
@@ -394,10 +390,9 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 [node name="Ability4" type="Sprite" parent="HUD/Row/Player1_Cols/Player1_ABL" index="3"]
 
-editor/display_folded = true
 position = Vector2( 161, 22 )
 texture = ExtResource( 10 )
-_sections_unfolded = [ "Material" ]
+_sections_unfolded = [ "Material", "Transform" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability4" index="0"]
 
@@ -478,6 +473,7 @@ _sections_unfolded = [ "Rect", "custom_styles" ]
 
 [node name="Player2_Cols" type="VBoxContainer" parent="HUD/Row" index="2"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

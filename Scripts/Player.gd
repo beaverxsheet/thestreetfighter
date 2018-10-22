@@ -24,6 +24,7 @@ const AID_10_HALO_SCENE = preload("res://Scenes/AID10_Halo.tscn")
 const AID_18_ZERO_SCENE = preload("res://Scenes/AID18_Zero.tscn")
 const AID_18_ONE_SCENE = preload("res://Scenes/AID18_One.tscn")
 const AID_20_SCENE = preload("res://Scenes/AID20_Fist.tscn")
+const SINGLERIM_SCENE = preload("res://Scenes/SingleRim.tscn")
 
 #Motion var. Altered to represent direction and speed of travel.
 var motion = Vector2()
@@ -139,6 +140,8 @@ var AID_5_inRange = false
 
 var do_AID11 = false
 var playing_anim = false
+
+var AID_29_stacks = 0
 
 export var playSound = true
 signal toggleGhost
@@ -410,6 +413,14 @@ func chooseSprite():
 		#heal_s = load("res://Sounds/PlayerSounds/SID_31.wav")
 		#vic_s = load("res://Sounds/PlayerSounds/SID_32.wav")
 		
+		#Spawn the singlerim for her AID_29
+		var singlerim = SINGLERIM_SCENE.instance()
+		if PID == 0:
+			singlerim.position = Vector2(0,0)
+		else:
+			singlerim.position = Vector2(113, 108)
+		get_parent().add_child(singlerim)
+		
 		p_name = "Alina"
 		return $AlinaSprite
 
@@ -628,6 +639,12 @@ func _physics_process(delta):
 	&& !isStunned):
 		dotimes[time + latency] = "AID_28"
 		$PlayerSpecificCooldowns/AID_28.start()
+		
+	#AID29, Alina Secondary, Radio
+	if(Input.is_action_just_pressed(AB_2_key) && Asprite == $AlinaSprite
+	&& $PlayerSpecificCooldowns/AID_29.time_left == 0
+	&& !isStunned):
+		pass
 	
 	#BASIC ATTACK all. Only if an object is in basic attack range and if the cooldown is 0		
 	if(Input.is_action_just_pressed(At_key) && ($BasicAttackCooldown.time_left == 0) && basic_range && !isStunned):
