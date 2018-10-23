@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/World.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Tiles/TestBack.png" type="Texture" id=2]
@@ -9,10 +9,11 @@
 [ext_resource path="res://Other/font_cousine.tres" type="DynamicFont" id=7]
 [ext_resource path="res://Sprites/GUI/INTBar_Fill.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/GUI/AbilityRim.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/GUI/Icons/Icon02.png" type="Texture" id=10]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=12]
-[ext_resource path="res://Sounds/Music/BeepBox-Song.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sprites/GUI/SingleRim.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/GUI/Icons/Icon02.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=13]
+[ext_resource path="res://Sounds/Music/BeepBox-Song.wav" type="AudioStream" id=14]
 
 [node name="World" type="Node"]
 
@@ -109,6 +110,7 @@ alignment = 0
 
 [node name="Player1_HP" type="HBoxContainer" parent="HUD/Row/Player1_Cols" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -201,6 +203,7 @@ _sections_unfolded = [ "custom_fonts" ]
 
 [node name="Player1_INT" type="HBoxContainer" parent="HUD/Row/Player1_Cols" index="1"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -273,6 +276,70 @@ _sections_unfolded = [ "custom_fonts" ]
 position = Vector2( 113.092, 94.1955 )
 texture = ExtResource( 9 )
 
+[node name="SingleRim_L_3" type="Sprite" parent="HUD/Row/Player1_Cols/Rim" index="0"]
+
+visible = false
+position = Vector2( 0, 38 )
+texture = ExtResource( 10 )
+
+[node name="ThisL2" type="Label" parent="HUD/Row/Player1_Cols/Rim/SingleRim_L_3" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -14.0
+margin_top = -14.0
+margin_right = 15.0
+margin_bottom = 15.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_colors" ]
+
+[node name="SingleRim_R_3" type="Sprite" parent="HUD/Row/Player1_Cols/Rim" index="1"]
+
+visible = false
+position = Vector2( 275.284, 37.9193 )
+texture = ExtResource( 10 )
+
+[node name="ThisL" type="Label" parent="HUD/Row/Player1_Cols/Rim/SingleRim_R_3" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -15.0
+margin_top = -15.0
+margin_right = 14.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_colors" ]
+
 [node name="Player1_ABL" type="HBoxContainer" parent="HUD/Row/Player1_Cols" index="3"]
 
 anchor_left = 0.0
@@ -295,7 +362,7 @@ _sections_unfolded = [ "Material" ]
 
 editor/display_folded = true
 position = Vector2( 16, 22 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability1" index="0"]
@@ -327,7 +394,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 [node name="Ability2" type="Sprite" parent="HUD/Row/Player1_Cols/Player1_ABL" index="1"]
 
 position = Vector2( 65, 22 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability2" index="0"]
@@ -359,7 +426,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 [node name="Ability3" type="Sprite" parent="HUD/Row/Player1_Cols/Player1_ABL" index="2"]
 
 position = Vector2( 113, 22 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability3" index="0"]
@@ -391,7 +458,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 [node name="Ability4" type="Sprite" parent="HUD/Row/Player1_Cols/Player1_ABL" index="3"]
 
 position = Vector2( 161, 22 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability4" index="0"]
@@ -424,7 +491,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 editor/display_folded = true
 position = Vector2( 209, 22 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player1_Cols/Player1_ABL/Ability5" index="0"]
@@ -473,7 +540,6 @@ _sections_unfolded = [ "Rect", "custom_styles" ]
 
 [node name="Player2_Cols" type="VBoxContainer" parent="HUD/Row" index="2"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -679,7 +745,7 @@ alignment = 0
 
 editor/display_folded = true
 position = Vector2( 17, 22 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player2_Cols/Player2_ABL/Ability1" index="0"]
@@ -712,7 +778,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 editor/display_folded = true
 position = Vector2( 65, 22 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player2_Cols/Player2_ABL/Ability2" index="0"]
@@ -744,7 +810,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 [node name="Ability3" type="Sprite" parent="HUD/Row/Player2_Cols/Player2_ABL" index="2"]
 
 position = Vector2( 113, 22 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player2_Cols/Player2_ABL/Ability3" index="0"]
@@ -777,7 +843,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 
 editor/display_folded = true
 position = Vector2( 161, 22 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player2_Cols/Player2_ABL/Ability4" index="0"]
@@ -809,7 +875,7 @@ _sections_unfolded = [ "Margin", "custom_colors" ]
 [node name="Ability5" type="Sprite" parent="HUD/Row/Player2_Cols/Player2_ABL" index="4"]
 
 position = Vector2( 209, 22 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Material" ]
 
 [node name="Label" type="Label" parent="HUD/Row/Player2_Cols/Player2_ABL/Ability5" index="0"]
@@ -838,13 +904,13 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_colors" ]
 
-[node name="Player" parent="." index="3" instance=ExtResource( 11 )]
+[node name="Player" parent="." index="3" instance=ExtResource( 12 )]
 
 position = Vector2( 83.4113, 205.589 )
 collision_layer = 2
 collision_mask = 15
 
-[node name="Player2" parent="." index="4" instance=ExtResource( 11 )]
+[node name="Player2" parent="." index="4" instance=ExtResource( 12 )]
 
 position = Vector2( 337.754, 201.914 )
 collision_layer = 8
@@ -869,7 +935,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
-script = ExtResource( 12 )
+script = ExtResource( 13 )
 _sections_unfolded = [ "Pause", "Rect" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu" index="0"]
@@ -996,7 +1062,7 @@ align = 1
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." index="7"]
 
-stream = ExtResource( 13 )
+stream = ExtResource( 14 )
 volume_db = 0.7
 pitch_scale = 1.0
 autoplay = false

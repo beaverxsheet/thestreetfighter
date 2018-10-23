@@ -43,6 +43,8 @@ var firstJump = true
 var doubleSpeedNiklas = false
 var isStunned = false
 var flyingMissiles = []
+var AID_29_RadioCounter = null
+var AID_29_RadioInt = 0
 
 var CooldownA1 = float(0)
 var CooldownA2 = float(0)
@@ -78,6 +80,11 @@ onready var myAbility2 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability2"
 onready var myAbility3 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability3")
 onready var myAbility4 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability4")
 onready var myAbility5 = get_node("../HUD/Row/Player1_Cols/Player1_ABL/Ability5")
+
+onready var AlinaSinglerimL = get_node("../HUD/Row/Player1_Cols/Rim/SingleRim_L_3")
+onready var AlinaSinglerimTextL = get_node("../HUD/Row/Player1_Cols/Rim/SingleRim_L_3/ThisL2")
+onready var AlinaSinglerimR = get_node("../HUD/Row/Player1_Cols/Rim/SingleRim_R_3")
+onready var AlinaSinglerimTextR = get_node("../HUD/Row/Player1_Cols/Rim/SingleRim_R_3/ThisL")
 
 var ab0 = preload("res://Sprites/GUI/Icons/Icon00.png")
 var ab1 = preload("res://Sprites/GUI/Icons/Icon01.png")
@@ -414,12 +421,14 @@ func chooseSprite():
 		#vic_s = load("res://Sounds/PlayerSounds/SID_32.wav")
 		
 		#Spawn the singlerim for her AID_29
-		var singlerim = SINGLERIM_SCENE.instance()
 		if PID == 0:
-			singlerim.position = Vector2(0,0)
+			AlinaSinglerimL.show()
+			AID_29_RadioCounter = AlinaSinglerimTextL
+			AlinaSinglerimTextL.text = str(AID_29_RadioInt)
 		else:
-			singlerim.position = Vector2(113, 108)
-		get_parent().add_child(singlerim)
+			AlinaSinglerimR.show()
+			AlinaSinglerimTextR.text = str(AID_29_RadioInt)
+		$PlayerSpecificCooldowns/AID_29_stackeight.start()
 		
 		p_name = "Alina"
 		return $AlinaSprite
@@ -1158,3 +1167,7 @@ func _on_AID_11twosec_timeout():
 
 func _on_AID_20_tensecs_timeout():
 	do_AID_20 = false
+
+
+func _on_AID_29_stackeight_timeout():
+	AlinaSinglerimTextL.queue_free()

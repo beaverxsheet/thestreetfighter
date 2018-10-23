@@ -749,9 +749,9 @@ autostart = false
 [node name="AID_29_stackeight" type="Timer" parent="PlayerSpecificCooldowns" index="43"]
 
 process_mode = 1
-wait_time = 8.0
-one_shot = true
-autostart = false
+wait_time = 3.0
+one_shot = false
+autostart = true
 
 [node name="AID_30" type="Timer" parent="PlayerSpecificCooldowns" index="44"]
 
@@ -900,6 +900,8 @@ _sections_unfolded = [ "Offset" ]
 [connection signal="timeout" from="PlayerSpecificCooldowns/AID_11twosec" to="." method="_on_AID_11twosec_timeout"]
 
 [connection signal="timeout" from="PlayerSpecificCooldowns/AID_20_tensecs" to="." method="_on_AID_20_tensecs_timeout"]
+
+[connection signal="timeout" from="PlayerSpecificCooldowns/AID_29_stackeight" to="." method="_on_AID_29_stackeight_timeout"]
 
 [connection signal="timeout" from="Insult_timer" to="." method="_on_Insult_timer_timeout"]
 
